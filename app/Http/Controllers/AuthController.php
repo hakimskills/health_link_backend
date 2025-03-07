@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\RegistrationRequest;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,26 +16,32 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $fields = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|string|min:6|confirmed'
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:registration_requests,email|max:255|unique:users,email',
+            'phone_number' => 'required|string|max:20|unique:registration_requests,phone_number|unique:users,phone_number',
+            'wilaya' => 'required|string|max:255',
+            'role' => 'required|in:Healthcare Professional,Supplier',
+            'password' => 'required|string|min:6|confirmed',
         ]);
-
-        // Create user and hash password
-        $user = User::create([
-            'name' => $fields['name'],
+    
+        RegistrationRequest::create([
+            'first_name' => $fields['first_name'],
+            'last_name' => $fields['last_name'],
             'email' => $fields['email'],
-            'password' => Hash::make($fields['password'])
+            'phone_number' => $fields['phone_number'],
+            'wilaya' => $fields['wilaya'],
+            'role' => $fields['role'],
+            'password' => Hash::make($fields['password']),
+            'status' => 'pending',
         ]);
-
-        // Generate Sanctum token
-        $token = $user->createToken('auth_token')->plainTextToken;
-
+    
         return response()->json([
-            'user' => $user,
-            'token' => $token
+            'message' => 'Your registration request has been submitted. An admin will review it.'
         ], 201);
     }
+    
+
 
     /**
      * Login user and return token

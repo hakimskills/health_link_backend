@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name'); // Separate first name
+            $table->string('last_name');  // Separate last name
             $table->string('email')->unique();
+            $table->string('phone_number')->unique(); // Make phone number unique
+            $table->string('wilaya');
+            $table->enum('role', ['Healthcare Professional', 'Supplier', 'Admin']); // No default role
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+        
+        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
