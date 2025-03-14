@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegistrationStatusMail;
 
 class AdminController extends Controller
 {
@@ -44,11 +46,14 @@ class AdminController extends Controller
             'password' => $request->password, // Already hashed during registration
         ]);
 
+        // Send approval email
+        Mail::to($request->email)->send(new RegistrationStatusMail('approved', $request->first_name, $request->last_name));
+
         // Delete the request since it's now a user
         $request->delete();
 
         return response()->json([
-            'message' => 'User approved successfully',
+            'message' => 'User approved successfully and email sent',
             'user' => $user
         ]);
     }
@@ -63,9 +68,14 @@ class AdminController extends Controller
         }
 
         $request = RegistrationRequest::findOrFail($id);
+
+        // Send rejection email
+        Mail::to($request->email)->send(new RegistrationStatusMail('rejected', $request->first_name, $request->last_name));
+
+        // Delete the request
         $request->delete();
 
-        return response()->json(['message' => 'Registration request rejected']);
+        return response()->json(['message' => 'Registration request rejected and email sent']);
     }
 
     /**
