@@ -1,14 +1,12 @@
 <?php
 
-namespace Database\Seeders;
-
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class AdminUserSeeder extends Seeder
 {
-    public function run(): void
+    public function run()
     {
         User::create([
             'first_name' => 'Hakim',
@@ -17,7 +15,8 @@ class DatabaseSeeder extends Seeder
             'phone_number' => '0123456789',
             'wilaya' => 'Algiers',
             'role' => 'Admin',
-            'password' => Hash::make('hakimad123'),
+            'password' => Hash::make('hakimad123'), // ✅ Hashed automatically
         ]);
     }
 }
+
