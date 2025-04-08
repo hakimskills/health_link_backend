@@ -11,13 +11,36 @@ class Store extends Model
 
     protected $fillable = [
         'owner_id',
-        'store_name',
-        'address',
+        'name',
+        'description', 
         'phone',
+        'email',
+        'address',
+        'specialties',
+        'logo_path',
+        'is_verified'
     ];
 
+    protected $casts = [
+        'is_verified' => 'boolean',
+        'specialties' => 'array'
+    ];
+
+    // Relationship to owner (user)
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    // Relationship to products
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    // Accessor for logo URL
+    public function getLogoUrlAttribute()
+    {
+        return $this->logo_path ? asset('storage/'.$this->logo_path) : null;
     }
 }

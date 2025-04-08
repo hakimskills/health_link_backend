@@ -29,34 +29,30 @@ class AdminController extends Controller
      */
     public function approveRequest($id)
     {
-        if (Auth::user()->role !== 'Admin') {
-            return response()->json(['message' => 'Access denied. Admins only.'], 403);
+        // Ensure the user is authenticated and has the 'admin' role
+        if (Auth::user()->role !== 'admin') {
+            return response()->json(['message' => 'Unauthorized'], 403);
         }
 
-        $request = RegistrationRequest::findOrFail($id);
+        // Find the registration request by ID
+        $registrationRequest = RegistrationRequest::find($id);
 
-        // Create a new user
-        $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'wilaya' => $request->wilaya,
-            'role' => $request->role,
-            'password' => $request->password, // Already hashed during registration
-        ]);
+        // If the request doesn't exist, return an error
+        if (!$registrationRequest) {
+            return response()->json(['message' => 'Request not found'], 404);
+        }
 
-        // Send approval email
-        Mail::to($request->email)->send(new RegistrationStatusMail('approved', $request->first_name, $request->last_name));
+        // Update the request status to approved
+        $registrationRequest->status = 'approved';
+        $registrationRequest->save();
 
-        // Delete the request since it's now a user
-        $request->delete();
-
+        // Respond with the updated request data
         return response()->json([
-            'message' => 'User approved successfully and email sent',
-            'user' => $user
-        ]);
+            'message' => 'Request approved successfully',
+            'data' => $registrationRequest
+        ], 200);
     }
+    
 
     /**
      * Reject a registration request.
@@ -67,15 +63,19 @@ class AdminController extends Controller
             return response()->json(['message' => 'Access denied. Admins only.'], 403);
         }
 
-        $request = RegistrationRequest::findOrFail($id);
+        try {
+            $request = RegistrationRequest::findOrFail($id);
 
-        // Send rejection email
-        Mail::to($request->email)->send(new RegistrationStatusMail('rejected', $request->first_name, $request->last_name));
+            // Send rejection email
+            Mail::to($request->email)->send(new RegistrationStatusMail('rejected', $request->first_name, $request->last_name));
 
-        // Delete the request
-        $request->delete();
+            // Delete the request
+            $request->delete();
 
-        return response()->json(['message' => 'Registration request rejected and email sent']);
+            return response()->json(['message' => 'Registration request rejected and email sent']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error occurred while processing the request: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -100,9 +100,14 @@ class AdminController extends Controller
             return response()->json(['message' => 'Access denied. Admins only.'], 403);
         }
 
-        $user = User::findOrFail($id);
-        $user->delete();
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
 
-        return response()->json(['message' => 'User deleted successfully']);
+            return response()->json(['message' => 'User deleted successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error occurred while processing the request: ' . $e->getMessage()], 500);
+        }
     }
 }
+

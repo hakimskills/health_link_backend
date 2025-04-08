@@ -19,14 +19,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
+
+
 // User-related routes (only accessible to authenticated users)
-Route::middleware('auth:sanctum')->group(function () {
-    Route::put('/user/update-name', [UserController::class, 'updateName']);
-    Route::put('/user/update-email', [UserController::class, 'updateEmail']);
-    Route::put('/user/update-phone', [UserController::class, 'updatePhoneNumber']);
-    Route::put('/user/update-wilaya', [UserController::class, 'updateWilaya']);
-    Route::put('/user/update-password', [UserController::class, 'updatePassword']);
-    Route::delete('/user/delete', [UserController::class, 'deleteUser']);
+Route::middleware('auth:sanctum')->prefix('user')->group(function() {
+    Route::get('/', [UserController::class, 'getAuthenticatedUser']); // GET /api/user
+    Route::put('/', [UserController::class, 'updateProfile']);       // PUT /api/user
+    Route::delete('/', [UserController::class, 'deleteUser']);      // DELETE /api/user
 });
 
 // Posts (public access)
@@ -37,25 +36,26 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/registration-requests', [AdminController::class, 'getPendingRequests']);
     Route::post('/admin/approve-request/{id}', [AdminController::class, 'approveRequest']);
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
+    Route::get('/admin/users', [AdminController::class, 'getUsers']);
+    Route::delete('/admin/user/{id}', [AdminController::class, 'deleteUser']);
 });
 
 // Store Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
-    // Create a store
-    Route::post('/store', [StoreController::class, 'store']);
+    // Store CRUD routes
+    Route::apiResource('stores', StoreController::class)->except(['index']);
     
-    // Get stores by user (owner)
+    // Public store listing (with is_mine flag)
     Route::get('/stores', [StoreController::class, 'index']);
     
-    // Show a single store
-    Route::get('/store/{store}', [StoreController::class, 'show']);
-    
-    // Update a store
-    Route::put('/store/{store}', [StoreController::class, 'update']);
-    
-    // Delete a store
-    Route::delete('/store/{store}', [StoreController::class, 'destroy']);
+    // Admin verification endpoint
+    Route::post('/stores/{store}/verify', [StoreController::class, 'verify'])
+        ->middleware('admin'); // Ensure you have an 'admin' middleware
 });
+
+// Public routes (if any)
+Route::get('/public/stores', [StoreController::class, 'index']); // Public listing
+Route::get('/public/stores/{store}', [StoreController::class, 'show']); // Public view
 
 // Product Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
