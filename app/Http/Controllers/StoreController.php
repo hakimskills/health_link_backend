@@ -25,6 +25,17 @@ class StoreController extends Controller
         $store = Store::create($validated);
         return response()->json($store, 201);
     }
+    public function getStoresByUser($userId)
+{
+    $stores = Store::where('owner_id', $userId)->get();
+
+    if ($stores->isEmpty()) {
+        return response()->json(['message' => 'No stores found for this user.'], 404);
+    }
+
+    return response()->json($stores);
+}
+
 
     public function show($id)
     {

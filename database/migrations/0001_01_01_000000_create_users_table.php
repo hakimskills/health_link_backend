@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('role', ['Healthcare Professional', 'Supplier', 'Admin']); // No default role
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('banned')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

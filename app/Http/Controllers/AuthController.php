@@ -62,6 +62,11 @@ class AuthController extends Controller
                 'message' => 'Invalid credentials'
             ], 401);
         }
+        if ($user->banned) {
+            return response()->json([
+                'message' => 'Your account has been banned. Please contact support.'
+            ], 403);
+        }
 
         // Generate token
         $token = $user->createToken('auth_token')->plainTextToken;

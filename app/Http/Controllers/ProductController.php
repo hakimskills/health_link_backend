@@ -15,26 +15,27 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'store_id' => 'required|exists:stores,id',
-            'product_name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|string',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-            'category' => 'required|string|max:100',
-        ]);
+{
+    $validated = $request->validate([
+        'store_id' => 'required|exists:stores,id',
+        'product_name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'category' => 'required|string|max:100',
+    ]);
 
-        $product = Product::create($validated);
-        return response()->json($product, 201);
+    // ✅ Handle image upload if exists
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('product_images', 'public');
+        $validated['image'] = asset('storage/' . $imagePath);
     }
 
-    public function show($id)
-    {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
-    }
+    $product = Product::create($validated);
+
+    return response()->json($product, 201);
+}
 
     public function update(Request $request, $id)
     {

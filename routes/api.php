@@ -37,6 +37,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/registration-requests', [AdminController::class, 'getPendingRequests']);
     Route::post('/admin/approve-request/{id}', [AdminController::class, 'approveRequest']);
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
+    Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
+    Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
+
 });
 
 // Store Routes (only accessible to authenticated users)
@@ -55,6 +58,8 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Delete a store
     Route::delete('/store/{store}', [StoreController::class, 'destroy']);
+    Route::get('/stores/user/{userId}', [StoreController::class, 'getStoresByUser']);
+   
 });
 
 // Product Routes (only accessible to authenticated users)

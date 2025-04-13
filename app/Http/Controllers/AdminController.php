@@ -105,4 +105,42 @@ class AdminController extends Controller
 
         return response()->json(['message' => 'User deleted successfully']);
     }
+    public function banUser($id)
+{
+    if (Auth::user()->role !== 'Admin') {
+        return response()->json(['message' => 'Access denied. Admins only.'], 403);
+    }
+
+    $user = User::findOrFail($id);
+
+    if ($user->banned) {
+        return response()->json(['message' => 'User is already banned.']);
+    }
+
+    $user->banned = true;
+    $user->save();
+
+    // Optional: Notify the user via email
+    // Mail::to($user->email)->send(new UserBannedMail($user));
+
+    return response()->json(['message' => 'User has been banned successfully.']);
+}
+public function unbanUser($id)
+{
+    if (Auth::user()->role !== 'Admin') {
+        return response()->json(['message' => 'Access denied. Admins only.'], 403);
+    }
+
+    $user = User::findOrFail($id);
+
+    if (!$user->banned) {
+        return response()->json(['message' => 'User is not banned.']);
+    }
+
+    $user->banned = false;
+    $user->save();
+
+    return response()->json(['message' => 'User has been unbanned successfully.']);
+}
+
 }

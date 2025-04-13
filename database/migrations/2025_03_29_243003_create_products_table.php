@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,13 +15,14 @@ return new class extends Migration {
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0);
             $table->string('category');
-            $table->timestamp('added_date')->useCurrent();
-        
+            $table->timestamp('added_date')->useCurrent(); // Keep this for your custom timestamp
+            
+            // Adding created_at and updated_at columns
+            $table->timestamps(); // Adds created_at and updated_at automatically
+            
             // ✅ Correct foreign key definition
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
-        
-        
     }
 
     public function down(): void
