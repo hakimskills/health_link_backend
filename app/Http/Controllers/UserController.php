@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage; 
 
 class UserController extends Controller
 {
@@ -131,4 +132,32 @@ class UserController extends Controller
 
     return response()->json(['message' => 'User deleted successfully']);
 }
+
+
+public function uploadProfileImage(Request $request)
+{
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $user = $request->user();
+
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('profile_images', 'public');
+
+        $user->profile_image = asset('storage/' . $imagePath);
+        $user->save();
+
+        return response()->json([
+            'message' => 'Image uploaded successfully.',
+            'profile_image' => $user->profile_image,
+        ], 201);
+    }
+
+    return response()->json(['message' => 'No image uploaded.'], 400);
+}
+
+
+
+
 }

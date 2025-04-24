@@ -26,6 +26,7 @@ class User extends Authenticatable
         'wilaya',
         'role',
         'password',
+        'profile_image',
     ];
 
     /**

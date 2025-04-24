@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InventoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,23 +30,24 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/user/delete', [UserController::class, 'deleteUser']);
 });
 
-// Posts (public access)
-Route::apiResource('posts', PostController::class);
+
+
 
 // Admin-only routes (role check is handled inside the controller)
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::get('/admin/registration-requests', [AdminController::class, 'getPendingRequests']);
     Route::post('/admin/approve-request/{id}', [AdminController::class, 'approveRequest']);
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
     Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
     Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
-
 });
+
 
 // Store Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
     // Create a store
     Route::post('/store', [StoreController::class, 'store']);
+    Route::post('/profile/upload-image', [UserController::class, 'uploadProfileImage']);
     
     // Get stores by user (owner)
     Route::get('/stores', [StoreController::class, 'index']);
@@ -60,6 +62,25 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/store/{store}', [StoreController::class, 'destroy']);
     Route::get('/stores/user/{userId}', [StoreController::class, 'getStoresByUser']);
    
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Create a new inventory
+Route::post('/inventory', [InventoryController::class, 'store']);
+
+// Get all inventories
+Route::get('/inventory', [InventoryController::class, 'index']);
+
+// Get a single inventory by ID
+Route::get('/inventory/{id}', [InventoryController::class, 'show']);
+
+// Update inventory
+Route::put('/inventory/{id}', [InventoryController::class, 'update']);
+Route::patch('/inventory/{id}', [InventoryController::class, 'update']); // optional
+
+// Delete inventory
+Route::delete('/inventory/{id}', [InventoryController::class, 'destroy']);
+
 });
 
 // Product Routes (only accessible to authenticated users)
