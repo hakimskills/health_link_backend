@@ -29,28 +29,33 @@ class AdminController extends Controller
      */
     public function approveRequest($id)
     {
-        // Ensure the user is authenticated and has the 'admin' role
-        if (Auth::user()->role !== 'admin') {
-            return response()->json(['message' => 'Unauthorized'], 403);
+        if (Auth::user()->role !== 'Admin') {
+            return response()->json(['message' => 'Access denied. Admins only.'], 403);
         }
 
-        // Find the registration request by ID
-        $registrationRequest = RegistrationRequest::find($id);
+        $request = RegistrationRequest::findOrFail($id);
 
-        // If the request doesn't exist, return an error
-        if (!$registrationRequest) {
-            return response()->json(['message' => 'Request not found'], 404);
-        }
+        // Create a new user
+        $user = User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'wilaya' => $request->wilaya,
+            'role' => $request->role,
+            'password' => $request->password, // Already hashed during registration
+        ]);
 
-        // Update the request status to approved
-        $registrationRequest->status = 'approved';
-        $registrationRequest->save();
+        // Send approval email
+        Mail::to($request->email)->send(new RegistrationStatusMail('approved', $request->first_name, $request->last_name));
 
-        // Respond with the updated request data
+        // Delete the request since it's now a user
+        $request->delete();
+
         return response()->json([
-            'message' => 'Request approved successfully',
-            'data' => $registrationRequest
-        ], 200);
+            'message' => 'User approved successfully and email sent',
+            'user' => $user
+        ]);
     }
     
 
@@ -109,5 +114,44 @@ class AdminController extends Controller
             return response()->json(['message' => 'Error occurred while processing the request: ' . $e->getMessage()], 500);
         }
     }
+    public function banUser($id)
+    {
+        if (Auth::user()->role !== 'Admin') {
+            return response()->json(['message' => 'Access denied. Admins only.'], 403);
+        }
+    
+        $user = User::findOrFail($id);
+    
+        if ($user->banned) {
+            return response()->json(['message' => 'User is already banned.']);
+        }
+    
+        $user->banned = true;
+        $user->save();
+    
+        // Optional: Notify the user via email
+        // Mail::to($user->email)->send(new UserBannedMail($user));
+    
+        return response()->json(['message' => 'User has been banned successfully.']);
+    }
+    public function unbanUser($id)
+    {
+        if (Auth::user()->role !== 'Admin') {
+            return response()->json(['message' => 'Access denied. Admins only.'], 403);
+        }
+    
+        $user = User::findOrFail($id);
+    
+        if (!$user->banned) {
+            return response()->json(['message' => 'User is not banned.']);
+        }
+    
+        $user->banned = false;
+        $user->save();
+    
+        return response()->json(['message' => 'User has been unbanned successfully.']);
+    }
+    
+    
 }
 

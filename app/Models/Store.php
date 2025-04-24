@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model; // Make sure this line is added
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
 {
@@ -42,5 +42,11 @@ class Store extends Model
     public function getLogoUrlAttribute()
     {
         return $this->logo_path ? asset('storage/'.$this->logo_path) : null;
+    }
+
+    // Accessor for is_mine
+    public function getIsMineAttribute()
+    {
+        return auth()->check() && auth()->id() === $this->owner_id;
     }
 }

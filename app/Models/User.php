@@ -26,6 +26,7 @@ class User extends Authenticatable
         'wilaya',
         'role',
         'password',
+        'banned', // Added banned to fillable
     ];
 
     /**
@@ -48,6 +49,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'banned' => 'boolean', // Added boolean cast for banned
         ];
     }
 }

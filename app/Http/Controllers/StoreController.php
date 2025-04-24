@@ -112,25 +112,14 @@ class StoreController extends Controller
         ]);
     }
 
-    // Delete store (owner only)
     public function destroy(Store $store)
     {
-        // Only owner can delete
-        if ($store->owner_id !== Auth::id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
-
-        // Delete logo if exists
-        if ($store->logo_path) {
-            Storage::disk('public')->delete($store->logo_path);
-        }
-
-        $store->delete();
-
-        return response()->json([
-            'message' => 'Store deleted successfully'
-        ]);
+        $store->products()->delete(); // Delete related products first
+        $store->delete(); // Then delete the store
+    
+        return response()->json(['message' => 'Store and its products deleted successfully.']);
     }
+    
 
     // Admin verification endpoint
     public function verify(Store $store)

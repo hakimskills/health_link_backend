@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\RegistrationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;  // Correct place for the use statement
+use Illuminate\Support\Facades\Auth; // Correct place for the use statement
 
 class AuthController extends Controller
 {
@@ -17,15 +18,14 @@ class AuthController extends Controller
         $fields = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email|max:255',
-            'phone_number' => 'required|string|max:20|unique:users,phone_number',
+            'email' => 'required|email|unique:registration_requests,email|max:255|unique:users,email',
+            'phone_number' => 'required|string|max:20|unique:registration_requests,phone_number|unique:users,phone_number',
             'wilaya' => 'required|string|max:255',
             'role' => 'required|in:Healthcare Professional,Supplier',
             'password' => 'required|string|min:6|confirmed',
         ]);
-
-        // Create user directly
-        $user = User::create([
+    
+        RegistrationRequest::create([
             'first_name' => $fields['first_name'],
             'last_name' => $fields['last_name'],
             'email' => $fields['email'],
@@ -33,17 +33,15 @@ class AuthController extends Controller
             'wilaya' => $fields['wilaya'],
             'role' => $fields['role'],
             'password' => Hash::make($fields['password']),
+            'status' => 'pending',
         ]);
-
-        // Optionally, create a token if using Laravel Sanctum
-        $token = $user->createToken('auth_token')->plainTextToken;
-
+    
         return response()->json([
-            'message' => 'User registered successfully.',
-            'user' => $user,
-            'token' => $token
+            'message' => 'Your registration request has been submitted. An admin will review it.'
         ], 201);
     }
+    
+
 
     /**
      * Login user and return token
@@ -63,6 +61,11 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Invalid credentials'
             ], 401);
+        }
+        if ($user->banned) {
+            return response()->json([
+                'message' => 'Your account has been banned. Please contact support.'
+            ], 403);
         }
 
         // Generate token
