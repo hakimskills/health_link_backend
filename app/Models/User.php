@@ -27,6 +27,7 @@ class User extends Authenticatable
         'role',
         'password',
         'banned', // Added banned to fillable
+        'profile_image',
     ];
 
     /**

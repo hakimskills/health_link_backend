@@ -22,31 +22,25 @@ class ProductController extends Controller
             'store_id' => 'required|exists:stores,id',
             'product_name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'store_price' => 'required|numeric', // now we validate store_price
+            'stock' => 'required|integer',
             'category' => 'required|string|max:100',
         ]);
-    
-        // Handle file upload
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('product-images', 'public');
-            $validated['image_path'] = $path;
-        }
-    
-        $product = Product::create($validated);
-        
-        return response()->json([
-            'message' => 'Product created successfully',
-            'data' => $product,
-            'image_url' => isset($path) ? asset("storage/$path") : null
-        ], 201);
-    }
 
-    public function show($id)
-    {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        // ✅ Handle image upload if exists
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('product_images', 'public');
+            $validated['image'] = asset('storage/' . $imagePath);
+        }
+
+        // Inventory-specific fields should be null when created from store
+        $validated['inventory_id'] = null;
+        $validated['inventory_price'] = null;
+
+        $product = Product::create($validated);
+
+        return response()->json($product, 201);
     }
 
     public function update(Request $request, $id)
@@ -54,33 +48,25 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $validated = $request->validate([
-            'store_id' => 'sometimes|exists:stores,id',
-            'product_name' => 'sometimes|string|max:255',
+            'store_id' => 'nullable|exists:stores,id',
+            'product_name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'price' => 'sometimes|numeric|min:0',
-            'stock' => 'sometimes|integer|min:0',
-            'category' => 'sometimes|string|max:100',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'store_price' => 'nullable|numeric',
+            'inventory_price' => 'nullable|numeric',
+            'stock' => 'required|integer',
+            'category' => 'required|string|max:100',
         ]);
 
-        // Handle file upload
+        // ✅ Handle image upload if exists
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($product->image_path) {
-                Storage::disk('public')->delete($product->image_path);
-            }
-            
-            $path = $request->file('image')->store('product-images', 'public');
-            $validated['image_path'] = $path;
+            $imagePath = $request->file('image')->store('product_images', 'public');
+            $validated['image'] = asset('storage/' . $imagePath);
         }
 
         $product->update($validated);
-        
-        return response()->json([
-            'message' => 'Product updated successfully',
-            'data' => $product,
-            'image_url' => $product->image_path ? asset("storage/{$product->image_path}") : null
-        ]);
+
+        return response()->json($product);
     }
 
     public function destroy($id)
@@ -117,15 +103,42 @@ class ProductController extends Controller
             ], 500);
         }
     }
+
     public function getProductsByStore($storeId)
     {
         $store = Store::findOrFail($storeId);
+
         $products = Product::where('store_id', $storeId)->get();
-    
-        return response()->json([
-            'store' => $store->name,
-            'products' => $products,
-        ]);
+
+        return response()->json($products);
     }
-    
+
+    // 🛒 Stock Clearance Function (Move from Store to Inventory)
+    public function stockClearance(Request $request)
+{
+    $validated = $request->validate([
+        'store_product_id' => 'required|exists:products,product_id',
+        'inventory_id' => 'required|exists:inventory,inventory_id',
+        'inventory_price' => 'required|numeric|min:0',
+    ]);
+
+    // Using find to directly search by primary key (product_id)
+    $product = Product::findOrFail($validated['store_product_id']);
+
+    if (!$product) {
+        return response()->json(['message' => 'Product not found'], 404);
+    }
+
+    // Switch product ownership to inventory
+    $product->store_id = null; // Remove from store
+    $product->inventory_id = $validated['inventory_id'];
+    $product->inventory_price = $validated['inventory_price'];
+    $product->save();
+
+    return response()->json([
+        'message' => 'Product moved to inventory successfully',
+        'product' => $product
+    ], 200);
+}
+
 }

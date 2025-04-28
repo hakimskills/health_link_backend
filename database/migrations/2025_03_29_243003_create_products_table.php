@@ -9,20 +9,20 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('product_id');
-            $table->unsignedBigInteger('store_id'); // Matches stores.id
+            $table->unsignedBigInteger('store_id')->nullable();
+            $table->unsignedBigInteger('inventory_id')->nullable();
             $table->string('product_name');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->decimal('store_price', 10, 2)->nullable();    // Store-specific price
+            $table->decimal('inventory_price', 10, 2)->nullable(); // Inventory-specific price
             $table->integer('stock')->default(0);
             $table->string('category');
             $table->timestamp('added_date')->useCurrent();
-        
-            // ✅ Correct foreign key definition
+            $table->timestamps();
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->foreign('inventory_id')->references('inventory_id')->on('inventory')->onDelete('cascade');
         });
-        
-        
     }
 
     public function down(): void
@@ -30,4 +30,3 @@ return new class extends Migration {
         Schema::dropIfExists('products');
     }
 };
-

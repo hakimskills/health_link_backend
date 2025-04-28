@@ -63,6 +63,17 @@ class StoreController extends Controller
             'data' => $store->load('owner')
         ], 201);
     }
+    public function getStoresByUser($userId)
+{
+    $stores = Store::where('owner_id', $userId)->get();
+
+    if ($stores->isEmpty()) {
+        return response()->json(['message' => 'No stores found for this user.'], 404);
+    }
+
+    return response()->json($stores);
+}
+
 
     // Get single store
     public function show(Store $store)
