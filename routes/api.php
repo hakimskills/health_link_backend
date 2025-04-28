@@ -90,6 +90,7 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Get products by store
     Route::get('/products/{store}', [ProductController::class, 'index']);
+    Route::post('/products/stock-clearance', [ProductController::class, 'stockClearance']);
     
     
     // Show a single product
