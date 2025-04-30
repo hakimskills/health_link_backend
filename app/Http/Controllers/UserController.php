@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Validator;
+
 
 class UserController extends Controller
 {
@@ -158,6 +160,89 @@ public function uploadProfileImage(Request $request)
 }
 
 
+public function getAuthenticatedUser()
+{
+    $user = Auth::user();
 
+    if ($user) {
+        return response()->json([
+            'success' => true,
+            'user' => $user
+        ]);
+    }
+
+    return response()->json([
+        'success' => false,
+        'message' => 'User not authenticated'
+    ], 401);
+}
+
+/**
+ * Update profile information.
+ */
+public function updateProfile(Request $request)
+{
+    $user = Auth::user();
+
+    if (!$user) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Unauthorized'
+        ], 401);
+    }
+
+    $validator = Validator::make($request->all(), [
+        'first_name' => 'sometimes|string|max:255',
+        'last_name' => 'sometimes|string|max:255',
+        'email' => 'sometimes|email|unique:users,email,'.$user->id,
+        'phone_number' => 'sometimes|string|max:20',
+        'wilaya' => 'sometimes|string|max:255',
+        'current_password' => 'required|string|min:6',
+        'password' => 'sometimes|string|min:6|confirmed'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'success' => false,
+            'errors' => $validator->errors()
+        ], 422);
+    }
+
+    if (!Hash::check($request->current_password, $user->password)) {
+        return response()->json([
+            'success' => false,
+            'message' => 'The provided password does not match your current password.'
+        ], 401);
+    }
+
+    try {
+        $updateData = $request->only([
+            'first_name',
+            'last_name',
+            'email',
+            'phone_number',
+            'wilaya'
+        ]);
+
+        if ($request->filled('password')) {
+            $updateData['password'] = Hash::make($request->password);
+        }
+
+        $user->update($updateData);
+
+        return response()->json([
+            'success' => true,
+            'user' => $user,
+            'message' => 'Profile updated successfully'
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to update profile',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+}
 
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\InventoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 // Authenticated user info
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -28,6 +29,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user/update-wilaya', [UserController::class, 'updateWilaya']);
     Route::put('/user/update-password', [UserController::class, 'updatePassword']);
     Route::delete('/user/delete', [UserController::class, 'deleteUser']);
+    Route::get('/', [UserController::class, 'getAuthenticatedUser']); // GET /api/user
+    Route::put('/user/update', [UserController::class, 'updateProfile']);
 });
 
 
@@ -40,6 +43,8 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
     Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
     Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
+    Route::get('/admin/users', [AdminController::class, 'getUsers']);
+
 });
 
 
