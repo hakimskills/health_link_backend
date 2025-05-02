@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->unique(); // Make phone number unique
             $table->string('wilaya');
-            $table->enum('role', ['Healthcare Professional', 'Supplier', 'Admin']); // No default role
+            $table->enum('role', ['Dentist', 'Doctor', 'Labo', 'Pharmacist', 'Supplier','Admin']);
+
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('banned')->default(false);

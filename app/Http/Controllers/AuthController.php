@@ -21,7 +21,8 @@ class AuthController extends Controller
             'email' => 'required|email|unique:registration_requests,email|max:255|unique:users,email',
             'phone_number' => 'required|string|max:20|unique:registration_requests,phone_number|unique:users,phone_number',
             'wilaya' => 'required|string|max:255',
-            'role' => 'required|in:Healthcare Professional,Supplier',
+            'role' => 'required|in:Dentist,Doctor,Labo,Pharmacist,Supplier',
+
             'password' => 'required|string|min:6|confirmed',
         ]);
     
