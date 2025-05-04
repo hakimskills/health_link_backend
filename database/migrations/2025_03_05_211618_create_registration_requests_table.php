@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
             $table->string('wilaya');
-            $table->enum('role', ['Healthcare Professional', 'Supplier']);
+            $table->enum('role', ['Dentist', 'Doctor', 'Labo', 'Pharmacist', 'Supplier']);
             $table->string('password'); // Store hashed password
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();

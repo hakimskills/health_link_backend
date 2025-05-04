@@ -107,3 +107,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Delete a product
     Route::delete('/product/{product}', [ProductController::class, 'destroy']);
 });
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/product-orders', [ProductOrderController::class, 'store']);         
+    Route::get('/product-orders', [ProductOrderController::class, 'index']);           
+    Route::get('/product-orders/{id}', [ProductOrderController::class, 'show']);         
+    Route::put('/product-orders/{id}', [ProductOrderController::class, 'update']);     
+    Route::delete('/product-orders/{id}', [ProductOrderController::class, 'destroy']);  
+});
