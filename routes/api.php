@@ -69,24 +69,7 @@ Route::middleware('auth:sanctum')->group(function () {
    
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-    // Create a new inventory
-Route::post('/inventory', [InventoryController::class, 'store']);
 
-// Get all inventories
-Route::get('/inventory', [InventoryController::class, 'index']);
-
-// Get a single inventory by ID
-Route::get('/inventory/{id}', [InventoryController::class, 'show']);
-
-// Update inventory
-Route::put('/inventory/{id}', [InventoryController::class, 'update']);
-Route::patch('/inventory/{id}', [InventoryController::class, 'update']); // optional
-
-// Delete inventory
-Route::delete('/inventory/{id}', [InventoryController::class, 'destroy']);
-
-});
 
 // Product Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
@@ -94,7 +77,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/product', [ProductController::class, 'store']);
     
     // Get products by store
-    Route::get('/products/{store}', [ProductController::class, 'index']);
+    Route::get('/products/{store}', [ProductController::class, 'getProductsByStore']);
+    Route::get('/products', [ProductController::class, 'index']); // no {store}
+
     Route::post('/products/stock-clearance', [ProductController::class, 'stockClearance']);
     
     

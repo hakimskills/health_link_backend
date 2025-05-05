@@ -15,7 +15,7 @@ class Product extends Model
         'product_name',
         'description',
         'image',
-        'store_price',
+        'price',
         'inventory_price',
         'stock',
         'category',
