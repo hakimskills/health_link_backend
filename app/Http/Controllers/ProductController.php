@@ -8,12 +8,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    // ✅ Fetch all products
     public function index()
     {
-        $products = Product::all();
-        return response()->json($products);
+        try {
+            $products = Product::all();
+            return response()->json($products);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
+    // ✅ Create new product (as store product)
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -21,26 +27,24 @@ class ProductController extends Controller
             'product_name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'store_price' => 'required|numeric', // now we validate store_price
+            'price' => 'required|numeric',
             'stock' => 'required|integer',
             'category' => 'required|string|max:100',
         ]);
 
-        // ✅ Handle image upload if exists
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('product_images', 'public');
             $validated['image'] = asset('storage/' . $imagePath);
         }
 
-        // Inventory-specific fields should be null when created from store
-        $validated['inventory_id'] = null;
-        $validated['inventory_price'] = null;
+        $validated['type'] = 'new'; // Default type for newly added store products
 
         $product = Product::create($validated);
 
         return response()->json($product, 201);
     }
 
+    // ✅ Update product
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -50,13 +54,12 @@ class ProductController extends Controller
             'product_name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'store_price' => 'nullable|numeric',
-            'inventory_price' => 'nullable|numeric',
+            'price' => 'nullable|numeric',
             'stock' => 'required|integer',
             'category' => 'required|string|max:100',
+            'type' => 'nullable|in:new,inventory', // Allow optional type change
         ]);
 
-        // ✅ Handle image upload if exists
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('product_images', 'public');
             $validated['image'] = asset('storage/' . $imagePath);
@@ -67,6 +70,7 @@ class ProductController extends Controller
         return response()->json($product);
     }
 
+    // ✅ Delete product
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
@@ -74,42 +78,34 @@ class ProductController extends Controller
         return response()->json(['message' => 'Product deleted successfully']);
     }
 
+    // ✅ Get products by store
     public function getProductsByStore($storeId)
     {
         $store = Store::findOrFail($storeId);
-
         $products = Product::where('store_id', $storeId)->get();
 
         return response()->json($products);
     }
 
-    // 🛒 Stock Clearance Function (Move from Store to Inventory)
+    // ✅ Stock Clearance (convert product to inventory type)
     public function stockClearance(Request $request)
-{
-    $validated = $request->validate([
-        'store_product_id' => 'required|exists:products,product_id',
-        'inventory_id' => 'required|exists:inventory,inventory_id',
-        'inventory_price' => 'required|numeric|min:0',
-    ]);
+    {
+        $validated = $request->validate([
+            'store_product_id' => 'required|exists:products,product_id',
+        ]);
 
-    // Using find to directly search by primary key (product_id)
-    $product = Product::findOrFail($validated['store_product_id']);
+        $product = Product::findOrFail($validated['store_product_id']);
 
-    if (!$product) {
-        return response()->json(['message' => 'Product not found'], 404);
+        $product->type = 'inventory';
+        $product->store_id = null;
+        $product->save();
+
+        return response()->json([
+            'message' => 'Product marked as inventory successfully',
+            'product' => $product
+        ], 200);
     }
 
-    // Switch product ownership to inventory
-    $product->store_id = null; // Remove from store
-    $product->inventory_id = $validated['inventory_id'];
-    $product->inventory_price = $validated['inventory_price'];
-    $product->save();
-
-    return response()->json([
-        'message' => 'Product moved to inventory successfully',
-        'product' => $product
-    ], 200);
-}
 public function show($id)
 {
     $product = Product::find($id);
@@ -120,6 +116,7 @@ public function show($id)
 
     return response()->json($product);
 }
+
 
 
 }

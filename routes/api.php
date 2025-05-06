@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ProductOrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/user/delete', [UserController::class, 'deleteUser']);
     Route::get('/', [UserController::class, 'getAuthenticatedUser']); // GET /api/user
     Route::put('/user/update', [UserController::class, 'updateProfile']);
+
 });
 
 
@@ -92,6 +94,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Delete a product
     Route::delete('/product/{product}', [ProductController::class, 'destroy']);
 });
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/product-orders', [ProductOrderController::class, 'store']);         
     Route::get('/product-orders', [ProductOrderController::class, 'index']);           
