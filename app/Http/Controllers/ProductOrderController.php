@@ -20,7 +20,7 @@ class ProductOrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required|exists:users,user_id',
+            'user_id' => 'required|exists:users,id',
             'delivery_address' => 'required|string',
             'estimated_delivery' => 'nullable|date',
             'items' => 'required|array',

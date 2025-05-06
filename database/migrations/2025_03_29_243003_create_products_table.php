@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->decimal('price', 10, 2)->nullable(); // Unified price field
+            $table->decimal('inventory_price', 10, 2)->nullable(); // Inventory-specific price
             $table->integer('stock')->default(0);
             $table->string('category');
             $table->enum('type', ['new', 'inventory'])->default('new'); // Product type

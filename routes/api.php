@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ProductOrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

@@ -26,10 +26,12 @@ class ProductController extends Controller
             'store_id' => 'required|exists:stores,id',
             'product_name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:10240',
             'price' => 'required|numeric',
+            'inventory_price' => 'nullable|numeric',
             'stock' => 'required|integer',
             'category' => 'required|string|max:100',
+            'type' => 'nullable|in:new,inventory',
         ]);
 
         if ($request->hasFile('image')) {
@@ -37,7 +39,13 @@ class ProductController extends Controller
             $validated['image'] = asset('storage/' . $imagePath);
         }
 
-        $validated['type'] = 'new'; // Default type for newly added store products
+        // Set default type to 'new' if not provided
+        $validated['type'] = $validated['type'] ?? 'new';
+
+        // Ensure inventory_price is present when type is inventory
+        if ($validated['type'] === 'inventory' && empty($validated['inventory_price'])) {
+            return response()->json(['error' => 'Inventory price is required for inventory type.'], 422);
+        }
 
         $product = Product::create($validated);
 
@@ -46,29 +54,31 @@ class ProductController extends Controller
 
     // ✅ Update product
     public function update(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
+{
+    $product = Product::findOrFail($id);
 
-        $validated = $request->validate([
-            'store_id' => 'nullable|exists:stores,id',
-            'product_name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'price' => 'nullable|numeric',
-            'stock' => 'required|integer',
-            'category' => 'required|string|max:100',
-            'type' => 'nullable|in:new,inventory', // Allow optional type change
-        ]);
+    $validated = $request->validate([
+        'store_id' => 'nullable|exists:stores,id',
+        'product_name' => 'nullable|string|max:255',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|mimes:jpeg,jpg,png|max:10240',
+        'price' => 'nullable|numeric',
+        'inventory_price' => 'nullable|numeric',
+        'stock' => 'nullable|integer',
+        'category' => 'nullable|string|max:100',
+        'type' => 'nullable|in:new,inventory',
+    ]);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('product_images', 'public');
-            $validated['image'] = asset('storage/' . $imagePath);
-        }
-
-        $product->update($validated);
-
-        return response()->json($product);
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('product_images', 'public');
+        $validated['image'] = asset('storage/' . $imagePath);
     }
+
+    $product->update($validated);
+
+    return response()->json(['message' => 'Product updated successfully']);
+}
+
 
     // ✅ Delete product
     public function destroy($id)
@@ -92,12 +102,12 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'store_product_id' => 'required|exists:products,product_id',
+            'inventory_price' => 'required|numeric',
         ]);
 
         $product = Product::findOrFail($validated['store_product_id']);
-
         $product->type = 'inventory';
-        $product->store_id = null;
+        $product->inventory_price = $validated['inventory_price'];
         $product->save();
 
         return response()->json([
