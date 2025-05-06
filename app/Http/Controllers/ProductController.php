@@ -54,31 +54,36 @@ class ProductController extends Controller
 
     // ✅ Update product
     public function update(Request $request, $id)
-{
-    $product = Product::findOrFail($id);
+    {
+        $product = Product::findOrFail($id);
 
-    $validated = $request->validate([
-        'store_id' => 'nullable|exists:stores,id',
-        'product_name' => 'nullable|string|max:255',
-        'description' => 'nullable|string',
-        'image' => 'nullable|image|mimes:jpeg,jpg,png|max:10240',
-        'price' => 'nullable|numeric',
-        'inventory_price' => 'nullable|numeric',
-        'stock' => 'nullable|integer',
-        'category' => 'nullable|string|max:100',
-        'type' => 'nullable|in:new,inventory',
-    ]);
+        $validated = $request->validate([
+            'store_id' => 'required|exists:stores,id',
+            'product_name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:10240',
+            'price' => 'nullable|numeric',
+            'inventory_price' => 'nullable|numeric',
+            'stock' => 'nullable|integer',
+            'category' => 'required|string|max:100',
+            'type' => 'nullable|in:new,inventory',
+        ]);
 
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('product_images', 'public');
-        $validated['image'] = asset('storage/' . $imagePath);
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('product_images', 'public');
+            $validated['image'] = asset('storage/' . $imagePath);
+        }
+
+        // Ensure inventory_price is present when type is inventory
+        $newType = $validated['type'] ?? $product->type;
+        if ($newType === 'inventory' && empty($validated['inventory_price']) && empty($product->inventory_price)) {
+            return response()->json(['error' => 'Inventory price is required for inventory type.'], 422);
+        }
+
+        $product->update($validated);
+
+        return response()->json($product);
     }
-
-    $product->update($validated);
-
-    return response()->json(['message' => 'Product updated successfully']);
-}
-
 
     // ✅ Delete product
     public function destroy($id)
