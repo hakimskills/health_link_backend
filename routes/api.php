@@ -74,6 +74,8 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Get products by store
     Route::get('/products/{store}', [ProductController::class, 'getProductsByStore']);
+    Route::get('/products/storeName/{store}', [ProductController::class, 'getProductsAndStoreNameByStore']);
+
     Route::get('/products', [ProductController::class, 'index']); // no {store}
 
     Route::post('/products/stock-clearance', [ProductController::class, 'stockClearance']);
@@ -93,5 +95,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/product-orders', [ProductOrderController::class, 'index']);           
     Route::get('/product-orders/{id}', [ProductOrderController::class, 'show']);         
     Route::put('/product-orders/{id}', [ProductOrderController::class, 'update']);     
-    Route::delete('/product-orders/{id}', [ProductOrderController::class, 'destroy']);  
+    Route::delete('/product-orders/{id}', [ProductOrderController::class, 'destroy']); 
+    Route::get('/product-orders/seller/{sellerId}', [ProductOrderController::class, 'getOrdersBySellerId']);
+    Route::put('/product-orders/{id}/approve', [ProductOrderController::class, 'approveOrder']); 
+    Route::get('/buyer-orders', [ProductOrderController::class, 'getBuyerOrders']);
+
 });

@@ -12,7 +12,8 @@ class ProductOrder extends Model
     protected $primaryKey = 'product_order_id';
 
     protected $fillable = [
-        'user_id',
+        'buyer_id',
+        'seller_id',
         'delivery_address',
         'estimated_delivery',
         'order_date',
@@ -25,9 +26,20 @@ class ProductOrder extends Model
         return $this->hasMany(ProductOrderItem::class, 'product_order_id', 'product_order_id');
     }
 
-    public function user()
+    // Buyer relationship
+    public function buyer()
     {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+        return $this->belongsTo(User::class, 'buyer_id', 'id');
     }
+
+    // Seller relationship
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'seller_id', 'id');
+    }
+    public function product()
+{
+    return $this->belongsTo(Product::class, 'product_id');
 }
-    
+
+}

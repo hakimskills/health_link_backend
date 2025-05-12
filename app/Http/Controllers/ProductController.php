@@ -111,6 +111,19 @@ class ProductController extends Controller
 
         return response()->json($products);
     }
+public function getProductsAndStoreNameByStore($storeId)
+{
+    $store = Store::findOrFail($storeId);
+    $products = Product::where('store_id', $storeId)->get();
+
+    return response()->json([
+        'store_name' => $store->store_name,
+        'products' => $products
+    ]);
+}
+
+
+
 
     // ✅ Stock Clearance (convert product to inventory type)
     public function stockClearance(Request $request)
