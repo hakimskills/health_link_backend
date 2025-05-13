@@ -19,6 +19,7 @@ class ProductOrder extends Model
         'order_date',
         'order_status',
         'payment_status',
+        'total_amount',
     ];
 
     public function items()
@@ -37,9 +38,6 @@ class ProductOrder extends Model
     {
         return $this->belongsTo(User::class, 'seller_id', 'id');
     }
-    public function product()
-{
-    return $this->belongsTo(Product::class, 'product_id');
-}
+   
 
 }

@@ -18,7 +18,7 @@ return new class extends Migration
                $table->string('delivery_address');
                $table->timestamp('estimated_delivery')->nullable();
                $table->timestamps();
-
+               $table->decimal('total_amount', 10, 2)->default(0);
     // Foreign key constraints
                $table->foreign('buyer_id')->references('id')->on('users')->onDelete('cascade');
                $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');

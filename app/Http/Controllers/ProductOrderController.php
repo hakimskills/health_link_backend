@@ -19,7 +19,7 @@ class ProductOrderController extends Controller
     }
 
     // Create a new order
-    public function store(Request $request)
+   public function store(Request $request)
 {
     $request->validate([
         'buyer_id' => 'required|exists:users,id',
@@ -33,14 +33,20 @@ class ProductOrderController extends Controller
     DB::beginTransaction();
 
     try {
-        // Get seller from the first item’s product → store → owner
+        // Get seller from the first product
         $firstProduct = Product::with('store')->findOrFail($request->items[0]['product_id']);
-
         if (!$firstProduct->store || !$firstProduct->store->owner_id) {
             throw new \Exception("Seller information could not be retrieved from the product's store.");
         }
-
         $seller_id = $firstProduct->store->owner_id;
+
+        $totalAmount = 0;
+
+        // Calculate total before creating order
+        foreach ($request->items as $item) {
+            $product = Product::findOrFail($item['product_id']);
+            $totalAmount += $product->price * $item['quantity'];
+        }
 
         // Create the order
         $order = ProductOrder::create([
@@ -49,9 +55,10 @@ class ProductOrderController extends Controller
             'order_date' => now(),
             'delivery_address' => $request->delivery_address,
             'estimated_delivery' => $request->estimated_delivery,
+            'total_amount' => $totalAmount, // 💰 Save total
         ]);
 
-        // Process each order item
+        // Process order items
         foreach ($request->items as $item) {
             $product = Product::findOrFail($item['product_id']);
 
@@ -59,11 +66,9 @@ class ProductOrderController extends Controller
                 throw new \Exception("Insufficient stock for product: {$product->product_name}");
             }
 
-            // Subtract quantity from stock
             $product->stock -= $item['quantity'];
             $product->save();
 
-            // Create order item
             ProductOrderItem::create([
                 'product_order_id' => $order->product_order_id,
                 'product_id' => $item['product_id'],
@@ -72,6 +77,7 @@ class ProductOrderController extends Controller
         }
 
         DB::commit();
+
         return response()->json([
             'message' => 'Order created successfully',
             'order' => $order
@@ -85,6 +91,7 @@ class ProductOrderController extends Controller
         ], 500);
     }
 }
+
 
 
 
@@ -132,13 +139,16 @@ public function getBuyerOrders(Request $request)
 {
     $user = $request->user(); // authenticated user
 
-    $orders = ProductOrder::where('buyer_id', $user->id)->with('product', 'seller')->get();
+    $orders = ProductOrder::where('buyer_id', $user->id)
+        ->with(['items.product', 'seller']) // eager load items → product and seller
+        ->get();
 
     return response()->json([
         'status' => 'success',
         'orders' => $orders
     ]);
 }
+
 
 
     
