@@ -89,6 +89,7 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Delete a product
     Route::delete('/product/{product}', [ProductController::class, 'destroy']);
+    Route::post('/product/used-equipment', [ProductController::class, 'storeUsedEquipment']);
 });
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/product-orders', [ProductOrderController::class, 'store']);         
