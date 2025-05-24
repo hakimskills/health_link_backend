@@ -19,7 +19,8 @@ class Product extends Model
         'inventory_price',
         'stock',
         'category',
-        'type'
+        'type',
+        'condition' 
     ];
 
     public function store()

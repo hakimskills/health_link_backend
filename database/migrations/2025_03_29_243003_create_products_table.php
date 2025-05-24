@@ -11,16 +11,16 @@ return new class extends Migration {
         $table->unsignedBigInteger('store_id')->nullable();
         $table->string('product_name');
         $table->text('description')->nullable();
-        // Removed image column as it's now in product_images table
-        $table->decimal('price', 10, 2)->nullable(); // Unified price field
-        $table->decimal('inventory_price', 10, 2)->nullable(); // Inventory-specific price
+        $table->decimal('price', 10, 2)->nullable();
+        $table->decimal('inventory_price', 10, 2)->nullable();
         $table->integer('stock')->default(0);
         $table->string('category');
-        $table->enum('type', ['new', 'inventory'])->default('new'); // Product type
+        $table->enum('type', ['new', 'inventory', 'used_equipment'])->default('new');
+        $table->string('condition')->nullable();
         $table->timestamp('added_date')->useCurrent();
         $table->timestamps();
         $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
-    });
+});
     }
 
     public function down(): void
