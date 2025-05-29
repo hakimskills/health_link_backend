@@ -19,6 +19,51 @@ class ProductController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    public function storeUsedEquipment(Request $request)
+    {
+        $validated = $request->validate([
+            'store_id' => 'required|exists:stores,id',
+            'product_name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
+            'inventory_price' => 'nullable|numeric',
+            'stock' => 'required|integer',
+            'category' => 'required|string|max:100',
+            'condition' => 'required|string|max:255', // Condition is required for used_equipment
+            'images' => 'nullable|array',
+            'images.*' => 'image|mimes:jpeg,jpg,png|max:10240'
+        ]);
+
+        // Explicitly set type to used_equipment
+        $validated['type'] = 'used_equipment';
+
+        // Remove images from the validated array as we'll handle them separately
+        if (isset($validated['images'])) {
+            unset($validated['images']);
+        }
+
+        // Create product record
+        $product = Product::create($validated);
+
+        // Process images if uploaded
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $path = $image->store('product_images', 'public');
+
+                ProductImage::create([
+                    'product_id' => $product->product_id,
+                    'image_path' => asset('storage/' . $path),
+                    'is_primary' => $index === 0 // Set the first image as primary
+                ]);
+            }
+        }
+
+        // Load the images relationship for the response
+        $product->load('images');
+
+        return response()->json($product, 201);
+    }
+    
 
     public function show($id)
     {

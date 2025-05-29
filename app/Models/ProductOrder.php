@@ -13,7 +13,7 @@ class ProductOrder extends Model
 
     protected $fillable = [
         'buyer_id',
-        'seller_id',
+        
         'delivery_address',
         'estimated_delivery',
         'order_date',

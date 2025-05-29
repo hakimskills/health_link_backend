@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,12 +11,14 @@ return new class extends Migration
             $table->id('item_id');
             $table->unsignedBigInteger('product_order_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('seller_id'); // Add seller_id
             $table->integer('quantity')->default(1);
             $table->timestamps();
 
             // Foreign key constraints
             $table->foreign('product_order_id')->references('product_order_id')->on('product_orders')->onDelete('cascade');
             $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
+            $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
