@@ -1,0 +1,956 @@
+2025-05-31 15:49:27,743 [INFO] Initializing FAISS index at startup
+2025-05-31 15:49:27,743 [INFO] Starting FAISS index initialization
+2025-05-31 15:49:27,744 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-05-31 15:49:27,744 [INFO] Processing image: dataset\photo1.jpg
+2025-05-31 15:49:32,094 [INFO] Features shape for photo1: (1280,)
+2025-05-31 15:49:32,094 [INFO] Processing image: dataset\photo2.jpg
+2025-05-31 15:49:32,707 [INFO] Features shape for photo2: (1280,)
+2025-05-31 15:49:32,708 [INFO] Processing image: dataset\photo3.jpg
+2025-05-31 15:49:33,510 [INFO] Features shape for photo3: (1280,)
+2025-05-31 15:49:33,510 [INFO] Processing image: dataset\photo4.jpg
+2025-05-31 15:49:34,890 [INFO] Features shape for photo4: (1280,)
+2025-05-31 15:49:34,890 [INFO] Converting feature list to NumPy array
+2025-05-31 15:49:34,890 [INFO] Feature array shape: (4, 1280)
+2025-05-31 15:49:34,890 [INFO] Creating FAISS index with dimension 1280
+2025-05-31 15:49:34,896 [INFO] Adding 4 vectors to FAISS index
+2025-05-31 15:49:34,899 [INFO] FAISS index initialized with 4 vectors
+2025-05-31 15:49:34,899 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000001965B931E00> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-05-31 15:49:34,901 [INFO] Starting Flask app
+2025-05-31 15:49:34,943 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-31 15:49:34,944 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-31 15:51:29,348 [INFO] Received request to /rebuild-index
+2025-05-31 15:51:29,349 [INFO] Starting FAISS index initialization
+2025-05-31 15:51:29,349 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-05-31 15:51:29,349 [INFO] Processing image: dataset\photo1.jpg
+2025-05-31 15:51:29,904 [INFO] Features shape for photo1: (1280,)
+2025-05-31 15:51:29,904 [INFO] Processing image: dataset\photo2.jpg
+2025-05-31 15:51:30,456 [INFO] Features shape for photo2: (1280,)
+2025-05-31 15:51:30,456 [INFO] Processing image: dataset\photo3.jpg
+2025-05-31 15:51:31,130 [INFO] Features shape for photo3: (1280,)
+2025-05-31 15:51:31,130 [INFO] Processing image: dataset\photo4.jpg
+2025-05-31 15:51:32,053 [INFO] Features shape for photo4: (1280,)
+2025-05-31 15:51:32,053 [INFO] Converting feature list to NumPy array
+2025-05-31 15:51:32,053 [INFO] Feature array shape: (4, 1280)
+2025-05-31 15:51:32,053 [INFO] Creating FAISS index with dimension 1280
+2025-05-31 15:51:32,053 [INFO] Adding 4 vectors to FAISS index
+2025-05-31 15:51:32,053 [INFO] FAISS index initialized with 4 vectors
+2025-05-31 15:51:32,053 [INFO] 127.0.0.1 - - [31/May/2025 15:51:32] "POST /rebuild-index HTTP/1.1" 200 -
+2025-05-31 15:51:39,921 [INFO] Received request to /rebuild-index
+2025-05-31 15:51:39,922 [INFO] Starting FAISS index initialization
+2025-05-31 15:51:39,922 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-05-31 15:51:39,922 [INFO] Processing image: dataset\photo1.jpg
+2025-05-31 15:51:40,512 [INFO] Features shape for photo1: (1280,)
+2025-05-31 15:51:40,512 [INFO] Processing image: dataset\photo2.jpg
+2025-05-31 15:51:41,001 [INFO] Features shape for photo2: (1280,)
+2025-05-31 15:51:41,001 [INFO] Processing image: dataset\photo3.jpg
+2025-05-31 15:51:41,661 [INFO] Features shape for photo3: (1280,)
+2025-05-31 15:51:41,661 [INFO] Processing image: dataset\photo4.jpg
+2025-05-31 15:51:42,527 [INFO] Features shape for photo4: (1280,)
+2025-05-31 15:51:42,527 [INFO] Converting feature list to NumPy array
+2025-05-31 15:51:42,527 [INFO] Feature array shape: (4, 1280)
+2025-05-31 15:51:42,528 [INFO] Creating FAISS index with dimension 1280
+2025-05-31 15:51:42,528 [INFO] Adding 4 vectors to FAISS index
+2025-05-31 15:51:42,528 [INFO] FAISS index initialized with 4 vectors
+2025-05-31 15:51:42,528 [INFO] 127.0.0.1 - - [31/May/2025 15:51:42] "POST /rebuild-index HTTP/1.1" 200 -
+2025-05-31 15:52:50,030 [INFO] Received request to /extract-features
+2025-05-31 15:52:50,031 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': 'd7513ad1-0c61-488e-92a8-8ab73bdd1fdc', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------073969971981996961034024', 'Content-Length': '4973'}
+2025-05-31 15:52:50,033 [INFO] Request files: ['image']
+2025-05-31 15:52:50,033 [INFO] Request form: {}
+2025-05-31 15:52:50,034 [INFO] Number of images received: 0
+2025-05-31 15:52:50,034 [INFO] Image filenames: []
+2025-05-31 15:52:50,034 [INFO] Number of image IDs received: 0
+2025-05-31 15:52:50,034 [INFO] Image IDs: []
+2025-05-31 15:52:50,034 [ERROR] No image files provided
+2025-05-31 15:52:50,035 [INFO] 127.0.0.1 - - [31/May/2025 15:52:50] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:53:15,070 [INFO] Received request to /extract-features
+2025-05-31 15:53:15,070 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': '04d700f0-b687-485d-ac53-078d3cf36216', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------713742755040342088543735', 'Content-Length': '5084'}
+2025-05-31 15:53:15,071 [INFO] Request files: ['image']
+2025-05-31 15:53:15,071 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:53:15,072 [INFO] Number of images received: 0
+2025-05-31 15:53:15,072 [INFO] Image filenames: []
+2025-05-31 15:53:15,072 [INFO] Number of image IDs received: 1
+2025-05-31 15:53:15,072 [INFO] Image IDs: ['1']
+2025-05-31 15:53:15,072 [ERROR] No image files provided
+2025-05-31 15:53:15,072 [INFO] 127.0.0.1 - - [31/May/2025 15:53:15] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:53:26,758 [INFO] Received request to /extract-features
+2025-05-31 15:53:26,758 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': '39cd379f-bb8f-466a-9052-5f24fddaf46b', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------827719715292822560330385', 'Content-Length': '5084'}
+2025-05-31 15:53:26,759 [INFO] Request files: ['image']
+2025-05-31 15:53:26,759 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:53:26,760 [INFO] Number of images received: 0
+2025-05-31 15:53:26,760 [INFO] Image filenames: []
+2025-05-31 15:53:26,760 [INFO] Number of image IDs received: 1
+2025-05-31 15:53:26,760 [INFO] Image IDs: ['1']
+2025-05-31 15:53:26,760 [ERROR] No image files provided
+2025-05-31 15:53:26,761 [INFO] 127.0.0.1 - - [31/May/2025 15:53:26] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:53:41,273 [INFO] Received request to /extract-features
+2025-05-31 15:53:41,273 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': 'ac74dc94-231b-417e-b3b7-815752be091a', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------276128012773693542644057', 'Content-Length': '5084'}
+2025-05-31 15:53:41,275 [INFO] Request files: ['image']
+2025-05-31 15:53:41,276 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:53:41,276 [INFO] Number of images received: 0
+2025-05-31 15:53:41,276 [INFO] Image filenames: []
+2025-05-31 15:53:41,276 [INFO] Number of image IDs received: 1
+2025-05-31 15:53:41,277 [INFO] Image IDs: ['1']
+2025-05-31 15:53:41,277 [ERROR] No image files provided
+2025-05-31 15:53:41,277 [INFO] 127.0.0.1 - - [31/May/2025 15:53:41] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:53:50,405 [INFO] Received request to /extract-features
+2025-05-31 15:53:50,406 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': 'a3f9f65e-ea42-456c-8e2e-8d80cfe5a69e', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Length': '0'}
+2025-05-31 15:53:50,406 [INFO] Request files: []
+2025-05-31 15:53:50,406 [INFO] Request form: {}
+2025-05-31 15:53:50,407 [INFO] Number of images received: 0
+2025-05-31 15:53:50,407 [INFO] Image filenames: []
+2025-05-31 15:53:50,407 [INFO] Number of image IDs received: 0
+2025-05-31 15:53:50,407 [INFO] Image IDs: []
+2025-05-31 15:53:50,407 [ERROR] No image files provided
+2025-05-31 15:53:50,408 [INFO] 127.0.0.1 - - [31/May/2025 15:53:50] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:54:14,588 [INFO] Received request to /extract-features
+2025-05-31 15:54:14,588 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': 'cd37c0ce-8721-455a-9130-c6a577c8cc9e', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------246772888204088014053547', 'Content-Length': '5084'}
+2025-05-31 15:54:14,590 [INFO] Request files: ['image']
+2025-05-31 15:54:14,590 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:54:14,590 [INFO] Number of images received: 0
+2025-05-31 15:54:14,590 [INFO] Image filenames: []
+2025-05-31 15:54:14,590 [INFO] Number of image IDs received: 1
+2025-05-31 15:54:14,590 [INFO] Image IDs: ['1']
+2025-05-31 15:54:14,591 [ERROR] No image files provided
+2025-05-31 15:54:14,591 [INFO] 127.0.0.1 - - [31/May/2025 15:54:14] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:54:49,991 [INFO] Received request to /extract-features
+2025-05-31 15:54:49,991 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': '060921d7-329b-40e5-b98a-966c4b9af3c9', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------569747082058839055456391', 'Content-Length': '5084'}
+2025-05-31 15:54:49,994 [INFO] Request files: ['image']
+2025-05-31 15:54:49,995 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:54:49,995 [INFO] Number of images received: 0
+2025-05-31 15:54:49,995 [INFO] Image filenames: []
+2025-05-31 15:54:49,995 [INFO] Number of image IDs received: 1
+2025-05-31 15:54:49,995 [INFO] Image IDs: ['1']
+2025-05-31 15:54:49,995 [ERROR] No image files provided
+2025-05-31 15:54:49,995 [INFO] 127.0.0.1 - - [31/May/2025 15:54:49] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:54:59,160 [INFO] Received request to /extract-features
+2025-05-31 15:54:59,161 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': '759023f1-ff8c-4f2f-bdfc-998045164d01', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------551470678857315342285907', 'Content-Length': '5084'}
+2025-05-31 15:54:59,165 [INFO] Request files: ['image']
+2025-05-31 15:54:59,165 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:54:59,165 [INFO] Number of images received: 0
+2025-05-31 15:54:59,166 [INFO] Image filenames: []
+2025-05-31 15:54:59,166 [INFO] Number of image IDs received: 1
+2025-05-31 15:54:59,166 [INFO] Image IDs: ['1']
+2025-05-31 15:54:59,167 [ERROR] No image files provided
+2025-05-31 15:54:59,168 [INFO] 127.0.0.1 - - [31/May/2025 15:54:59] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-05-31 15:55:45,169 [INFO] Received request to /extract-features
+2025-05-31 15:55:45,170 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': '293af8df-5d36-47c5-94e6-53481cd34c90', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------334079348179554262384450', 'Content-Length': '5085'}
+2025-05-31 15:55:45,171 [INFO] Request files: ['images']
+2025-05-31 15:55:45,171 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:55:45,171 [INFO] Number of images received: 1
+2025-05-31 15:55:45,171 [INFO] Image filenames: ['camera2.jpeg']
+2025-05-31 15:55:45,171 [INFO] Number of image IDs received: 1
+2025-05-31 15:55:45,171 [INFO] Image IDs: ['1']
+2025-05-31 15:55:45,176 [INFO] Extracting features for image ID: 1, filepath: uploads\camera2.jpeg
+2025-05-31 15:55:45,326 [INFO] Features extracted for image ID: 1
+2025-05-31 15:55:45,326 [INFO] Cleaned up file: uploads\camera2.jpeg
+2025-05-31 15:55:45,326 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-05-31 15:55:45,329 [INFO] 127.0.0.1 - - [31/May/2025 15:55:45] "POST /extract-features HTTP/1.1" 200 -
+2025-05-31 15:57:36,638 [INFO] Received request to /extract-features
+2025-05-31 15:57:36,638 [INFO] Request headers: {'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Cache-Control': 'no-cache', 'Postman-Token': 'a429b630-355d-4327-8f86-5c8169986439', 'Host': '127.0.0.1:5000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=--------------------------051054844026567429802116', 'Content-Length': '5085'}
+2025-05-31 15:57:36,640 [INFO] Request files: ['images']
+2025-05-31 15:57:36,640 [INFO] Request form: {'image_ids[]': '1'}
+2025-05-31 15:57:36,640 [INFO] Number of images received: 1
+2025-05-31 15:57:36,640 [INFO] Image filenames: ['camera2.jpeg']
+2025-05-31 15:57:36,640 [INFO] Number of image IDs received: 1
+2025-05-31 15:57:36,640 [INFO] Image IDs: ['1']
+2025-05-31 15:57:36,641 [INFO] Extracting features for image ID: 1, filepath: uploads\camera2.jpeg
+2025-05-31 15:57:36,829 [INFO] Features extracted for image ID: 1
+2025-05-31 15:57:36,830 [INFO] Cleaned up file: uploads\camera2.jpeg
+2025-05-31 15:57:36,830 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-05-31 15:57:36,832 [INFO] 127.0.0.1 - - [31/May/2025 15:57:36] "POST /extract-features HTTP/1.1" 200 -
+2025-05-31 16:01:37,273 [INFO] Initializing FAISS index at startup
+2025-05-31 16:01:37,274 [INFO] Starting FAISS index initialization
+2025-05-31 16:01:37,274 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-05-31 16:01:37,274 [INFO] Processing image: dataset\photo1.jpg
+2025-05-31 16:01:40,339 [INFO] Features shape for photo1: (1280,)
+2025-05-31 16:01:40,339 [INFO] Processing image: dataset\photo2.jpg
+2025-05-31 16:01:40,801 [INFO] Features shape for photo2: (1280,)
+2025-05-31 16:01:40,801 [INFO] Processing image: dataset\photo3.jpg
+2025-05-31 16:01:41,472 [INFO] Features shape for photo3: (1280,)
+2025-05-31 16:01:41,472 [INFO] Processing image: dataset\photo4.jpg
+2025-05-31 16:01:42,471 [INFO] Features shape for photo4: (1280,)
+2025-05-31 16:01:42,471 [INFO] Converting feature list to NumPy array
+2025-05-31 16:01:42,471 [INFO] Feature array shape: (4, 1280)
+2025-05-31 16:01:42,471 [INFO] Creating FAISS index with dimension 1280
+2025-05-31 16:01:42,471 [INFO] Adding 4 vectors to FAISS index
+2025-05-31 16:01:42,472 [INFO] FAISS index initialized with 4 vectors
+2025-05-31 16:01:42,472 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000235A8A86580> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-05-31 16:01:42,473 [INFO] Starting Flask app
+2025-05-31 16:01:42,511 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-31 16:01:42,511 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-31 16:02:08,236 [INFO] 127.0.0.1 - - [31/May/2025 16:02:08] "[31m[1mPOST /extract-features HTTP/1.1[0m" 401 -
+2025-05-31 16:02:50,120 [INFO] 127.0.0.1 - - [31/May/2025 16:02:50] "[31m[1mPOST /extract-features HTTP/1.1[0m" 401 -
+2025-05-31 16:07:15,506 [INFO] Initializing FAISS index at startup
+2025-05-31 16:07:15,506 [INFO] Starting FAISS index initialization
+2025-05-31 16:07:15,506 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-05-31 16:07:15,507 [INFO] Processing image: dataset\photo1.jpg
+2025-05-31 16:07:17,920 [INFO] Features shape for photo1: (1280,)
+2025-05-31 16:07:17,920 [INFO] Processing image: dataset\photo2.jpg
+2025-05-31 16:07:18,425 [INFO] Features shape for photo2: (1280,)
+2025-05-31 16:07:18,425 [INFO] Processing image: dataset\photo3.jpg
+2025-05-31 16:07:19,006 [INFO] Features shape for photo3: (1280,)
+2025-05-31 16:07:19,006 [INFO] Processing image: dataset\photo4.jpg
+2025-05-31 16:07:19,897 [INFO] Features shape for photo4: (1280,)
+2025-05-31 16:07:19,897 [INFO] Converting feature list to NumPy array
+2025-05-31 16:07:19,897 [INFO] Feature array shape: (4, 1280)
+2025-05-31 16:07:19,897 [INFO] Creating FAISS index with dimension 1280
+2025-05-31 16:07:19,897 [INFO] Adding 4 vectors to FAISS index
+2025-05-31 16:07:19,897 [INFO] FAISS index initialized with 4 vectors
+2025-05-31 16:07:19,897 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000002C8191F6580> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-05-31 16:07:19,899 [INFO] Starting Flask app
+2025-05-31 16:07:19,923 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-31 16:07:19,923 [INFO] [33mPress CTRL+C to quit[0m
+2025-05-31 16:07:25,730 [INFO] 127.0.0.1 - - [31/May/2025 16:07:25] "[31m[1mPOST /extract-features HTTP/1.1[0m" 401 -
+2025-05-31 16:07:31,321 [INFO] 127.0.0.1 - - [31/May/2025 16:07:31] "[31m[1mPOST /extract-features HTTP/1.1[0m" 401 -
+2025-05-31 16:09:54,326 [INFO] 127.0.0.1 - - [31/May/2025 16:09:54] "[31m[1mPOST /extract-features HTTP/1.1[0m" 401 -
+2025-05-31 16:09:59,739 [INFO] Received request to /extract-features
+2025-05-31 16:09:59,754 [INFO] package: mysql.connector.plugins
+2025-05-31 16:09:59,754 [INFO] plugin_name: mysql_native_password
+2025-05-31 16:09:59,759 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-05-31 16:09:59,760 [INFO] Database connection established
+2025-05-31 16:09:59,915 [INFO] Saved features for image ID: 1
+2025-05-31 16:09:59,916 [INFO] Cleaned up file: uploads\camera2.jpeg
+2025-05-31 16:09:59,916 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-05-31 16:09:59,918 [INFO] 127.0.0.1 - - [31/May/2025 16:09:59] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 14:56:42,888 [INFO] Received request to /extract-features
+2025-06-01 14:56:42,911 [INFO] Database connection established
+2025-06-01 14:56:44,280 [INFO] Saved features for image ID: 1
+2025-06-01 14:56:44,280 [INFO] Cleaned up file: uploads\camera2.jpeg
+2025-06-01 14:56:44,280 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-06-01 14:56:44,283 [INFO] 127.0.0.1 - - [01/Jun/2025 14:56:44] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:22:30,785 [INFO] Initializing FAISS index at startup
+2025-06-01 15:22:30,786 [INFO] Starting FAISS index initialization
+2025-06-01 15:22:30,786 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:22:30,786 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:22:33,017 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:22:33,017 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:22:33,425 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:22:33,425 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:22:33,961 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:22:33,961 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:22:34,719 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:22:34,719 [INFO] Converting feature list to NumPy array
+2025-06-01 15:22:34,719 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:22:34,719 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:22:34,719 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:22:34,719 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:22:34,719 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000017872185EC0> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-01 15:22:34,720 [INFO] Starting Flask app
+2025-06-01 15:22:34,777 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-01 15:22:34,777 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-01 15:23:46,649 [INFO] Received request to /extract-features
+2025-06-01 15:23:46,680 [INFO] package: mysql.connector.plugins
+2025-06-01 15:23:46,680 [INFO] plugin_name: mysql_native_password
+2025-06-01 15:23:46,682 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-01 15:23:46,683 [INFO] Database connection established
+2025-06-01 15:23:46,851 [INFO] Saved features for image ID: 1
+2025-06-01 15:23:46,851 [INFO] Cleaned up file: Uploads\camera2.jpeg
+2025-06-01 15:23:46,852 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-06-01 15:23:46,855 [INFO] 127.0.0.1 - - [01/Jun/2025 15:23:46] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:23:56,264 [INFO] Received request to /extract-features
+2025-06-01 15:23:56,267 [INFO] Database connection established
+2025-06-01 15:23:56,443 [INFO] Saved features for image ID: 1
+2025-06-01 15:23:56,444 [INFO] Cleaned up file: Uploads\camera2.jpeg
+2025-06-01 15:23:56,444 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-06-01 15:23:56,446 [INFO] 127.0.0.1 - - [01/Jun/2025 15:23:56] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:24:04,893 [INFO] Received request to /extract-features
+2025-06-01 15:24:04,894 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-01 15:24:04,895 [INFO] 127.0.0.1 - - [01/Jun/2025 15:24:04] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-01 15:25:58,196 [INFO] Received request to /extract-features
+2025-06-01 15:25:58,200 [INFO] Database connection established
+2025-06-01 15:25:58,378 [INFO] Saved features for image ID: 1
+2025-06-01 15:25:58,379 [INFO] Cleaned up file: Uploads\camera2.jpeg
+2025-06-01 15:25:58,379 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-06-01 15:25:58,381 [INFO] 127.0.0.1 - - [01/Jun/2025 15:25:58] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:31:02,102 [INFO] Received request to /rebuild-index
+2025-06-01 15:31:02,102 [INFO] Starting FAISS index initialization
+2025-06-01 15:31:02,102 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:31:02,102 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:31:02,590 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:31:02,590 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:31:03,036 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:31:03,036 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:31:03,624 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:31:03,624 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:31:04,469 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:31:04,469 [INFO] Converting feature list to NumPy array
+2025-06-01 15:31:04,469 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:31:04,469 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:31:04,469 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:31:04,469 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:31:04,470 [INFO] 127.0.0.1 - - [01/Jun/2025 15:31:04] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:32:20,406 [INFO] Received request to /rebuild-index
+2025-06-01 15:32:20,406 [INFO] Starting FAISS index initialization
+2025-06-01 15:32:20,407 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:32:20,407 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:32:20,928 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:32:20,928 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:32:21,411 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:32:21,411 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:32:22,046 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:32:22,046 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:32:22,952 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:32:22,953 [INFO] Converting feature list to NumPy array
+2025-06-01 15:32:22,953 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:32:22,953 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:32:22,953 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:32:22,953 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:32:22,953 [INFO] 127.0.0.1 - - [01/Jun/2025 15:32:22] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:39:09,025 [INFO] Received request to /rebuild-index
+2025-06-01 15:39:09,025 [INFO] Starting FAISS index initialization
+2025-06-01 15:39:09,026 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:39:09,026 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:39:09,523 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:39:09,523 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:39:09,978 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:39:09,978 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:39:10,581 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:39:10,581 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:39:11,433 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:39:11,433 [INFO] Converting feature list to NumPy array
+2025-06-01 15:39:11,433 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:39:11,433 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:39:11,434 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:39:11,434 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:39:11,434 [INFO] 127.0.0.1 - - [01/Jun/2025 15:39:11] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:40:51,429 [INFO] Received request to /rebuild-index
+2025-06-01 15:40:51,429 [INFO] Starting FAISS index initialization
+2025-06-01 15:40:51,429 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:40:51,430 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:40:51,913 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:40:51,913 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:40:52,348 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:40:52,348 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:40:52,934 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:40:52,935 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:40:53,753 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:40:53,753 [INFO] Converting feature list to NumPy array
+2025-06-01 15:40:53,753 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:40:53,753 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:40:53,754 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:40:53,754 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:40:53,754 [INFO] 127.0.0.1 - - [01/Jun/2025 15:40:53] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:44:06,514 [INFO] Received request to /rebuild-index
+2025-06-01 15:44:06,515 [INFO] Starting FAISS index initialization
+2025-06-01 15:44:06,515 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:44:06,515 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:44:07,005 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:44:07,005 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:44:07,465 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:44:07,465 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:44:08,064 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:44:08,065 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:44:08,939 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:44:08,939 [INFO] Converting feature list to NumPy array
+2025-06-01 15:44:08,939 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:44:08,939 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:44:08,939 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:44:08,939 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:44:08,940 [INFO] 127.0.0.1 - - [01/Jun/2025 15:44:08] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:46:33,755 [INFO] Initializing FAISS index at startup
+2025-06-01 15:46:33,755 [INFO] Starting FAISS index initialization
+2025-06-01 15:46:33,755 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:46:33,756 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:46:35,884 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:46:35,884 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:46:36,278 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:46:36,278 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:46:36,796 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:46:36,797 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:46:37,511 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:46:37,511 [INFO] Converting feature list to NumPy array
+2025-06-01 15:46:37,511 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:46:37,511 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:46:37,511 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:46:37,511 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:46:37,511 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000001B3F3035EC0> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-01 15:46:37,512 [INFO] Starting Flask app
+2025-06-01 15:46:37,538 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-01 15:46:37,538 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-01 15:46:52,076 [INFO] Received request to /rebuild-index
+2025-06-01 15:46:52,076 [INFO] Starting FAISS index initialization
+2025-06-01 15:46:52,076 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:46:52,076 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:46:52,574 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:46:52,574 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:46:53,040 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:46:53,040 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:46:53,635 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:46:53,635 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:46:54,494 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:46:54,494 [INFO] Converting feature list to NumPy array
+2025-06-01 15:46:54,494 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:46:54,494 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:46:54,494 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:46:54,494 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:46:54,495 [INFO] 127.0.0.1 - - [01/Jun/2025 15:46:54] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:49:45,281 [INFO] Received request to /extract-features
+2025-06-01 15:49:45,297 [INFO] package: mysql.connector.plugins
+2025-06-01 15:49:45,297 [INFO] plugin_name: mysql_native_password
+2025-06-01 15:49:45,298 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-01 15:49:45,299 [INFO] Database connection established
+2025-06-01 15:49:45,301 [ERROR] Invalid image_id: 1 not found in product_images
+2025-06-01 15:49:45,302 [INFO] Cleaned up file: Uploads\camera2.jpeg
+2025-06-01 15:49:45,302 [INFO] 127.0.0.1 - - [01/Jun/2025 15:49:45] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-01 15:50:22,005 [INFO] Received request to /extract-features
+2025-06-01 15:50:22,008 [INFO] Database connection established
+2025-06-01 15:50:22,197 [INFO] Saved features for image ID: 26
+2025-06-01 15:50:22,197 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-01 15:50:22,198 [INFO] Feature extraction completed: dict_keys(['26'])
+2025-06-01 15:50:22,200 [INFO] 127.0.0.1 - - [01/Jun/2025 15:50:22] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:50:42,973 [INFO] Received request to /extract-features
+2025-06-01 15:50:42,977 [INFO] Database connection established
+2025-06-01 15:50:43,161 [INFO] Saved features for image ID: 26
+2025-06-01 15:50:43,162 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-01 15:50:43,162 [INFO] Feature extraction completed: dict_keys(['26'])
+2025-06-01 15:50:43,164 [INFO] 127.0.0.1 - - [01/Jun/2025 15:50:43] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:51:05,411 [INFO] Received request to /extract-features
+2025-06-01 15:51:05,431 [INFO] Database connection established
+2025-06-01 15:51:06,305 [INFO] Saved features for image ID: 26
+2025-06-01 15:51:06,306 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-01 15:51:06,306 [INFO] Feature extraction completed: dict_keys(['26'])
+2025-06-01 15:51:06,309 [INFO] 127.0.0.1 - - [01/Jun/2025 15:51:06] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:52:17,186 [INFO] Received request to /rebuild-index
+2025-06-01 15:52:17,186 [INFO] Starting FAISS index initialization
+2025-06-01 15:52:17,187 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:52:17,187 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:52:17,700 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:52:17,700 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:52:18,157 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:52:18,157 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:52:18,741 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:52:18,741 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:52:19,560 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:52:19,560 [INFO] Converting feature list to NumPy array
+2025-06-01 15:52:19,560 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:52:19,560 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:52:19,560 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:52:19,560 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:52:19,560 [INFO] 127.0.0.1 - - [01/Jun/2025 15:52:19] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:52:54,204 [INFO] Received request to /rebuild-index
+2025-06-01 15:52:54,204 [INFO] Starting FAISS index initialization
+2025-06-01 15:52:54,204 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:52:54,204 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:52:54,736 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:52:54,736 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:52:55,214 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:52:55,214 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:52:55,915 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:52:55,916 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:52:56,792 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:52:56,792 [INFO] Converting feature list to NumPy array
+2025-06-01 15:52:56,792 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:52:56,792 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:52:56,792 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:52:56,793 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:52:56,793 [INFO] 127.0.0.1 - - [01/Jun/2025 15:52:56] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:53:28,243 [INFO] Received request to /extract-features
+2025-06-01 15:53:28,256 [INFO] Database connection established
+2025-06-01 15:53:28,265 [ERROR] Invalid image_id: 26 not found in product_images
+2025-06-01 15:53:28,266 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-01 15:53:28,267 [INFO] 127.0.0.1 - - [01/Jun/2025 15:53:28] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-01 15:53:48,358 [INFO] Received request to /extract-features
+2025-06-01 15:53:48,369 [INFO] Database connection established
+2025-06-01 15:53:49,302 [INFO] Saved features for image ID: 29
+2025-06-01 15:53:49,302 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-01 15:53:49,303 [INFO] Feature extraction completed: dict_keys(['29'])
+2025-06-01 15:53:49,306 [INFO] 127.0.0.1 - - [01/Jun/2025 15:53:49] "POST /extract-features HTTP/1.1" 200 -
+2025-06-01 15:54:11,687 [INFO] Received request to /rebuild-index
+2025-06-01 15:54:11,687 [INFO] Starting FAISS index initialization
+2025-06-01 15:54:11,687 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:54:11,687 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:54:12,174 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:54:12,174 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:54:12,633 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:54:12,633 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:54:13,227 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:54:13,227 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:54:14,081 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:54:14,081 [INFO] Converting feature list to NumPy array
+2025-06-01 15:54:14,081 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:54:14,081 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:54:14,081 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:54:14,082 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:54:14,082 [INFO] 127.0.0.1 - - [01/Jun/2025 15:54:14] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-01 15:56:42,701 [INFO] Received request to /rebuild-index
+2025-06-01 15:56:42,701 [INFO] Starting FAISS index initialization
+2025-06-01 15:56:42,702 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-01 15:56:42,702 [INFO] Processing image: dataset\photo1.jpg
+2025-06-01 15:56:43,214 [INFO] Features shape for photo1: (1280,)
+2025-06-01 15:56:43,214 [INFO] Processing image: dataset\photo2.jpg
+2025-06-01 15:56:43,657 [INFO] Features shape for photo2: (1280,)
+2025-06-01 15:56:43,657 [INFO] Processing image: dataset\photo3.jpg
+2025-06-01 15:56:44,248 [INFO] Features shape for photo3: (1280,)
+2025-06-01 15:56:44,248 [INFO] Processing image: dataset\photo4.jpg
+2025-06-01 15:56:45,173 [INFO] Features shape for photo4: (1280,)
+2025-06-01 15:56:45,173 [INFO] Converting feature list to NumPy array
+2025-06-01 15:56:45,173 [INFO] Feature array shape: (4, 1280)
+2025-06-01 15:56:45,173 [INFO] Creating FAISS index with dimension 1280
+2025-06-01 15:56:45,173 [INFO] Adding 4 vectors to FAISS index
+2025-06-01 15:56:45,173 [INFO] FAISS index initialized with 4 vectors
+2025-06-01 15:56:45,173 [INFO] 127.0.0.1 - - [01/Jun/2025 15:56:45] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-02 10:29:38,560 [INFO] Received request to /extract-features
+2025-06-02 10:29:38,577 [INFO] Database connection established
+2025-06-02 10:29:38,925 [INFO] Saved features for image ID: 32
+2025-06-02 10:29:38,927 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:29:38,927 [INFO] Feature extraction completed: dict_keys(['32'])
+2025-06-02 10:29:38,931 [INFO] 127.0.0.1 - - [02/Jun/2025 10:29:38] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 10:29:45,285 [INFO] Received request to /extract-features
+2025-06-02 10:29:45,291 [INFO] Database connection established
+2025-06-02 10:29:45,624 [INFO] Saved features for image ID: 33
+2025-06-02 10:29:45,625 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:29:45,626 [INFO] Feature extraction completed: dict_keys(['33'])
+2025-06-02 10:29:45,630 [INFO] 127.0.0.1 - - [02/Jun/2025 10:29:45] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 10:30:55,464 [INFO] Received request to /extract-features
+2025-06-02 10:30:55,470 [INFO] Database connection established
+2025-06-02 10:30:55,824 [INFO] Saved features for image ID: 34
+2025-06-02 10:30:55,825 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:30:55,825 [INFO] Feature extraction completed: dict_keys(['34'])
+2025-06-02 10:30:55,829 [INFO] 127.0.0.1 - - [02/Jun/2025 10:30:55] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 10:31:49,503 [INFO] Received request to /extract-features
+2025-06-02 10:31:49,508 [INFO] Database connection established
+2025-06-02 10:31:49,805 [INFO] Saved features for image ID: 35
+2025-06-02 10:31:49,805 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:31:49,806 [INFO] Feature extraction completed: dict_keys(['35'])
+2025-06-02 10:31:49,809 [INFO] 127.0.0.1 - - [02/Jun/2025 10:31:49] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 10:34:18,078 [INFO] Received request to /extract-features
+2025-06-02 10:34:18,082 [INFO] Database connection established
+2025-06-02 10:34:18,322 [INFO] Saved features for image ID: 36
+2025-06-02 10:34:18,322 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:34:18,323 [INFO] Feature extraction completed: dict_keys(['36'])
+2025-06-02 10:34:18,327 [INFO] 127.0.0.1 - - [02/Jun/2025 10:34:18] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 10:57:37,564 [INFO] Received request to /extract-features
+2025-06-02 10:57:37,613 [INFO] Database connection established
+2025-06-02 10:57:37,960 [INFO] Saved features for image ID: 37
+2025-06-02 10:57:37,961 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 10:57:38,631 [INFO] Saved features for image ID: 38
+2025-06-02 10:57:38,632 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-02 10:57:39,613 [INFO] Saved features for image ID: 39
+2025-06-02 10:57:39,614 [INFO] Cleaned up file: Uploads\photo2.jpg
+2025-06-02 10:57:40,421 [INFO] Saved features for image ID: 40
+2025-06-02 10:57:40,423 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 10:57:40,423 [INFO] Feature extraction completed: dict_keys(['37', '38', '39', '40'])
+2025-06-02 10:57:40,432 [INFO] 127.0.0.1 - - [02/Jun/2025 10:57:40] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:10:17,052 [INFO] Received request to /search
+2025-06-02 11:10:17,064 [ERROR] No image file provided
+2025-06-02 11:10:17,065 [INFO] 127.0.0.1 - - [02/Jun/2025 11:10:17] "[31m[1mPOST /search HTTP/1.1[0m" 400 -
+2025-06-02 11:10:25,438 [INFO] Received request to /search
+2025-06-02 11:10:25,454 [INFO] Extracting features for query image: Uploads\photo4.jpg
+2025-06-02 11:10:26,511 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:10:26,511 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:10:26,562 [INFO] Search completed: found 4 similar images: ['photo4', 'photo2', 'photo1', 'photo3']
+2025-06-02 11:10:26,563 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-02 11:10:26,565 [INFO] 127.0.0.1 - - [02/Jun/2025 11:10:26] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:14:25,114 [INFO] Received request to /search
+2025-06-02 11:14:25,131 [INFO] Extracting features for query image: Uploads\photo4.jpg
+2025-06-02 11:14:26,296 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:14:26,296 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:14:26,297 [INFO] Search completed: found 4 similar images: ['photo4', 'photo2', 'photo1', 'photo3']
+2025-06-02 11:14:26,297 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-02 11:14:26,298 [INFO] 127.0.0.1 - - [02/Jun/2025 11:14:26] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:14:54,914 [INFO] Received request to /search
+2025-06-02 11:14:54,931 [INFO] Extracting features for query image: Uploads\photo4.jpg
+2025-06-02 11:14:55,984 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:14:55,984 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:14:55,985 [INFO] Search completed: found 4 similar images: ['photo4', 'photo2', 'photo1', 'photo3']
+2025-06-02 11:14:55,986 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-02 11:14:55,987 [INFO] 127.0.0.1 - - [02/Jun/2025 11:14:55] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:15:25,136 [INFO] Initializing FAISS index at startup
+2025-06-02 11:15:25,136 [INFO] Starting FAISS index initialization
+2025-06-02 11:15:25,136 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-02 11:15:25,136 [INFO] Processing image: dataset\photo1.jpg
+2025-06-02 11:15:27,982 [INFO] Features shape for photo1: (1280,)
+2025-06-02 11:15:27,982 [INFO] Processing image: dataset\photo2.jpg
+2025-06-02 11:15:28,475 [INFO] Features shape for photo2: (1280,)
+2025-06-02 11:15:28,475 [INFO] Processing image: dataset\photo3.jpg
+2025-06-02 11:15:29,118 [INFO] Features shape for photo3: (1280,)
+2025-06-02 11:15:29,118 [INFO] Processing image: dataset\photo4.jpg
+2025-06-02 11:15:30,032 [INFO] Features shape for photo4: (1280,)
+2025-06-02 11:15:30,033 [INFO] Converting feature list to NumPy array
+2025-06-02 11:15:30,033 [INFO] Feature array shape: (4, 1280)
+2025-06-02 11:15:30,033 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:15:30,033 [INFO] Adding 4 vectors to FAISS index
+2025-06-02 11:15:30,033 [INFO] FAISS index initialized with 4 vectors
+2025-06-02 11:15:30,033 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000018255386520> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-02 11:15:30,034 [INFO] Starting Flask app
+2025-06-02 11:15:30,098 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:15:30,098 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:15:38,379 [INFO] Received request to /search
+2025-06-02 11:15:38,395 [INFO] Extracting features for query image: Uploads\photo4.jpg
+2025-06-02 11:15:39,401 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:15:39,401 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:15:39,421 [ERROR] Search failed: invalid literal for int() with base 10: 'photo4'
+2025-06-02 11:15:39,423 [INFO] Cleaned up file: Uploads\photo4.jpg
+2025-06-02 11:15:39,424 [INFO] 127.0.0.1 - - [02/Jun/2025 11:15:39] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-02 11:15:58,357 [INFO] Received request to /search
+2025-06-02 11:15:58,360 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:15:58,531 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:15:58,532 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:15:58,532 [ERROR] Search failed: invalid literal for int() with base 10: 'photo1'
+2025-06-02 11:15:58,533 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:15:58,534 [INFO] 127.0.0.1 - - [02/Jun/2025 11:15:58] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-02 11:16:26,766 [INFO] Initializing FAISS index at startup
+2025-06-02 11:16:26,766 [INFO] Starting FAISS index initialization
+2025-06-02 11:16:26,766 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-02 11:16:26,767 [INFO] Processing image: dataset\photo1.jpg
+2025-06-02 11:16:29,724 [INFO] Features shape for photo1: (1280,)
+2025-06-02 11:16:29,724 [INFO] Processing image: dataset\photo2.jpg
+2025-06-02 11:16:30,249 [INFO] Features shape for photo2: (1280,)
+2025-06-02 11:16:30,249 [INFO] Processing image: dataset\photo3.jpg
+2025-06-02 11:16:30,964 [INFO] Features shape for photo3: (1280,)
+2025-06-02 11:16:30,964 [INFO] Processing image: dataset\photo4.jpg
+2025-06-02 11:16:31,926 [INFO] Features shape for photo4: (1280,)
+2025-06-02 11:16:31,926 [INFO] Converting feature list to NumPy array
+2025-06-02 11:16:31,927 [INFO] Feature array shape: (4, 1280)
+2025-06-02 11:16:31,927 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:16:31,927 [INFO] Adding 4 vectors to FAISS index
+2025-06-02 11:16:31,927 [INFO] FAISS index initialized with 4 vectors
+2025-06-02 11:16:31,927 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000217625724C0> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-02 11:16:31,929 [INFO] Starting Flask app
+2025-06-02 11:16:31,959 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:16:31,959 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:16:41,276 [INFO] Received request to /search
+2025-06-02 11:16:41,279 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:16:41,461 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:16:41,462 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:16:41,478 [ERROR] Search failed: invalid literal for int() with base 10: 'photo1'
+2025-06-02 11:16:41,478 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:16:41,479 [INFO] 127.0.0.1 - - [02/Jun/2025 11:16:41] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-02 11:17:14,617 [INFO] Initializing FAISS index at startup
+2025-06-02 11:17:14,617 [INFO] Starting FAISS index initialization
+2025-06-02 11:17:14,617 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-02 11:17:14,617 [INFO] Processing image: dataset\photo1.jpg
+2025-06-02 11:17:18,064 [INFO] Features shape for photo1: (1280,)
+2025-06-02 11:17:18,064 [INFO] Processing image: dataset\photo2.jpg
+2025-06-02 11:17:18,587 [INFO] Features shape for photo2: (1280,)
+2025-06-02 11:17:18,587 [INFO] Processing image: dataset\photo3.jpg
+2025-06-02 11:17:19,273 [INFO] Features shape for photo3: (1280,)
+2025-06-02 11:17:19,274 [INFO] Processing image: dataset\photo4.jpg
+2025-06-02 11:17:20,288 [INFO] Features shape for photo4: (1280,)
+2025-06-02 11:17:20,289 [INFO] Converting feature list to NumPy array
+2025-06-02 11:17:20,289 [INFO] Feature array shape: (4, 1280)
+2025-06-02 11:17:20,289 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:17:20,289 [INFO] Adding 4 vectors to FAISS index
+2025-06-02 11:17:20,289 [INFO] FAISS index initialized with 4 vectors
+2025-06-02 11:17:20,290 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000001EA6C2F5EC0> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-02 11:17:20,291 [INFO] Starting Flask app
+2025-06-02 11:17:20,322 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:17:20,322 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:17:23,012 [INFO] Received request to /search
+2025-06-02 11:17:23,014 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:17:23,195 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:17:23,196 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:17:23,203 [INFO] Search completed: found 4 similar images: ['photo1', 'photo4', 'photo2', 'photo3']
+2025-06-02 11:17:23,205 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:17:23,206 [INFO] 127.0.0.1 - - [02/Jun/2025 11:17:23] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:21:12,777 [INFO] Initializing FAISS index at startup
+2025-06-02 11:21:12,778 [INFO] Starting FAISS index initialization
+2025-06-02 11:21:12,778 [INFO] Found 4 images in dataset folder: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg']
+2025-06-02 11:21:12,778 [INFO] Processing image: dataset\photo1.jpg
+2025-06-02 11:21:15,548 [INFO] Features shape for photo1: (1280,)
+2025-06-02 11:21:15,548 [INFO] Processing image: dataset\photo2.jpg
+2025-06-02 11:21:16,037 [INFO] Features shape for photo2: (1280,)
+2025-06-02 11:21:16,037 [INFO] Processing image: dataset\photo3.jpg
+2025-06-02 11:21:16,674 [INFO] Features shape for photo3: (1280,)
+2025-06-02 11:21:16,674 [INFO] Processing image: dataset\photo4.jpg
+2025-06-02 11:21:17,586 [INFO] Features shape for photo4: (1280,)
+2025-06-02 11:21:17,586 [INFO] Converting feature list to NumPy array
+2025-06-02 11:21:17,586 [INFO] Feature array shape: (4, 1280)
+2025-06-02 11:21:17,586 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:21:17,586 [INFO] Adding 4 vectors to FAISS index
+2025-06-02 11:21:17,587 [INFO] FAISS index initialized with 4 vectors
+2025-06-02 11:21:17,587 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000173E7BC6520> >, image_ids=['photo1', 'photo2', 'photo3', 'photo4']
+2025-06-02 11:21:17,588 [INFO] Starting Flask app
+2025-06-02 11:21:17,620 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:21:17,620 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:21:23,326 [INFO] Received request to /search
+2025-06-02 11:21:23,329 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:21:23,510 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:21:23,510 [INFO] Searching FAISS index for 4 nearest neighbors
+2025-06-02 11:21:23,524 [ERROR] Search failed: invalid literal for int() with base 10: 'photo1'
+2025-06-02 11:21:23,525 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:21:23,526 [INFO] 127.0.0.1 - - [02/Jun/2025 11:21:23] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-02 11:24:21,330 [INFO] Initializing FAISS index at startup
+2025-06-02 11:24:21,330 [INFO] Starting FAISS index initialization from image_features
+2025-06-02 11:24:21,343 [INFO] package: mysql.connector.plugins
+2025-06-02 11:24:21,343 [INFO] plugin_name: mysql_native_password
+2025-06-02 11:24:21,348 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-02 11:24:21,349 [INFO] Database connection established
+2025-06-02 11:24:21,351 [INFO] Loaded features for image_id 36
+2025-06-02 11:24:21,352 [INFO] Loaded features for image_id 37
+2025-06-02 11:24:21,353 [INFO] Loaded features for image_id 38
+2025-06-02 11:24:21,354 [INFO] Loaded features for image_id 39
+2025-06-02 11:24:21,355 [INFO] Loaded features for image_id 40
+2025-06-02 11:24:21,355 [INFO] Feature array shape: (5, 1280)
+2025-06-02 11:24:21,356 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:24:21,356 [INFO] FAISS index initialized with 5 vectors
+2025-06-02 11:24:21,356 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000029F2CD2E700> >, image_ids=[36, 37, 38, 39, 40]
+2025-06-02 11:24:21,358 [INFO] Starting Flask app
+2025-06-02 11:24:21,384 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:24:21,385 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:24:50,303 [INFO] Received request to /search
+2025-06-02 11:24:50,464 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:24:53,932 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:24:53,932 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:24:53,951 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:24:53,952 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:24:53,953 [INFO] 127.0.0.1 - - [02/Jun/2025 11:24:53] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:25:47,581 [INFO] Received request to /extract-features
+2025-06-02 11:25:47,583 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-02 11:25:47,583 [INFO] 127.0.0.1 - - [02/Jun/2025 11:25:47] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-02 11:25:59,928 [INFO] Received request to /extract-features
+2025-06-02 11:25:59,930 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-02 11:25:59,930 [INFO] 127.0.0.1 - - [02/Jun/2025 11:25:59] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-02 11:26:17,078 [INFO] Received request to /extract-features
+2025-06-02 11:26:17,080 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-02 11:26:17,080 [INFO] 127.0.0.1 - - [02/Jun/2025 11:26:17] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-02 11:26:30,802 [INFO] Received request to /extract-features
+2025-06-02 11:26:30,803 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-02 11:26:30,804 [INFO] 127.0.0.1 - - [02/Jun/2025 11:26:30] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-02 11:27:06,560 [INFO] Received request to /extract-features
+2025-06-02 11:27:06,565 [ERROR] Invalid request: 0 images, 1 IDs
+2025-06-02 11:27:06,565 [INFO] 127.0.0.1 - - [02/Jun/2025 11:27:06] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-02 11:27:15,988 [INFO] Received request to /extract-features
+2025-06-02 11:27:15,992 [INFO] Database connection established
+2025-06-02 11:27:16,205 [INFO] Saved features for image ID: 40
+
+2025-06-02 11:27:16,206 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:27:16,206 [INFO] Feature extraction completed: dict_keys(['40\n'])
+2025-06-02 11:27:16,209 [INFO] 127.0.0.1 - - [02/Jun/2025 11:27:16] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:27:45,704 [INFO] Received request to /extract-features
+2025-06-02 11:27:45,718 [INFO] Database connection established
+2025-06-02 11:27:45,921 [INFO] Saved features for image ID: 41
+2025-06-02 11:27:45,922 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:27:46,697 [INFO] Saved features for image ID: 42
+2025-06-02 11:27:46,698 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-02 11:27:47,545 [INFO] Saved features for image ID: 43
+2025-06-02 11:27:47,546 [INFO] Cleaned up file: Uploads\photo2.jpg
+2025-06-02 11:27:48,391 [INFO] Saved features for image ID: 44
+2025-06-02 11:27:48,392 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:27:48,392 [INFO] Feature extraction completed: dict_keys(['41', '42', '43', '44'])
+2025-06-02 11:27:48,402 [INFO] 127.0.0.1 - - [02/Jun/2025 11:27:48] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:33:51,509 [INFO] Received request to /search
+2025-06-02 11:33:51,512 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:33:51,685 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:33:51,685 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:33:51,686 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:33:51,686 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:33:51,687 [INFO] 127.0.0.1 - - [02/Jun/2025 11:33:51] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:37:50,999 [INFO] Received request to /extract-features
+2025-06-02 11:37:51,012 [INFO] Database connection established
+2025-06-02 11:37:51,191 [INFO] Saved features for image ID: 45
+2025-06-02 11:37:51,192 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:37:51,715 [INFO] Saved features for image ID: 46
+2025-06-02 11:37:51,716 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-02 11:37:52,269 [INFO] Saved features for image ID: 47
+2025-06-02 11:37:52,270 [INFO] Cleaned up file: Uploads\photo2.jpg
+2025-06-02 11:37:52,903 [INFO] Saved features for image ID: 48
+2025-06-02 11:37:52,904 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:37:52,904 [INFO] Feature extraction completed: dict_keys(['45', '46', '47', '48'])
+2025-06-02 11:37:52,911 [INFO] 127.0.0.1 - - [02/Jun/2025 11:37:52] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:38:49,754 [INFO] Received request to /extract-features
+2025-06-02 11:38:49,758 [INFO] Database connection established
+2025-06-02 11:38:49,940 [INFO] Saved features for image ID: 49
+2025-06-02 11:38:49,941 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:38:49,941 [INFO] Feature extraction completed: dict_keys(['49'])
+2025-06-02 11:38:49,943 [INFO] 127.0.0.1 - - [02/Jun/2025 11:38:49] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:40:52,875 [INFO] Received request to /extract-features
+2025-06-02 11:40:52,880 [INFO] Database connection established
+2025-06-02 11:40:53,499 [INFO] Saved features for image ID: 50
+2025-06-02 11:40:53,499 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:40:53,499 [INFO] Feature extraction completed: dict_keys(['50'])
+2025-06-02 11:40:53,502 [INFO] 127.0.0.1 - - [02/Jun/2025 11:40:53] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:41:07,483 [INFO] Received request to /search
+2025-06-02 11:41:07,485 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:07,641 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:41:07,641 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:41:07,641 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:41:07,643 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:07,643 [INFO] 127.0.0.1 - - [02/Jun/2025 11:41:07] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:41:22,652 [INFO] Received request to /search
+2025-06-02 11:41:22,655 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:22,814 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:41:22,814 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:41:22,814 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:41:22,815 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:22,815 [INFO] 127.0.0.1 - - [02/Jun/2025 11:41:22] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:41:52,829 [INFO] Received request to /search
+2025-06-02 11:41:52,831 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:52,985 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:41:52,985 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:41:52,986 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:41:52,986 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:41:52,987 [INFO] 127.0.0.1 - - [02/Jun/2025 11:41:52] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:42:11,112 [INFO] Received request to /search
+2025-06-02 11:42:11,114 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:42:11,271 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:42:11,271 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:42:11,272 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:42:11,272 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:42:11,272 [INFO] 127.0.0.1 - - [02/Jun/2025 11:42:11] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:42:22,662 [INFO] Received request to /search
+2025-06-02 11:42:22,668 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:42:23,259 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:42:23,259 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:42:23,259 [INFO] Search completed: found 5 matches: [{'image_id': 40, 'distance': 0.0}, {'image_id': 38, 'distance': 275.1864013671875}, {'image_id': 39, 'distance': 336.60498046875}, {'image_id': 36, 'distance': 377.51373291015625}, {'image_id': 37, 'distance': 377.51373291015625}]
+2025-06-02 11:42:23,260 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:42:23,261 [INFO] 127.0.0.1 - - [02/Jun/2025 11:42:23] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:42:55,119 [INFO] Received request to /search
+2025-06-02 11:42:55,124 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:42:55,723 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:42:55,723 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:42:55,723 [INFO] Search completed: found 5 matches: [{'image_id': 40, 'distance': 0.0}, {'image_id': 38, 'distance': 275.1864013671875}, {'image_id': 39, 'distance': 336.60498046875}, {'image_id': 36, 'distance': 377.51373291015625}, {'image_id': 37, 'distance': 377.51373291015625}]
+2025-06-02 11:42:55,724 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:42:55,724 [INFO] 127.0.0.1 - - [02/Jun/2025 11:42:55] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:43:11,696 [INFO] Received request to /extract-features
+2025-06-02 11:43:11,701 [INFO] Database connection established
+2025-06-02 11:43:12,317 [INFO] Saved features for image ID: 51
+2025-06-02 11:43:12,318 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:43:12,318 [INFO] Feature extraction completed: dict_keys(['51'])
+2025-06-02 11:43:12,321 [INFO] 127.0.0.1 - - [02/Jun/2025 11:43:12] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:43:14,645 [INFO] Received request to /extract-features
+2025-06-02 11:43:14,650 [INFO] Database connection established
+2025-06-02 11:43:15,266 [INFO] Saved features for image ID: 52
+2025-06-02 11:43:15,266 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:43:15,267 [INFO] Feature extraction completed: dict_keys(['52'])
+2025-06-02 11:43:15,269 [INFO] 127.0.0.1 - - [02/Jun/2025 11:43:15] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:43:17,274 [INFO] Received request to /extract-features
+2025-06-02 11:43:17,279 [INFO] Database connection established
+2025-06-02 11:43:17,911 [INFO] Saved features for image ID: 53
+2025-06-02 11:43:17,911 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:43:17,912 [INFO] Feature extraction completed: dict_keys(['53'])
+2025-06-02 11:43:17,914 [INFO] 127.0.0.1 - - [02/Jun/2025 11:43:17] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:43:22,220 [INFO] Received request to /search
+2025-06-02 11:43:22,227 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:43:22,817 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:43:22,817 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:43:22,817 [INFO] Search completed: found 5 matches: [{'image_id': 40, 'distance': 0.0}, {'image_id': 38, 'distance': 275.1864013671875}, {'image_id': 39, 'distance': 336.60498046875}, {'image_id': 36, 'distance': 377.51373291015625}, {'image_id': 37, 'distance': 377.51373291015625}]
+2025-06-02 11:43:22,818 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:43:22,819 [INFO] 127.0.0.1 - - [02/Jun/2025 11:43:22] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:44:02,346 [INFO] Received request to /search
+2025-06-02 11:44:02,352 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:44:02,946 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:44:02,946 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:44:02,946 [INFO] Search completed: found 5 matches: [{'image_id': 40, 'distance': 0.0}, {'image_id': 38, 'distance': 275.1864013671875}, {'image_id': 39, 'distance': 336.60498046875}, {'image_id': 36, 'distance': 377.51373291015625}, {'image_id': 37, 'distance': 377.51373291015625}]
+2025-06-02 11:44:02,947 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:44:02,948 [INFO] 127.0.0.1 - - [02/Jun/2025 11:44:02] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:44:27,144 [INFO] Received request to /search
+2025-06-02 11:44:27,146 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:44:27,295 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:44:27,295 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:44:27,295 [INFO] Search completed: found 5 matches: [{'image_id': 36, 'distance': 0.0}, {'image_id': 37, 'distance': 0.0}, {'image_id': 38, 'distance': 329.0352783203125}, {'image_id': 39, 'distance': 333.78045654296875}, {'image_id': 40, 'distance': 377.51373291015625}]
+2025-06-02 11:44:27,296 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:44:27,296 [INFO] 127.0.0.1 - - [02/Jun/2025 11:44:27] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:44:53,470 [INFO] Initializing FAISS index at startup
+2025-06-02 11:44:53,470 [INFO] Starting FAISS index initialization from image_features
+2025-06-02 11:44:53,483 [INFO] package: mysql.connector.plugins
+2025-06-02 11:44:53,483 [INFO] plugin_name: mysql_native_password
+2025-06-02 11:44:53,484 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-02 11:44:53,485 [INFO] Database connection established
+2025-06-02 11:44:53,486 [INFO] Loaded features for image_id 49
+2025-06-02 11:44:53,488 [INFO] Loaded features for image_id 50
+2025-06-02 11:44:53,488 [INFO] Loaded features for image_id 51
+2025-06-02 11:44:53,490 [INFO] Loaded features for image_id 52
+2025-06-02 11:44:53,490 [INFO] Loaded features for image_id 53
+2025-06-02 11:44:53,490 [INFO] Feature array shape: (5, 1280)
+2025-06-02 11:44:53,490 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:44:53,490 [INFO] FAISS index initialized with 5 vectors
+2025-06-02 11:44:53,490 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000029E075CE700> >, image_ids=[49, 50, 51, 52, 53]
+2025-06-02 11:44:53,493 [INFO] Starting Flask app
+2025-06-02 11:44:53,517 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:44:53,517 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-02 11:44:57,190 [INFO] Received request to /search
+2025-06-02 11:44:57,304 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:44:59,661 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:44:59,662 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:44:59,667 [INFO] Search completed: found 5 matches: [{'image_id': 49, 'distance': 0.0}, {'image_id': 50, 'distance': 377.51373291015625}, {'image_id': 51, 'distance': 377.51373291015625}, {'image_id': 52, 'distance': 377.51373291015625}, {'image_id': 53, 'distance': 377.51373291015625}]
+2025-06-02 11:44:59,668 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:44:59,669 [INFO] 127.0.0.1 - - [02/Jun/2025 11:44:59] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:45:22,823 [INFO] Received request to /search
+2025-06-02 11:45:22,828 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:45:23,450 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:45:23,450 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:45:23,450 [INFO] Search completed: found 5 matches: [{'image_id': 50, 'distance': 0.0}, {'image_id': 51, 'distance': 0.0}, {'image_id': 52, 'distance': 0.0}, {'image_id': 53, 'distance': 0.0}, {'image_id': 49, 'distance': 377.51373291015625}]
+2025-06-02 11:45:23,451 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:45:23,452 [INFO] 127.0.0.1 - - [02/Jun/2025 11:45:23] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:45:35,730 [INFO] Received request to /search
+2025-06-02 11:45:35,736 [INFO] Extracting features for query image: Uploads\photo2.jpg
+2025-06-02 11:45:36,203 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:45:36,203 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:45:36,203 [INFO] Search completed: found 5 matches: [{'image_id': 49, 'distance': 333.78045654296875}, {'image_id': 50, 'distance': 336.60498046875}, {'image_id': 51, 'distance': 336.60498046875}, {'image_id': 52, 'distance': 336.60498046875}, {'image_id': 53, 'distance': 336.60498046875}]
+2025-06-02 11:45:36,204 [INFO] Cleaned up file: Uploads\photo2.jpg
+2025-06-02 11:45:36,205 [INFO] 127.0.0.1 - - [02/Jun/2025 11:45:36] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:45:59,938 [INFO] Received request to /search
+2025-06-02 11:45:59,944 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:46:00,629 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:46:00,629 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:46:00,629 [INFO] Search completed: found 5 matches: [{'image_id': 50, 'distance': 0.0}, {'image_id': 51, 'distance': 0.0}, {'image_id': 52, 'distance': 0.0}, {'image_id': 53, 'distance': 0.0}, {'image_id': 49, 'distance': 377.51373291015625}]
+2025-06-02 11:46:00,630 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:46:00,631 [INFO] 127.0.0.1 - - [02/Jun/2025 11:46:00] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:48:20,053 [INFO] Received request to /search
+2025-06-02 11:48:20,059 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:48:20,679 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:48:20,680 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:48:20,680 [INFO] Search completed: found 5 matches: [{'image_id': 50, 'distance': 0.0}, {'image_id': 51, 'distance': 0.0}, {'image_id': 52, 'distance': 0.0}, {'image_id': 53, 'distance': 0.0}, {'image_id': 49, 'distance': 377.51373291015625}]
+2025-06-02 11:48:20,681 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:48:20,682 [INFO] 127.0.0.1 - - [02/Jun/2025 11:48:20] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:48:58,297 [INFO] Received request to /search
+2025-06-02 11:48:58,305 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:48:58,914 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:48:58,914 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:48:58,914 [INFO] Search completed: found 5 matches: [{'image_id': 50, 'distance': 0.0}, {'image_id': 51, 'distance': 0.0}, {'image_id': 52, 'distance': 0.0}, {'image_id': 53, 'distance': 0.0}, {'image_id': 49, 'distance': 377.51373291015625}]
+2025-06-02 11:48:58,915 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:48:58,916 [INFO] 127.0.0.1 - - [02/Jun/2025 11:48:58] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:49:18,558 [INFO] Received request to /extract-features
+2025-06-02 11:49:18,566 [INFO] Database connection established
+2025-06-02 11:49:19,213 [INFO] Saved features for image ID: 54
+2025-06-02 11:49:19,213 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:49:19,214 [INFO] Feature extraction completed: dict_keys(['54'])
+2025-06-02 11:49:19,216 [INFO] 127.0.0.1 - - [02/Jun/2025 11:49:19] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:49:54,223 [INFO] Received request to /extract-features
+2025-06-02 11:49:54,229 [INFO] Database connection established
+2025-06-02 11:49:54,705 [INFO] Saved features for image ID: 55
+2025-06-02 11:49:54,705 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-02 11:49:54,706 [INFO] Feature extraction completed: dict_keys(['55'])
+2025-06-02 11:49:54,709 [INFO] 127.0.0.1 - - [02/Jun/2025 11:49:54] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:50:12,768 [INFO] Received request to /extract-features
+2025-06-02 11:50:12,774 [INFO] Database connection established
+2025-06-02 11:50:13,299 [INFO] Saved features for image ID: 56
+2025-06-02 11:50:13,299 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-02 11:50:13,300 [INFO] Feature extraction completed: dict_keys(['56'])
+2025-06-02 11:50:13,302 [INFO] 127.0.0.1 - - [02/Jun/2025 11:50:13] "POST /extract-features HTTP/1.1" 200 -
+2025-06-02 11:50:40,677 [INFO] Received request to /search
+2025-06-02 11:50:40,683 [INFO] Extracting features for query image: Uploads\photo3.jpg
+2025-06-02 11:50:41,312 [INFO] Query vector shape: (1, 1280)
+2025-06-02 11:50:41,312 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-02 11:50:41,312 [INFO] Search completed: found 5 matches: [{'image_id': 50, 'distance': 0.0}, {'image_id': 51, 'distance': 0.0}, {'image_id': 52, 'distance': 0.0}, {'image_id': 53, 'distance': 0.0}, {'image_id': 49, 'distance': 377.51373291015625}]
+2025-06-02 11:50:41,313 [INFO] Cleaned up file: Uploads\photo3.jpg
+2025-06-02 11:50:41,314 [INFO] 127.0.0.1 - - [02/Jun/2025 11:50:41] "POST /search HTTP/1.1" 200 -
+2025-06-02 11:51:02,346 [INFO] Initializing FAISS index at startup
+2025-06-02 11:51:02,346 [INFO] Starting FAISS index initialization from image_features
+2025-06-02 11:51:02,358 [INFO] package: mysql.connector.plugins
+2025-06-02 11:51:02,358 [INFO] plugin_name: mysql_native_password
+2025-06-02 11:51:02,359 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-02 11:51:02,360 [INFO] Database connection established
+2025-06-02 11:51:02,362 [INFO] Loaded features for image_id 54
+2025-06-02 11:51:02,363 [INFO] Loaded features for image_id 55
+2025-06-02 11:51:02,364 [INFO] Loaded features for image_id 56
+2025-06-02 11:51:02,364 [INFO] Feature array shape: (3, 1280)
+2025-06-02 11:51:02,364 [INFO] Creating FAISS index with dimension 1280
+2025-06-02 11:51:02,364 [INFO] FAISS index initialized with 3 vectors
+2025-06-02 11:51:02,365 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000002747EED2700> >, image_ids=[54, 55, 56]
+2025-06-02 11:51:02,367 [INFO] Starting Flask app
+2025-06-02 11:51:02,392 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-02 11:51:02,392 [INFO] [33mPress CTRL+C to quit[0m

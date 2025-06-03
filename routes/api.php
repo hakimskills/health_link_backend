@@ -10,6 +10,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductOrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageSearchController;
 
 // Authenticated user info
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -111,3 +112,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/buyer-orders', [ProductOrderController::class, 'getBuyerOrders']);
 
 });
+Route::post('/search-by-image', [ProductController::class, 'searchByImage']);
