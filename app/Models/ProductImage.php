@@ -9,14 +9,21 @@ class ProductImage extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'product_id',
         'image_path',
-        'is_primary',
+        'is_primary'
     ];
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(Product::class);
+    }
+
+    public function feature()
+    {
+        return $this->hasOne(ImageFeature::class, 'image_id');
     }
 }
