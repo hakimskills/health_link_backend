@@ -8,6 +8,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegistrationStatusMail;
+use App\Models\Store;
+use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
+
 
 class AdminController extends Controller
 {
@@ -141,6 +145,39 @@ public function unbanUser($id)
     $user->save();
 
     return response()->json(['message' => 'User has been unbanned successfully.']);
+}
+public function deleteStore($id)
+{
+    if (Auth::user()->role !== 'Admin') {
+        return response()->json(['message' => 'Access denied. Admins only.'], 403);
+    }
+
+    $store = Store::findOrFail($id);
+    $store->delete();
+
+    return response()->json(['message' => 'Store deleted successfully']);
+}
+public function deleteProduct($id)
+{
+    if (Auth::user()->role !== 'Admin') {
+        return response()->json(['message' => 'Access denied. Admins only.'], 403);
+    }
+
+    $product = Product::findOrFail($id);
+
+    // Delete associated images from storage
+    foreach ($product->images as $image) {
+        // Extract the path from full URL if necessary
+        $path = str_replace(asset('storage/'), '', $image->image_path);
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
+    }
+
+    $product->delete(); // Assuming cascade delete for images
+
+    return response()->json(['message' => 'Product deleted successfully']);
 }
 
 }

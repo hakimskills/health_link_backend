@@ -29,6 +29,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user/update-wilaya', [UserController::class, 'updateWilaya']);
     Route::put('/user/update-password', [UserController::class, 'updatePassword']);
     Route::delete('/user/delete', [UserController::class, 'deleteUser']);
+    Route::get('/', [UserController::class, 'getAuthenticatedUser']); // GET /api/user
+    Route::put('/user/update', [UserController::class, 'updateProfile']);
+    Route::get('/users/{id}', [UserController::class, 'getUserById']);
+
 });
 
 
@@ -41,6 +45,11 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
     Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
     Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
+    Route::get('/admin/users', [AdminController::class, 'getUsers']);
+    Route::delete('/admin/store/{id}', [AdminController::class, 'deleteStore']);
+    Route::delete('/admin/product/{id}', [AdminController::class, 'deleteProduct']);
+
+
 });
 
 
