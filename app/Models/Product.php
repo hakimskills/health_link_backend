@@ -39,4 +39,14 @@ class Product extends Model
     {
         return $this->hasOne(ProductImage::class, 'product_id')->where('is_primary', true);
     }
+    public function ratings()
+{
+    return $this->hasMany(ProductRating::class, 'product_id', 'product_id');
+}
+
+// ⭐ Average rating accessor (optional)
+public function getAverageRatingAttribute()
+{
+    return $this->ratings()->avg('rating');
+}
 }

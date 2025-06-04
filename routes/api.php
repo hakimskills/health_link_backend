@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ProductRatingController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
@@ -100,5 +101,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/product-orders/seller/{sellerId}', [ProductOrderController::class, 'getOrdersBySellerId']);
     Route::put('/product-orders/{id}/approve', [ProductOrderController::class, 'approveOrder']); 
     Route::get('/buyer-orders', [ProductOrderController::class, 'getBuyerOrders']);
+
+});
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/products/{productId}/ratings', [ProductRatingController::class, 'index']);
+    Route::post('/ratings', [ProductRatingController::class, 'store']);
+    Route::delete('/ratings/{id}', [ProductRatingController::class, 'destroy']);
+    Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
