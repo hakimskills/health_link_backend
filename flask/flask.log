@@ -954,3 +954,1257 @@
 2025-06-02 11:51:02,392 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2025-06-02 11:51:02,392 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 00:48:09,922 [INFO] Initializing FAISS index at startup
+2025-06-04 00:48:09,922 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 00:48:09,969 [INFO] Database connection established
+2025-06-04 00:48:10,282 [ERROR] Failed to initialize FAISS index: 1146 (42S02): Table 'health_link.image_features' doesn't exist
+2025-06-04 00:48:10,282 [INFO] FAISS initialization complete: index=None, image_ids=None
+2025-06-04 00:48:10,282 [INFO] Starting Flask app
+2025-06-04 00:48:10,524 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 00:48:10,524 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 01:10:58,912 [INFO] Initializing FAISS index at startup
+2025-06-04 01:10:58,912 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 01:10:58,978 [INFO] Database connection established
+2025-06-04 01:10:58,978 [WARNING] No features found in image_features table
+2025-06-04 01:10:58,978 [INFO] FAISS initialization complete: index=None, image_ids=None
+2025-06-04 01:10:58,978 [INFO] Starting Flask app
+2025-06-04 01:10:58,995 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 01:10:58,995 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 01:11:08,610 [INFO] Received request to /extract-features
+2025-06-04 01:11:08,610 [INFO] Database connection established
+2025-06-04 01:11:11,658 [INFO] Saved features for image ID: 3
+2025-06-04 01:11:11,658 [INFO] Cleaned up file: Uploads\RADIO_2.jpg
+2025-06-04 01:11:11,790 [INFO] Saved features for image ID: 4
+2025-06-04 01:11:11,790 [INFO] Cleaned up file: Uploads\RADIO_1.jpg
+2025-06-04 01:11:11,790 [INFO] Feature extraction completed: dict_keys(['3', '4'])
+2025-06-04 01:11:11,793 [INFO] 127.0.0.1 - - [04/Jun/2025 01:11:11] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 01:11:58,856 [INFO] Received request to /extract-features
+2025-06-04 01:11:58,856 [INFO] Database connection established
+2025-06-04 01:11:58,972 [INFO] Saved features for image ID: 5
+2025-06-04 01:11:58,972 [INFO] Cleaned up file: Uploads\eco2.jpg
+2025-06-04 01:11:59,105 [INFO] Saved features for image ID: 6
+2025-06-04 01:11:59,105 [INFO] Cleaned up file: Uploads\eco1.jpg
+2025-06-04 01:11:59,105 [INFO] Feature extraction completed: dict_keys(['5', '6'])
+2025-06-04 01:11:59,122 [INFO] 127.0.0.1 - - [04/Jun/2025 01:11:59] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 01:12:48,152 [INFO] Received request to /extract-features
+2025-06-04 01:12:48,154 [INFO] Database connection established
+2025-06-04 01:12:48,303 [INFO] Saved features for image ID: 7
+2025-06-04 01:12:48,303 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:12:48,303 [INFO] Feature extraction completed: dict_keys(['7'])
+2025-06-04 01:12:48,303 [INFO] 127.0.0.1 - - [04/Jun/2025 01:12:48] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 01:14:39,079 [INFO] Received request to /search
+2025-06-04 01:14:39,081 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 01:14:39,197 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:14:39,198 [ERROR] FAISS index not initialized or empty
+2025-06-04 01:14:39,198 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:14:39,198 [INFO] 127.0.0.1 - - [04/Jun/2025 01:14:39] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-04 01:22:20,141 [INFO] Received request to /extract-features
+2025-06-04 01:22:20,141 [INFO] Database connection established
+2025-06-04 01:22:20,275 [INFO] Saved features for image ID: 8
+2025-06-04 01:22:20,275 [INFO] Cleaned up file: Uploads\download_1.jpeg
+2025-06-04 01:22:20,290 [INFO] Feature extraction completed: dict_keys(['8'])
+2025-06-04 01:22:20,291 [INFO] 127.0.0.1 - - [04/Jun/2025 01:22:20] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 01:22:41,665 [INFO] Received request to /extract-features
+2025-06-04 01:22:41,665 [INFO] Database connection established
+2025-06-04 01:22:41,798 [INFO] Saved features for image ID: 9
+2025-06-04 01:22:41,798 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 01:22:41,798 [INFO] Feature extraction completed: dict_keys(['9'])
+2025-06-04 01:22:41,814 [INFO] 127.0.0.1 - - [04/Jun/2025 01:22:41] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 01:22:48,773 [INFO] Received request to /search
+2025-06-04 01:22:48,773 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 01:22:48,897 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:22:48,897 [ERROR] FAISS index not initialized or empty
+2025-06-04 01:22:48,897 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:22:48,897 [INFO] 127.0.0.1 - - [04/Jun/2025 01:22:48] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-04 01:22:51,617 [INFO] Received request to /search
+2025-06-04 01:22:51,619 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 01:22:51,752 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:22:51,752 [ERROR] FAISS index not initialized or empty
+2025-06-04 01:22:51,753 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:22:51,753 [INFO] 127.0.0.1 - - [04/Jun/2025 01:22:51] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-04 01:26:48,757 [INFO] Received request to /search
+2025-06-04 01:26:48,757 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 01:26:48,867 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:26:48,867 [ERROR] FAISS index not initialized or empty
+2025-06-04 01:26:48,867 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:26:48,867 [INFO] 127.0.0.1 - - [04/Jun/2025 01:26:48] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-04 01:35:02,347 [INFO] Received request to /rebuild-index
+2025-06-04 01:35:02,347 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 01:35:02,350 [INFO] Database connection established
+2025-06-04 01:35:02,362 [INFO] Loaded features for image_id 5
+2025-06-04 01:35:02,366 [INFO] Loaded features for image_id 6
+2025-06-04 01:35:02,366 [INFO] Loaded features for image_id 7
+2025-06-04 01:35:02,368 [INFO] Loaded features for image_id 8
+2025-06-04 01:35:02,369 [INFO] Loaded features for image_id 9
+2025-06-04 01:35:02,370 [INFO] Feature array shape: (5, 1280)
+2025-06-04 01:35:02,371 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 01:35:02,387 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 01:35:02,388 [INFO] FAISS index rebuilt with 5 vectors
+2025-06-04 01:35:02,388 [INFO] 127.0.0.1 - - [04/Jun/2025 01:35:02] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-04 01:35:10,242 [INFO] Received request to /search
+2025-06-04 01:35:10,244 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 01:35:10,374 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:35:10,374 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 01:35:10,392 [INFO] Search completed: found 5 matches: [{'image_id': 7, 'distance': 0.0}, {'image_id': 6, 'distance': 292.70672607421875}, {'image_id': 9, 'distance': 305.4748840332031}, {'image_id': 5, 'distance': 344.8321228027344}, {'image_id': 8, 'distance': 355.71405029296875}]
+2025-06-04 01:35:10,392 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 01:35:10,392 [INFO] 127.0.0.1 - - [04/Jun/2025 01:35:10] "POST /search HTTP/1.1" 200 -
+2025-06-04 01:37:15,159 [INFO] Received request to /search
+2025-06-04 01:37:15,163 [INFO] Extracting features for query image: Uploads\eco1.jpg
+2025-06-04 01:37:15,305 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:37:15,305 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 01:37:15,306 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 0.0}, {'image_id': 5, 'distance': 277.21246337890625}, {'image_id': 8, 'distance': 289.73602294921875}, {'image_id': 7, 'distance': 292.70672607421875}, {'image_id': 9, 'distance': 314.9909973144531}]
+2025-06-04 01:37:15,307 [INFO] Cleaned up file: Uploads\eco1.jpg
+2025-06-04 01:37:15,307 [INFO] 127.0.0.1 - - [04/Jun/2025 01:37:15] "POST /search HTTP/1.1" 200 -
+2025-06-04 01:40:13,378 [INFO] Received request to /search
+2025-06-04 01:40:13,383 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 01:40:13,499 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:40:13,499 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 01:40:13,499 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}, {'image_id': 8, 'distance': 302.70806884765625}, {'image_id': 7, 'distance': 310.28759765625}, {'image_id': 9, 'distance': 336.3135986328125}]
+2025-06-04 01:40:13,500 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 01:40:13,500 [INFO] 127.0.0.1 - - [04/Jun/2025 01:40:13] "POST /search HTTP/1.1" 200 -
+2025-06-04 01:41:23,713 [INFO] Received request to /search
+2025-06-04 01:41:23,718 [INFO] Extracting features for query image: Uploads\RADIO.jpeg
+2025-06-04 01:41:23,845 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:41:23,845 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 01:41:23,845 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 195.1572265625}, {'image_id': 8, 'distance': 252.12387084960938}, {'image_id': 5, 'distance': 266.1564636230469}, {'image_id': 7, 'distance': 291.406494140625}, {'image_id': 9, 'distance': 292.78338623046875}]
+2025-06-04 01:41:23,845 [INFO] Cleaned up file: Uploads\RADIO.jpeg
+2025-06-04 01:41:23,846 [INFO] 127.0.0.1 - - [04/Jun/2025 01:41:23] "POST /search HTTP/1.1" 200 -
+2025-06-04 01:43:17,316 [INFO] Received request to /search
+2025-06-04 01:43:17,321 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 01:43:17,491 [INFO] Query vector shape: (1, 1280)
+2025-06-04 01:43:17,491 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 01:43:17,491 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 186.83987426757812}, {'image_id': 5, 'distance': 329.14715576171875}, {'image_id': 7, 'distance': 337.44903564453125}, {'image_id': 6, 'distance': 351.1715087890625}, {'image_id': 8, 'distance': 357.96087646484375}]
+2025-06-04 01:43:17,492 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 01:43:17,492 [INFO] 127.0.0.1 - - [04/Jun/2025 01:43:17] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:10:39,215 [INFO] Received request to /search
+2025-06-04 02:10:39,243 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 02:10:40,241 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:10:40,241 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:10:40,258 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 186.83987426757812}, {'image_id': 5, 'distance': 329.14715576171875}, {'image_id': 7, 'distance': 337.44903564453125}, {'image_id': 6, 'distance': 351.1715087890625}, {'image_id': 8, 'distance': 357.96087646484375}]
+2025-06-04 02:10:40,258 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 02:10:40,258 [INFO] 127.0.0.1 - - [04/Jun/2025 02:10:40] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:10:49,108 [INFO] Received request to /search
+2025-06-04 02:10:49,108 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 02:10:49,823 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:10:49,823 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:10:49,823 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 186.83987426757812}, {'image_id': 5, 'distance': 329.14715576171875}, {'image_id': 7, 'distance': 337.44903564453125}, {'image_id': 6, 'distance': 351.1715087890625}, {'image_id': 8, 'distance': 357.96087646484375}]
+2025-06-04 02:10:49,823 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 02:10:49,823 [INFO] 127.0.0.1 - - [04/Jun/2025 02:10:49] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:11:08,380 [INFO] Received request to /search
+2025-06-04 02:11:08,380 [INFO] Extracting features for query image: Uploads\RADIO.jpeg
+2025-06-04 02:11:08,546 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:11:08,546 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:11:08,546 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 195.1572265625}, {'image_id': 8, 'distance': 252.12387084960938}, {'image_id': 5, 'distance': 266.1564636230469}, {'image_id': 7, 'distance': 291.406494140625}, {'image_id': 9, 'distance': 292.78338623046875}]
+2025-06-04 02:11:08,546 [INFO] Cleaned up file: Uploads\RADIO.jpeg
+2025-06-04 02:11:08,546 [INFO] 127.0.0.1 - - [04/Jun/2025 02:11:08] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:21:01,415 [INFO] Received request to /search
+2025-06-04 02:21:01,453 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 02:21:02,824 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:21:02,826 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:21:02,835 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 186.83987426757812}, {'image_id': 5, 'distance': 329.14715576171875}, {'image_id': 7, 'distance': 337.44903564453125}, {'image_id': 6, 'distance': 351.1715087890625}, {'image_id': 8, 'distance': 357.96087646484375}]
+2025-06-04 02:21:02,838 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 02:21:02,839 [INFO] 127.0.0.1 - - [04/Jun/2025 02:21:02] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:21:47,592 [INFO] Received request to /search
+2025-06-04 02:21:47,592 [INFO] Extracting features for query image: Uploads\eco1.jpg
+2025-06-04 02:21:47,775 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:21:47,775 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:21:47,775 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 0.0}, {'image_id': 5, 'distance': 277.21246337890625}, {'image_id': 8, 'distance': 289.73602294921875}, {'image_id': 7, 'distance': 292.70672607421875}, {'image_id': 9, 'distance': 314.9909973144531}]
+2025-06-04 02:21:47,804 [INFO] Cleaned up file: Uploads\eco1.jpg
+2025-06-04 02:21:47,806 [INFO] 127.0.0.1 - - [04/Jun/2025 02:21:47] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:26:30,665 [INFO] Received request to /search
+2025-06-04 02:26:30,698 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 02:26:31,679 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:26:31,679 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:26:31,695 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 240.44961547851562}, {'image_id': 7, 'distance': 277.436279296875}, {'image_id': 5, 'distance': 280.600830078125}, {'image_id': 6, 'distance': 310.18341064453125}, {'image_id': 8, 'distance': 382.9754638671875}]
+2025-06-04 02:26:31,695 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 02:26:31,695 [INFO] 127.0.0.1 - - [04/Jun/2025 02:26:31] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:27:12,059 [INFO] Received request to /search
+2025-06-04 02:27:12,064 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 02:27:12,196 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:27:12,196 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:27:12,196 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 240.44961547851562}, {'image_id': 7, 'distance': 277.436279296875}, {'image_id': 5, 'distance': 280.600830078125}, {'image_id': 6, 'distance': 310.18341064453125}, {'image_id': 8, 'distance': 382.9754638671875}]
+2025-06-04 02:27:12,196 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 02:27:12,196 [INFO] 127.0.0.1 - - [04/Jun/2025 02:27:12] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:28:14,454 [INFO] Received request to /search
+2025-06-04 02:28:14,454 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 02:28:14,589 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:28:14,589 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:28:14,589 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 240.44961547851562}, {'image_id': 7, 'distance': 277.436279296875}, {'image_id': 5, 'distance': 280.600830078125}, {'image_id': 6, 'distance': 310.18341064453125}, {'image_id': 8, 'distance': 382.9754638671875}]
+2025-06-04 02:28:14,589 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 02:28:14,589 [INFO] 127.0.0.1 - - [04/Jun/2025 02:28:14] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:28:52,407 [INFO] Received request to /search
+2025-06-04 02:28:52,407 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:28:52,605 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:28:52,606 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:28:52,606 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:28:52,606 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:28:52,606 [INFO] 127.0.0.1 - - [04/Jun/2025 02:28:52] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:29:36,697 [INFO] Received request to /search
+2025-06-04 02:29:36,702 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:29:36,877 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:29:36,882 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:29:36,882 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:29:36,883 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:29:36,883 [INFO] 127.0.0.1 - - [04/Jun/2025 02:29:36] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:30:54,090 [INFO] Received request to /search
+2025-06-04 02:30:54,107 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:30:54,374 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:30:54,375 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:30:54,375 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:30:54,376 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:30:54,376 [INFO] 127.0.0.1 - - [04/Jun/2025 02:30:54] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:31:49,669 [INFO] Received request to /search
+2025-06-04 02:31:49,669 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:31:49,835 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:31:49,835 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:31:49,835 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:31:49,835 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:31:49,835 [INFO] 127.0.0.1 - - [04/Jun/2025 02:31:49] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:32:24,430 [INFO] Received request to /search
+2025-06-04 02:32:24,436 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:32:24,618 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:32:24,619 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:32:24,619 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:32:24,619 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:32:24,620 [INFO] 127.0.0.1 - - [04/Jun/2025 02:32:24] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:34:30,421 [INFO] Received request to /search
+2025-06-04 02:34:30,421 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:34:30,592 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:34:30,592 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:34:30,592 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:34:30,592 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:34:30,592 [INFO] 127.0.0.1 - - [04/Jun/2025 02:34:30] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:35:11,951 [INFO] Received request to /search
+2025-06-04 02:35:11,951 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:35:12,114 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:35:12,114 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:35:12,114 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:35:12,115 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:35:12,115 [INFO] 127.0.0.1 - - [04/Jun/2025 02:35:12] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:35:40,570 [INFO] Received request to /search
+2025-06-04 02:35:40,570 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:35:40,726 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:35:40,726 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:35:40,726 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:35:40,726 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:35:40,726 [INFO] 127.0.0.1 - - [04/Jun/2025 02:35:40] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:36:22,696 [INFO] Received request to /search
+2025-06-04 02:36:22,696 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:36:22,852 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:36:22,852 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:36:22,852 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:36:22,852 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:36:22,852 [INFO] 127.0.0.1 - - [04/Jun/2025 02:36:22] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:37:51,657 [INFO] Received request to /search
+2025-06-04 02:37:51,657 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:37:51,844 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:37:51,844 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:37:51,844 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:37:51,844 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:37:51,844 [INFO] 127.0.0.1 - - [04/Jun/2025 02:37:51] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:39:02,386 [INFO] Received request to /search
+2025-06-04 02:39:02,386 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:39:02,542 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:39:02,542 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:39:02,542 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:39:02,542 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:39:02,542 [INFO] 127.0.0.1 - - [04/Jun/2025 02:39:02] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:39:46,167 [INFO] Received request to /search
+2025-06-04 02:39:46,183 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:39:46,324 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:39:46,324 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:39:46,324 [INFO] Search completed: found 5 matches: [{'image_id': 9, 'distance': 0.0}, {'image_id': 7, 'distance': 305.4748840332031}, {'image_id': 6, 'distance': 314.9909973144531}, {'image_id': 5, 'distance': 320.1643981933594}, {'image_id': 8, 'distance': 356.37103271484375}]
+2025-06-04 02:39:46,324 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:39:46,324 [INFO] 127.0.0.1 - - [04/Jun/2025 02:39:46] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:43:58,913 [INFO] Initializing FAISS index at startup
+2025-06-04 02:43:58,913 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 02:43:58,961 [INFO] Database connection established
+2025-06-04 02:43:58,961 [INFO] Loaded features for image_id 5
+2025-06-04 02:43:58,961 [INFO] Loaded features for image_id 6
+2025-06-04 02:43:58,961 [INFO] Loaded features for image_id 7
+2025-06-04 02:43:58,961 [INFO] Loaded features for image_id 8
+2025-06-04 02:43:58,961 [INFO] Loaded features for image_id 9
+2025-06-04 02:43:58,961 [INFO] Feature array shape: (5, 1280)
+2025-06-04 02:43:58,961 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 02:43:58,978 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 02:43:58,978 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000023F97BA9380> >, image_ids=[5, 6, 7, 8, 9]
+2025-06-04 02:43:58,979 [INFO] Starting Flask app
+2025-06-04 02:43:58,994 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 02:43:58,995 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 02:44:03,379 [INFO] Received request to /search
+2025-06-04 02:44:03,382 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:44:06,144 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:44:06,144 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:44:06,168 [INFO] Filtered out match with distance 305.47 (> 200.00)
+2025-06-04 02:44:06,168 [INFO] Filtered out match with distance 314.99 (> 200.00)
+2025-06-04 02:44:06,168 [INFO] Filtered out match with distance 320.16 (> 200.00)
+2025-06-04 02:44:06,168 [INFO] Filtered out match with distance 356.37 (> 200.00)
+2025-06-04 02:44:06,168 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 200.00): [{'image_id': 9, 'distance': 0.0}]
+2025-06-04 02:44:06,169 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:44:06,169 [INFO] 127.0.0.1 - - [04/Jun/2025 02:44:06] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:44:19,446 [INFO] Received request to /search
+2025-06-04 02:44:19,448 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:44:19,580 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:44:19,580 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:44:19,580 [INFO] Filtered out match with distance 305.47 (> 200.00)
+2025-06-04 02:44:19,580 [INFO] Filtered out match with distance 314.99 (> 200.00)
+2025-06-04 02:44:19,580 [INFO] Filtered out match with distance 320.16 (> 200.00)
+2025-06-04 02:44:19,580 [INFO] Filtered out match with distance 356.37 (> 200.00)
+2025-06-04 02:44:19,580 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 200.00): [{'image_id': 9, 'distance': 0.0}]
+2025-06-04 02:44:19,581 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 02:44:19,582 [INFO] 127.0.0.1 - - [04/Jun/2025 02:44:19] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:44:30,966 [INFO] Received request to /search
+2025-06-04 02:44:30,966 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 02:44:31,104 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:44:31,104 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:44:31,104 [INFO] Filtered out match with distance 329.15 (> 200.00)
+2025-06-04 02:44:31,104 [INFO] Filtered out match with distance 337.45 (> 200.00)
+2025-06-04 02:44:31,104 [INFO] Filtered out match with distance 351.17 (> 200.00)
+2025-06-04 02:44:31,104 [INFO] Filtered out match with distance 357.96 (> 200.00)
+2025-06-04 02:44:31,104 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 200.00): [{'image_id': 9, 'distance': 186.83987426757812}]
+2025-06-04 02:44:31,104 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 02:44:31,104 [INFO] 127.0.0.1 - - [04/Jun/2025 02:44:31] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:44:34,263 [INFO] Received request to /search
+2025-06-04 02:44:34,263 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 02:44:34,380 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:44:34,380 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:44:34,380 [INFO] Filtered out match with distance 329.15 (> 200.00)
+2025-06-04 02:44:34,380 [INFO] Filtered out match with distance 337.45 (> 200.00)
+2025-06-04 02:44:34,380 [INFO] Filtered out match with distance 351.17 (> 200.00)
+2025-06-04 02:44:34,380 [INFO] Filtered out match with distance 357.96 (> 200.00)
+2025-06-04 02:44:34,380 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 200.00): [{'image_id': 9, 'distance': 186.83987426757812}]
+2025-06-04 02:44:34,380 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 02:44:34,380 [INFO] 127.0.0.1 - - [04/Jun/2025 02:44:34] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:44:42,760 [INFO] Received request to /search
+2025-06-04 02:44:42,760 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:44:42,894 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:44:42,894 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:44:42,894 [INFO] Filtered out match with distance 235.41 (> 200.00)
+2025-06-04 02:44:42,894 [INFO] Filtered out match with distance 247.30 (> 200.00)
+2025-06-04 02:44:42,894 [INFO] Filtered out match with distance 302.71 (> 200.00)
+2025-06-04 02:44:42,894 [INFO] Filtered out match with distance 310.29 (> 200.00)
+2025-06-04 02:44:42,894 [INFO] Filtered out match with distance 336.31 (> 200.00)
+2025-06-04 02:44:42,894 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 200.00): []
+2025-06-04 02:44:42,894 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:44:42,894 [INFO] 127.0.0.1 - - [04/Jun/2025 02:44:42] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:45:39,797 [INFO] Received request to /search
+2025-06-04 02:45:39,797 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:45:39,973 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:45:39,973 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:45:39,973 [INFO] Filtered out match with distance 235.41 (> 200.00)
+2025-06-04 02:45:39,973 [INFO] Filtered out match with distance 247.30 (> 200.00)
+2025-06-04 02:45:39,973 [INFO] Filtered out match with distance 302.71 (> 200.00)
+2025-06-04 02:45:39,973 [INFO] Filtered out match with distance 310.29 (> 200.00)
+2025-06-04 02:45:39,973 [INFO] Filtered out match with distance 336.31 (> 200.00)
+2025-06-04 02:45:39,973 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 200.00): []
+2025-06-04 02:45:39,973 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:45:39,973 [INFO] 127.0.0.1 - - [04/Jun/2025 02:45:39] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:46:07,988 [INFO] Received request to /search
+2025-06-04 02:46:07,990 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:46:08,099 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:46:08,099 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:46:08,099 [INFO] Filtered out match with distance 235.41 (> 200.00)
+2025-06-04 02:46:08,099 [INFO] Filtered out match with distance 247.30 (> 200.00)
+2025-06-04 02:46:08,099 [INFO] Filtered out match with distance 302.71 (> 200.00)
+2025-06-04 02:46:08,099 [INFO] Filtered out match with distance 310.29 (> 200.00)
+2025-06-04 02:46:08,099 [INFO] Filtered out match with distance 336.31 (> 200.00)
+2025-06-04 02:46:08,099 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 200.00): []
+2025-06-04 02:46:08,100 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:46:08,100 [INFO] 127.0.0.1 - - [04/Jun/2025 02:46:08] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:46:59,671 [INFO] Received request to /search
+2025-06-04 02:46:59,673 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:46:59,778 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:46:59,778 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:46:59,779 [INFO] Filtered out match with distance 235.41 (> 200.00)
+2025-06-04 02:46:59,779 [INFO] Filtered out match with distance 247.30 (> 200.00)
+2025-06-04 02:46:59,779 [INFO] Filtered out match with distance 302.71 (> 200.00)
+2025-06-04 02:46:59,779 [INFO] Filtered out match with distance 310.29 (> 200.00)
+2025-06-04 02:46:59,779 [INFO] Filtered out match with distance 336.31 (> 200.00)
+2025-06-04 02:46:59,779 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 200.00): []
+2025-06-04 02:46:59,779 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:46:59,780 [INFO] 127.0.0.1 - - [04/Jun/2025 02:46:59] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:47:24,121 [INFO] Initializing FAISS index at startup
+2025-06-04 02:47:24,136 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 02:47:24,167 [INFO] Database connection established
+2025-06-04 02:47:24,183 [INFO] Loaded features for image_id 5
+2025-06-04 02:47:24,183 [INFO] Loaded features for image_id 6
+2025-06-04 02:47:24,183 [INFO] Loaded features for image_id 7
+2025-06-04 02:47:24,183 [INFO] Loaded features for image_id 8
+2025-06-04 02:47:24,183 [INFO] Loaded features for image_id 9
+2025-06-04 02:47:24,183 [INFO] Feature array shape: (5, 1280)
+2025-06-04 02:47:24,183 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 02:47:24,183 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 02:47:24,183 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000025E3DC24D80> >, image_ids=[5, 6, 7, 8, 9]
+2025-06-04 02:47:24,183 [INFO] Starting Flask app
+2025-06-04 02:47:24,183 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 02:47:24,199 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 02:47:26,765 [INFO] Received request to /search
+2025-06-04 02:47:26,765 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:47:29,170 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:47:29,170 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:47:29,170 [INFO] Search completed: found 5 matches: [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}, {'image_id': 8, 'distance': 302.70806884765625}, {'image_id': 7, 'distance': 310.28759765625}, {'image_id': 9, 'distance': 336.3135986328125}]
+2025-06-04 02:47:29,170 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:47:29,170 [INFO] 127.0.0.1 - - [04/Jun/2025 02:47:29] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:48:08,626 [INFO] Initializing FAISS index at startup
+2025-06-04 02:48:08,626 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 02:48:08,642 [INFO] Database connection established
+2025-06-04 02:48:08,642 [INFO] Loaded features for image_id 5
+2025-06-04 02:48:08,658 [INFO] Loaded features for image_id 6
+2025-06-04 02:48:08,658 [INFO] Loaded features for image_id 7
+2025-06-04 02:48:08,658 [INFO] Loaded features for image_id 8
+2025-06-04 02:48:08,658 [INFO] Loaded features for image_id 9
+2025-06-04 02:48:08,658 [INFO] Feature array shape: (5, 1280)
+2025-06-04 02:48:08,658 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 02:48:08,658 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 02:48:08,658 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000283FFBD3060> >, image_ids=[5, 6, 7, 8, 9]
+2025-06-04 02:48:08,658 [INFO] Starting Flask app
+2025-06-04 02:48:08,658 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 02:48:08,658 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 02:48:08,966 [INFO] Received request to /search
+2025-06-04 02:48:08,966 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:48:11,322 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:48:11,322 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:48:11,342 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 02:48:11,342 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 02:48:11,342 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 02:48:11,342 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 02:48:11,343 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:48:11,345 [INFO] 127.0.0.1 - - [04/Jun/2025 02:48:11] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:48:34,758 [INFO] Received request to /search
+2025-06-04 02:48:34,760 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:48:34,857 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:48:34,857 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:48:34,857 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 02:48:34,857 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 02:48:34,857 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 02:48:34,857 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 02:48:34,858 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:48:34,858 [INFO] 127.0.0.1 - - [04/Jun/2025 02:48:34] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:56:27,429 [INFO] Received request to /search
+2025-06-04 02:56:27,479 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:56:28,845 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:56:28,861 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:56:28,878 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 02:56:28,878 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 02:56:28,878 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 02:56:28,878 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 02:56:28,878 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:56:28,878 [INFO] 127.0.0.1 - - [04/Jun/2025 02:56:28] "POST /search HTTP/1.1" 200 -
+2025-06-04 02:58:40,727 [INFO] Received request to /search
+2025-06-04 02:58:40,727 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 02:58:40,926 [INFO] Query vector shape: (1, 1280)
+2025-06-04 02:58:40,926 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 02:58:40,926 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 02:58:40,926 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 02:58:40,926 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 02:58:40,926 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 02:58:40,926 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 02:58:40,926 [INFO] 127.0.0.1 - - [04/Jun/2025 02:58:40] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:02:25,369 [INFO] Received request to /search
+2025-06-04 03:02:25,369 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 03:02:25,600 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:02:25,600 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:02:25,600 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 03:02:25,600 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 03:02:25,600 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 03:02:25,600 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 03:02:25,600 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 03:02:25,600 [INFO] 127.0.0.1 - - [04/Jun/2025 03:02:25] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:06:41,031 [INFO] Received request to /search
+2025-06-04 03:06:41,046 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 03:06:41,643 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:06:41,643 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:06:41,643 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 03:06:41,643 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 03:06:41,643 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 03:06:41,643 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 03:06:41,658 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 03:06:41,658 [INFO] 127.0.0.1 - - [04/Jun/2025 03:06:41] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:10:19,514 [INFO] Received request to /search
+2025-06-04 03:10:19,547 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 03:10:20,630 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:10:20,630 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:10:20,647 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 03:10:20,647 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 03:10:20,647 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 03:10:20,647 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 03:10:20,647 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 03:10:20,647 [INFO] 127.0.0.1 - - [04/Jun/2025 03:10:20] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:10:54,083 [INFO] Received request to /search
+2025-06-04 03:10:54,083 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-04 03:10:54,267 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:10:54,267 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:10:54,267 [INFO] Filtered out match with distance 292.71 (> 250.00)
+2025-06-04 03:10:54,267 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 03:10:54,267 [INFO] Filtered out match with distance 344.83 (> 250.00)
+2025-06-04 03:10:54,267 [INFO] Filtered out match with distance 355.71 (> 250.00)
+2025-06-04 03:10:54,267 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 0.0}]
+2025-06-04 03:10:54,267 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-04 03:10:54,267 [INFO] 127.0.0.1 - - [04/Jun/2025 03:10:54] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:11:06,644 [INFO] Received request to /search
+2025-06-04 03:11:06,644 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 03:11:06,846 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:11:06,846 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:11:06,861 [INFO] Filtered out match with distance 329.15 (> 250.00)
+2025-06-04 03:11:06,861 [INFO] Filtered out match with distance 337.45 (> 250.00)
+2025-06-04 03:11:06,861 [INFO] Filtered out match with distance 351.17 (> 250.00)
+2025-06-04 03:11:06,861 [INFO] Filtered out match with distance 357.96 (> 250.00)
+2025-06-04 03:11:06,861 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 186.83987426757812}]
+2025-06-04 03:11:06,861 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 03:11:06,861 [INFO] 127.0.0.1 - - [04/Jun/2025 03:11:06] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:11:22,888 [INFO] Received request to /search
+2025-06-04 03:11:22,888 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 03:11:23,105 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:11:23,105 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:11:23,105 [INFO] Filtered out match with distance 277.44 (> 250.00)
+2025-06-04 03:11:23,105 [INFO] Filtered out match with distance 280.60 (> 250.00)
+2025-06-04 03:11:23,105 [INFO] Filtered out match with distance 310.18 (> 250.00)
+2025-06-04 03:11:23,105 [INFO] Filtered out match with distance 382.98 (> 250.00)
+2025-06-04 03:11:23,105 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 240.44961547851562}]
+2025-06-04 03:11:23,105 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 03:11:23,105 [INFO] 127.0.0.1 - - [04/Jun/2025 03:11:23] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:12:37,909 [INFO] Received request to /search
+2025-06-04 03:12:37,909 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 03:12:38,042 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:12:38,042 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:12:38,042 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 03:12:38,042 [INFO] Filtered out match with distance 263.23 (> 250.00)
+2025-06-04 03:12:38,042 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 03:12:38,042 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 03:12:38,042 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 03:12:38,042 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 03:12:38,042 [INFO] 127.0.0.1 - - [04/Jun/2025 03:12:38] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:14:00,972 [INFO] Received request to /search
+2025-06-04 03:14:00,972 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 03:14:01,126 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:14:01,126 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:14:01,126 [INFO] Filtered out match with distance 334.95 (> 250.00)
+2025-06-04 03:14:01,126 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 03:14:01,126 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 03:14:01,126 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 03:14:01,126 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 03:14:01,126 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 03:14:01,126 [INFO] 127.0.0.1 - - [04/Jun/2025 03:14:01] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:17:29,259 [INFO] Received request to /search
+2025-06-04 03:17:29,259 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 03:17:29,425 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:17:29,425 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:17:29,425 [INFO] Filtered out match with distance 277.44 (> 250.00)
+2025-06-04 03:17:29,425 [INFO] Filtered out match with distance 280.60 (> 250.00)
+2025-06-04 03:17:29,425 [INFO] Filtered out match with distance 310.18 (> 250.00)
+2025-06-04 03:17:29,425 [INFO] Filtered out match with distance 382.98 (> 250.00)
+2025-06-04 03:17:29,425 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 240.44961547851562}]
+2025-06-04 03:17:29,425 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 03:17:29,425 [INFO] 127.0.0.1 - - [04/Jun/2025 03:17:29] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:17:48,835 [INFO] Received request to /search
+2025-06-04 03:17:48,835 [INFO] Extracting features for query image: Uploads\Ctrl_CDAM_2018_-2.jpg
+2025-06-04 03:17:49,036 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:17:49,036 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:17:49,036 [INFO] Filtered out match with distance 274.49 (> 250.00)
+2025-06-04 03:17:49,036 [INFO] Filtered out match with distance 321.61 (> 250.00)
+2025-06-04 03:17:49,036 [INFO] Filtered out match with distance 339.19 (> 250.00)
+2025-06-04 03:17:49,036 [INFO] Filtered out match with distance 368.95 (> 250.00)
+2025-06-04 03:17:49,036 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 197.55740356445312}]
+2025-06-04 03:17:49,036 [INFO] Cleaned up file: Uploads\Ctrl_CDAM_2018_-2.jpg
+2025-06-04 03:17:49,036 [INFO] 127.0.0.1 - - [04/Jun/2025 03:17:49] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:18:35,583 [INFO] Received request to /search
+2025-06-04 03:18:35,583 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 03:18:35,749 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:18:35,749 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:18:35,749 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 03:18:35,749 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 03:18:35,749 [INFO] Filtered out match with distance 336.31 (> 250.00)
+2025-06-04 03:18:35,749 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 03:18:35,749 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 03:18:35,749 [INFO] 127.0.0.1 - - [04/Jun/2025 03:18:35] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:18:50,526 [INFO] Received request to /search
+2025-06-04 03:18:50,526 [INFO] Extracting features for query image: Uploads\RADIO_1.jpg
+2025-06-04 03:18:50,677 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:18:50,677 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:18:50,677 [INFO] Filtered out match with distance 251.96 (> 250.00)
+2025-06-04 03:18:50,677 [INFO] Filtered out match with distance 262.89 (> 250.00)
+2025-06-04 03:18:50,677 [INFO] Filtered out match with distance 307.33 (> 250.00)
+2025-06-04 03:18:50,677 [INFO] Filtered out match with distance 316.96 (> 250.00)
+2025-06-04 03:18:50,677 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 230.49118041992188}]
+2025-06-04 03:18:50,677 [INFO] Cleaned up file: Uploads\RADIO_1.jpg
+2025-06-04 03:18:50,677 [INFO] 127.0.0.1 - - [04/Jun/2025 03:18:50] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:19:22,283 [INFO] Received request to /search
+2025-06-04 03:19:22,283 [INFO] Extracting features for query image: Uploads\RADIO_2.jpg
+2025-06-04 03:19:22,466 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:19:22,466 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:19:22,466 [INFO] Filtered out match with distance 268.12 (> 250.00)
+2025-06-04 03:19:22,466 [INFO] Filtered out match with distance 273.23 (> 250.00)
+2025-06-04 03:19:22,466 [INFO] Filtered out match with distance 299.92 (> 250.00)
+2025-06-04 03:19:22,466 [INFO] Filtered out match with distance 342.55 (> 250.00)
+2025-06-04 03:19:22,466 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 214.76272583007812}]
+2025-06-04 03:19:22,466 [INFO] Cleaned up file: Uploads\RADIO_2.jpg
+2025-06-04 03:19:22,466 [INFO] 127.0.0.1 - - [04/Jun/2025 03:19:22] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:19:45,587 [INFO] Received request to /search
+2025-06-04 03:19:45,587 [INFO] Extracting features for query image: Uploads\eco1.jpg
+2025-06-04 03:19:45,740 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:19:45,740 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:19:45,740 [INFO] Filtered out match with distance 277.21 (> 250.00)
+2025-06-04 03:19:45,740 [INFO] Filtered out match with distance 289.74 (> 250.00)
+2025-06-04 03:19:45,740 [INFO] Filtered out match with distance 292.71 (> 250.00)
+2025-06-04 03:19:45,740 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 03:19:45,740 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 0.0}]
+2025-06-04 03:19:45,754 [INFO] Cleaned up file: Uploads\eco1.jpg
+2025-06-04 03:19:45,754 [INFO] 127.0.0.1 - - [04/Jun/2025 03:19:45] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:20:28,888 [INFO] Received request to /search
+2025-06-04 03:20:28,904 [INFO] Extracting features for query image: Uploads\Screenshot_19-3-2025_14591_laibclinic.com.jpeg
+2025-06-04 03:20:29,120 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:20:29,120 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:20:29,120 [INFO] Filtered out match with distance 251.16 (> 250.00)
+2025-06-04 03:20:29,120 [INFO] Filtered out match with distance 266.61 (> 250.00)
+2025-06-04 03:20:29,120 [INFO] Filtered out match with distance 303.83 (> 250.00)
+2025-06-04 03:20:29,120 [INFO] Filtered out match with distance 322.31 (> 250.00)
+2025-06-04 03:20:29,120 [INFO] Filtered out match with distance 333.29 (> 250.00)
+2025-06-04 03:20:29,120 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 03:20:29,120 [INFO] Cleaned up file: Uploads\Screenshot_19-3-2025_14591_laibclinic.com.jpeg
+2025-06-04 03:20:29,120 [INFO] 127.0.0.1 - - [04/Jun/2025 03:20:29] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:20:53,493 [INFO] Received request to /search
+2025-06-04 03:20:53,493 [INFO] Extracting features for query image: Uploads\Ctrl_CDAM_2018_-2.jpg
+2025-06-04 03:20:53,627 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:20:53,627 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:20:53,627 [INFO] Filtered out match with distance 274.49 (> 250.00)
+2025-06-04 03:20:53,627 [INFO] Filtered out match with distance 321.61 (> 250.00)
+2025-06-04 03:20:53,627 [INFO] Filtered out match with distance 339.19 (> 250.00)
+2025-06-04 03:20:53,627 [INFO] Filtered out match with distance 368.95 (> 250.00)
+2025-06-04 03:20:53,627 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 197.55740356445312}]
+2025-06-04 03:20:53,627 [INFO] Cleaned up file: Uploads\Ctrl_CDAM_2018_-2.jpg
+2025-06-04 03:20:53,627 [INFO] 127.0.0.1 - - [04/Jun/2025 03:20:53] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:21:01,741 [INFO] Received request to /search
+2025-06-04 03:21:01,741 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 03:21:01,876 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:21:01,876 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:21:01,876 [INFO] Filtered out match with distance 277.44 (> 250.00)
+2025-06-04 03:21:01,876 [INFO] Filtered out match with distance 280.60 (> 250.00)
+2025-06-04 03:21:01,876 [INFO] Filtered out match with distance 310.18 (> 250.00)
+2025-06-04 03:21:01,876 [INFO] Filtered out match with distance 382.98 (> 250.00)
+2025-06-04 03:21:01,876 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 240.44961547851562}]
+2025-06-04 03:21:01,876 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 03:21:01,876 [INFO] 127.0.0.1 - - [04/Jun/2025 03:21:01] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:21:10,504 [INFO] Received request to /search
+2025-06-04 03:21:10,504 [INFO] Extracting features for query image: Uploads\303d6ccb-5474-4157-8dae-c8c1690bd04e.jpeg
+2025-06-04 03:21:10,671 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:21:10,671 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:21:10,671 [INFO] Filtered out match with distance 290.02 (> 250.00)
+2025-06-04 03:21:10,671 [INFO] Filtered out match with distance 327.68 (> 250.00)
+2025-06-04 03:21:10,671 [INFO] Filtered out match with distance 336.28 (> 250.00)
+2025-06-04 03:21:10,671 [INFO] Filtered out match with distance 353.55 (> 250.00)
+2025-06-04 03:21:10,671 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 192.20672607421875}]
+2025-06-04 03:21:10,671 [INFO] Cleaned up file: Uploads\303d6ccb-5474-4157-8dae-c8c1690bd04e.jpeg
+2025-06-04 03:21:10,671 [INFO] 127.0.0.1 - - [04/Jun/2025 03:21:10] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:21:20,234 [INFO] Received request to /search
+2025-06-04 03:21:20,234 [INFO] Extracting features for query image: Uploads\Facture.jpg
+2025-06-04 03:21:20,350 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:21:20,350 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:21:20,350 [INFO] Filtered out match with distance 276.34 (> 250.00)
+2025-06-04 03:21:20,350 [INFO] Filtered out match with distance 309.32 (> 250.00)
+2025-06-04 03:21:20,350 [INFO] Filtered out match with distance 322.63 (> 250.00)
+2025-06-04 03:21:20,350 [INFO] Filtered out match with distance 341.55 (> 250.00)
+2025-06-04 03:21:20,350 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 189.8270263671875}]
+2025-06-04 03:21:20,350 [INFO] Cleaned up file: Uploads\Facture.jpg
+2025-06-04 03:21:20,350 [INFO] 127.0.0.1 - - [04/Jun/2025 03:21:20] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:21:25,465 [INFO] Received request to /search
+2025-06-04 03:21:25,465 [INFO] Extracting features for query image: Uploads\Facture.jpg
+2025-06-04 03:21:25,617 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:21:25,617 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:21:25,617 [INFO] Filtered out match with distance 276.34 (> 250.00)
+2025-06-04 03:21:25,617 [INFO] Filtered out match with distance 309.32 (> 250.00)
+2025-06-04 03:21:25,617 [INFO] Filtered out match with distance 322.63 (> 250.00)
+2025-06-04 03:21:25,617 [INFO] Filtered out match with distance 341.55 (> 250.00)
+2025-06-04 03:21:25,617 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 189.8270263671875}]
+2025-06-04 03:21:25,617 [INFO] Cleaned up file: Uploads\Facture.jpg
+2025-06-04 03:21:25,617 [INFO] 127.0.0.1 - - [04/Jun/2025 03:21:25] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:21:35,178 [INFO] Received request to /search
+2025-06-04 03:21:35,178 [INFO] Extracting features for query image: Uploads\RADIO_1.jpg
+2025-06-04 03:21:35,294 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:21:35,294 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:21:35,294 [INFO] Filtered out match with distance 251.96 (> 250.00)
+2025-06-04 03:21:35,294 [INFO] Filtered out match with distance 262.89 (> 250.00)
+2025-06-04 03:21:35,294 [INFO] Filtered out match with distance 307.33 (> 250.00)
+2025-06-04 03:21:35,294 [INFO] Filtered out match with distance 316.96 (> 250.00)
+2025-06-04 03:21:35,294 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 230.49118041992188}]
+2025-06-04 03:21:35,294 [INFO] Cleaned up file: Uploads\RADIO_1.jpg
+2025-06-04 03:21:35,294 [INFO] 127.0.0.1 - - [04/Jun/2025 03:21:35] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:23:24,550 [INFO] Received request to /extract-features
+2025-06-04 03:23:24,617 [INFO] Database connection established
+2025-06-04 03:23:24,801 [INFO] Saved features for image ID: 10
+2025-06-04 03:23:24,801 [INFO] Cleaned up file: Uploads\heart.jpeg
+2025-06-04 03:23:24,801 [INFO] Feature extraction completed: dict_keys(['10'])
+2025-06-04 03:23:24,867 [INFO] 127.0.0.1 - - [04/Jun/2025 03:23:24] "POST /extract-features HTTP/1.1" 200 -
+2025-06-04 03:23:54,322 [INFO] Received request to /search
+2025-06-04 03:23:54,322 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 03:23:54,438 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:23:54,438 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:23:54,438 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 03:23:54,438 [INFO] Filtered out match with distance 285.08 (> 250.00)
+2025-06-04 03:23:54,438 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 03:23:54,438 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 03:23:54,438 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 03:23:54,438 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 03:23:54,438 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 03:23:54,438 [INFO] 127.0.0.1 - - [04/Jun/2025 03:23:54] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:24:30,441 [INFO] Received request to /search
+2025-06-04 03:24:30,441 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:24:30,559 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:24:30,559 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:24:30,559 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:24:30,559 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:24:30,559 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:24:30,559 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:24:30,559 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 204.32730102539062}]
+2025-06-04 03:24:30,559 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:24:30,559 [INFO] 127.0.0.1 - - [04/Jun/2025 03:24:30] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:24:52,501 [INFO] Received request to /search
+2025-06-04 03:24:52,504 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:24:52,613 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:24:52,613 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:24:52,613 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:24:52,613 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:24:52,613 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:24:52,613 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:24:52,613 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 9, 'distance': 204.32730102539062}]
+2025-06-04 03:24:52,614 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:24:52,614 [INFO] 127.0.0.1 - - [04/Jun/2025 03:24:52] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:25:33,665 [INFO] Initializing FAISS index at startup
+2025-06-04 03:25:33,665 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 03:25:33,711 [INFO] Database connection established
+2025-06-04 03:25:33,711 [INFO] Loaded features for image_id 5
+2025-06-04 03:25:33,711 [INFO] Loaded features for image_id 6
+2025-06-04 03:25:33,711 [INFO] Loaded features for image_id 7
+2025-06-04 03:25:33,711 [INFO] Loaded features for image_id 8
+2025-06-04 03:25:33,711 [INFO] Loaded features for image_id 10
+2025-06-04 03:25:33,711 [INFO] Feature array shape: (5, 1280)
+2025-06-04 03:25:33,711 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 03:25:33,727 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 03:25:33,727 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000002B946CF3C00> >, image_ids=[5, 6, 7, 8, 10]
+2025-06-04 03:25:33,727 [INFO] Starting Flask app
+2025-06-04 03:25:33,727 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 03:25:33,727 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 03:25:38,187 [INFO] Received request to /search
+2025-06-04 03:25:38,188 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:25:40,629 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:25:40,630 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:25:40,644 [INFO] Filtered out match with distance 326.81 (> 300.00)
+2025-06-04 03:25:40,644 [INFO] Search completed: found 4 matches (filtered out 1 with distance > 300.00): [{'image_id': 10, 'distance': 87.65438079833984}, {'image_id': 7, 'distance': 259.205078125}, {'image_id': 6, 'distance': 296.4836120605469}, {'image_id': 5, 'distance': 297.6147155761719}]
+2025-06-04 03:25:40,645 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:25:40,646 [INFO] 127.0.0.1 - - [04/Jun/2025 03:25:40] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:26:18,493 [INFO] Initializing FAISS index at startup
+2025-06-04 03:26:18,493 [INFO] Starting FAISS index initialization from image_features
+2025-06-04 03:26:18,509 [INFO] Database connection established
+2025-06-04 03:26:18,509 [INFO] Loaded features for image_id 5
+2025-06-04 03:26:18,509 [INFO] Loaded features for image_id 6
+2025-06-04 03:26:18,509 [INFO] Loaded features for image_id 7
+2025-06-04 03:26:18,509 [INFO] Loaded features for image_id 8
+2025-06-04 03:26:18,509 [INFO] Loaded features for image_id 10
+2025-06-04 03:26:18,509 [INFO] Feature array shape: (5, 1280)
+2025-06-04 03:26:18,509 [INFO] Creating FAISS index with dimension 1280
+2025-06-04 03:26:18,509 [INFO] FAISS index initialized with 5 vectors
+2025-06-04 03:26:18,509 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000185362F3090> >, image_ids=[5, 6, 7, 8, 10]
+2025-06-04 03:26:18,509 [INFO] Starting Flask app
+2025-06-04 03:26:18,509 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 03:26:18,509 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-04 03:26:24,512 [INFO] Received request to /search
+2025-06-04 03:26:24,512 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:26:27,185 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:26:27,185 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:26:27,208 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:26:27,208 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:26:27,208 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:26:27,208 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:26:27,208 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 87.65438079833984}]
+2025-06-04 03:26:27,208 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:26:27,208 [INFO] 127.0.0.1 - - [04/Jun/2025 03:26:27] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:26:36,503 [INFO] Received request to /search
+2025-06-04 03:26:36,504 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:26:36,618 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:26:36,619 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:26:36,619 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:26:36,619 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:26:36,619 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:26:36,619 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:26:36,619 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 87.65438079833984}]
+2025-06-04 03:26:36,619 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:26:36,620 [INFO] 127.0.0.1 - - [04/Jun/2025 03:26:36] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:26:52,550 [INFO] Received request to /search
+2025-06-04 03:26:52,551 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 03:26:52,669 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:26:52,669 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:26:52,669 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 03:26:52,669 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 03:26:52,669 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 03:26:52,669 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 03:26:52,669 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 03:26:52,669 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 03:26:52,669 [INFO] 127.0.0.1 - - [04/Jun/2025 03:26:52] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:26:56,367 [INFO] Received request to /search
+2025-06-04 03:26:56,367 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 03:26:56,500 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:26:56,500 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:26:56,500 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 03:26:56,500 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 03:26:56,500 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 03:26:56,500 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 03:26:56,500 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 03:26:56,500 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 03:26:56,500 [INFO] 127.0.0.1 - - [04/Jun/2025 03:26:56] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:27:03,214 [INFO] Received request to /search
+2025-06-04 03:27:03,214 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 03:27:03,315 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:27:03,330 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:27:03,330 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 03:27:03,330 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 03:27:03,331 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 03:27:03,331 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 03:27:03,331 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 03:27:03,331 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 03:27:03,331 [INFO] 127.0.0.1 - - [04/Jun/2025 03:27:03] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:28:29,150 [INFO] Received request to /search
+2025-06-04 03:28:29,150 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:28:29,250 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:28:29,250 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:28:29,250 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:28:29,250 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:28:29,250 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:28:29,250 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:28:29,250 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 87.65438079833984}]
+2025-06-04 03:28:29,250 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:28:29,250 [INFO] 127.0.0.1 - - [04/Jun/2025 03:28:29] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:28:42,410 [INFO] Received request to /search
+2025-06-04 03:28:42,411 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 03:28:42,512 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:28:42,512 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:28:42,512 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 03:28:42,512 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 03:28:42,512 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 03:28:42,512 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 03:28:42,512 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 03:28:42,512 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 03:28:42,512 [INFO] 127.0.0.1 - - [04/Jun/2025 03:28:42] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:29:13,366 [INFO] Received request to /search
+2025-06-04 03:29:13,366 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 03:29:13,466 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:29:13,466 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:29:13,466 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 03:29:13,466 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 03:29:13,466 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 03:29:13,481 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 03:29:13,481 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 87.65438079833984}]
+2025-06-04 03:29:13,482 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 03:29:13,482 [INFO] 127.0.0.1 - - [04/Jun/2025 03:29:13] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:29:26,977 [INFO] Received request to /search
+2025-06-04 03:29:26,977 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 03:29:27,077 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:29:27,077 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:29:27,077 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 03:29:27,077 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 03:29:27,077 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 03:29:27,077 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 03:29:27,077 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 03:29:27,077 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 03:29:27,077 [INFO] 127.0.0.1 - - [04/Jun/2025 03:29:27] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:29:45,137 [INFO] Received request to /search
+2025-06-04 03:29:45,137 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 03:29:45,236 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:29:45,236 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:29:45,236 [INFO] Filtered out match with distance 291.15 (> 250.00)
+2025-06-04 03:29:45,236 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 03:29:45,236 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 03:29:45,236 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 03:29:45,236 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 03:29:45,236 [INFO] 127.0.0.1 - - [04/Jun/2025 03:29:45] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:30:00,395 [INFO] Received request to /search
+2025-06-04 03:30:00,398 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 03:30:00,514 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:30:00,514 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:30:00,514 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 03:30:00,514 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 03:30:00,514 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 03:30:00,514 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 03:30:00,514 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 03:30:00,514 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 03:30:00,514 [INFO] 127.0.0.1 - - [04/Jun/2025 03:30:00] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:30:16,524 [INFO] Received request to /search
+2025-06-04 03:30:16,524 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 03:30:16,640 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:30:16,640 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:30:16,640 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 03:30:16,640 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 03:30:16,640 [INFO] Filtered out match with distance 320.16 (> 250.00)
+2025-06-04 03:30:16,640 [INFO] Filtered out match with distance 356.37 (> 250.00)
+2025-06-04 03:30:16,640 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.67080688476562}]
+2025-06-04 03:30:16,640 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 03:30:16,640 [INFO] 127.0.0.1 - - [04/Jun/2025 03:30:16] "POST /search HTTP/1.1" 200 -
+2025-06-04 03:30:38,215 [INFO] Received request to /search
+2025-06-04 03:30:38,215 [INFO] Extracting features for query image: Uploads\image.png
+2025-06-04 03:30:38,315 [INFO] Query vector shape: (1, 1280)
+2025-06-04 03:30:38,315 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 03:30:38,315 [INFO] Filtered out match with distance 294.49 (> 250.00)
+2025-06-04 03:30:38,315 [INFO] Filtered out match with distance 301.37 (> 250.00)
+2025-06-04 03:30:38,330 [INFO] Filtered out match with distance 313.31 (> 250.00)
+2025-06-04 03:30:38,330 [INFO] Filtered out match with distance 356.46 (> 250.00)
+2025-06-04 03:30:38,330 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 144.1797332763672}]
+2025-06-04 03:30:38,331 [INFO] Cleaned up file: Uploads\image.png
+2025-06-04 03:30:38,332 [INFO] 127.0.0.1 - - [04/Jun/2025 03:30:38] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:14:04,608 [INFO] Received request to /search
+2025-06-04 14:14:04,659 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 14:14:06,007 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:14:06,007 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:14:06,007 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 14:14:06,007 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 14:14:06,007 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 14:14:06,007 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 14:14:06,007 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 14:14:06,023 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 14:14:06,025 [INFO] 127.0.0.1 - - [04/Jun/2025 14:14:06] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:20:05,616 [INFO] Received request to /search
+2025-06-04 14:20:05,616 [INFO] Extracting features for query image: Uploads\mde.jpeg
+2025-06-04 14:20:05,832 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:20:05,832 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:20:05,832 [INFO] Filtered out match with distance 277.44 (> 250.00)
+2025-06-04 14:20:05,832 [INFO] Filtered out match with distance 280.60 (> 250.00)
+2025-06-04 14:20:05,832 [INFO] Filtered out match with distance 310.18 (> 250.00)
+2025-06-04 14:20:05,832 [INFO] Filtered out match with distance 382.98 (> 250.00)
+2025-06-04 14:20:05,832 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 248.21954345703125}]
+2025-06-04 14:20:05,832 [INFO] Cleaned up file: Uploads\mde.jpeg
+2025-06-04 14:20:05,832 [INFO] 127.0.0.1 - - [04/Jun/2025 14:20:05] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:22:14,282 [INFO] Received request to /search
+2025-06-04 14:22:14,282 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 14:22:14,499 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:22:14,499 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:22:14,499 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 14:22:14,499 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 14:22:14,499 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 14:22:14,499 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 14:22:14,499 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 14:22:14,499 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 14:22:14,499 [INFO] 127.0.0.1 - - [04/Jun/2025 14:22:14] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:22:26,679 [INFO] Received request to /search
+2025-06-04 14:22:26,679 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 14:22:26,928 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:22:26,928 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:22:26,928 [INFO] Filtered out match with distance 261.72 (> 250.00)
+2025-06-04 14:22:26,928 [INFO] Filtered out match with distance 329.15 (> 250.00)
+2025-06-04 14:22:26,928 [INFO] Filtered out match with distance 337.45 (> 250.00)
+2025-06-04 14:22:26,928 [INFO] Filtered out match with distance 351.17 (> 250.00)
+2025-06-04 14:22:26,928 [INFO] Filtered out match with distance 357.96 (> 250.00)
+2025-06-04 14:22:26,928 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 14:22:26,928 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 14:22:26,928 [INFO] 127.0.0.1 - - [04/Jun/2025 14:22:26] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:22:45,422 [INFO] Received request to /search
+2025-06-04 14:22:45,422 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 14:22:45,574 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:22:45,574 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:22:45,574 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 14:22:45,574 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 14:22:45,574 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 14:22:45,574 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 14:22:45,574 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 14:22:45,574 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 14:22:45,574 [INFO] 127.0.0.1 - - [04/Jun/2025 14:22:45] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:26:40,774 [INFO] Received request to /search
+2025-06-04 14:26:40,778 [INFO] Extracting features for query image: Uploads\Monitor2.jpeg
+2025-06-04 14:26:40,928 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:26:40,928 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:26:40,928 [INFO] Filtered out match with distance 259.21 (> 250.00)
+2025-06-04 14:26:40,928 [INFO] Filtered out match with distance 296.48 (> 250.00)
+2025-06-04 14:26:40,928 [INFO] Filtered out match with distance 297.61 (> 250.00)
+2025-06-04 14:26:40,928 [INFO] Filtered out match with distance 326.81 (> 250.00)
+2025-06-04 14:26:40,928 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 87.65438079833984}]
+2025-06-04 14:26:40,928 [INFO] Cleaned up file: Uploads\Monitor2.jpeg
+2025-06-04 14:26:40,928 [INFO] 127.0.0.1 - - [04/Jun/2025 14:26:40] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:26:48,985 [INFO] Received request to /search
+2025-06-04 14:26:48,985 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 14:26:49,119 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:26:49,119 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:26:49,119 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 14:26:49,119 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 14:26:49,119 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 14:26:49,119 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 14:26:49,119 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 14:26:49,119 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 14:26:49,119 [INFO] 127.0.0.1 - - [04/Jun/2025 14:26:49] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:27:05,447 [INFO] Received request to /search
+2025-06-04 14:27:05,447 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 14:27:05,598 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:27:05,598 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:27:05,598 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 14:27:05,598 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 14:27:05,598 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 14:27:05,598 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 14:27:05,598 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 14:27:05,598 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 14:27:05,598 [INFO] 127.0.0.1 - - [04/Jun/2025 14:27:05] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:27:22,575 [INFO] Received request to /search
+2025-06-04 14:27:22,575 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 14:27:22,709 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:27:22,709 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:27:22,709 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 14:27:22,709 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 14:27:22,709 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 14:27:22,709 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 14:27:22,709 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 14:27:22,709 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 14:27:22,709 [INFO] 127.0.0.1 - - [04/Jun/2025 14:27:22] "POST /search HTTP/1.1" 200 -
+2025-06-04 14:27:48,636 [INFO] Received request to /search
+2025-06-04 14:27:48,636 [INFO] Extracting features for query image: Uploads\IRM.jpeg
+2025-06-04 14:27:48,805 [INFO] Query vector shape: (1, 1280)
+2025-06-04 14:27:48,805 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 14:27:48,805 [INFO] Filtered out match with distance 258.03 (> 250.00)
+2025-06-04 14:27:48,805 [INFO] Filtered out match with distance 262.95 (> 250.00)
+2025-06-04 14:27:48,805 [INFO] Filtered out match with distance 307.30 (> 250.00)
+2025-06-04 14:27:48,805 [INFO] Filtered out match with distance 315.83 (> 250.00)
+2025-06-04 14:27:48,805 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 228.92144775390625}]
+2025-06-04 14:27:48,805 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-04 14:27:48,805 [INFO] 127.0.0.1 - - [04/Jun/2025 14:27:48] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:18:16,602 [INFO] Received request to /search
+2025-06-04 15:18:16,651 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 15:18:17,773 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:18:17,773 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:18:17,786 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 15:18:17,786 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 15:18:17,786 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 15:18:17,786 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 15:18:17,786 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 15:18:17,787 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 15:18:17,787 [INFO] 127.0.0.1 - - [04/Jun/2025 15:18:17] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:18:36,356 [INFO] Received request to /search
+2025-06-04 15:18:36,358 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 15:18:36,511 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:18:36,511 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:18:36,511 [INFO] Filtered out match with distance 261.72 (> 250.00)
+2025-06-04 15:18:36,511 [INFO] Filtered out match with distance 329.15 (> 250.00)
+2025-06-04 15:18:36,511 [INFO] Filtered out match with distance 337.45 (> 250.00)
+2025-06-04 15:18:36,511 [INFO] Filtered out match with distance 351.17 (> 250.00)
+2025-06-04 15:18:36,511 [INFO] Filtered out match with distance 357.96 (> 250.00)
+2025-06-04 15:18:36,511 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 15:18:36,511 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 15:18:36,524 [INFO] 127.0.0.1 - - [04/Jun/2025 15:18:36] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:18:52,319 [INFO] Received request to /search
+2025-06-04 15:18:52,319 [INFO] Extracting features for query image: Uploads\RADIO.jpeg
+2025-06-04 15:18:52,453 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:18:52,453 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:18:52,468 [INFO] Filtered out match with distance 252.12 (> 250.00)
+2025-06-04 15:18:52,468 [INFO] Filtered out match with distance 266.16 (> 250.00)
+2025-06-04 15:18:52,468 [INFO] Filtered out match with distance 266.42 (> 250.00)
+2025-06-04 15:18:52,468 [INFO] Filtered out match with distance 291.41 (> 250.00)
+2025-06-04 15:18:52,468 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 195.1572265625}]
+2025-06-04 15:18:52,469 [INFO] Cleaned up file: Uploads\RADIO.jpeg
+2025-06-04 15:18:52,469 [INFO] 127.0.0.1 - - [04/Jun/2025 15:18:52] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:19:02,348 [INFO] Received request to /search
+2025-06-04 15:19:02,348 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 15:19:02,483 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:19:02,483 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:19:02,483 [INFO] Filtered out match with distance 261.72 (> 250.00)
+2025-06-04 15:19:02,483 [INFO] Filtered out match with distance 329.15 (> 250.00)
+2025-06-04 15:19:02,483 [INFO] Filtered out match with distance 337.45 (> 250.00)
+2025-06-04 15:19:02,483 [INFO] Filtered out match with distance 351.17 (> 250.00)
+2025-06-04 15:19:02,483 [INFO] Filtered out match with distance 357.96 (> 250.00)
+2025-06-04 15:19:02,483 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 15:19:02,483 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 15:19:02,483 [INFO] 127.0.0.1 - - [04/Jun/2025 15:19:02] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:19:11,846 [INFO] Received request to /search
+2025-06-04 15:19:11,846 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:19:11,978 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:19:11,978 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:19:11,978 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 15:19:11,978 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 15:19:11,978 [INFO] Filtered out match with distance 320.16 (> 250.00)
+2025-06-04 15:19:11,978 [INFO] Filtered out match with distance 356.37 (> 250.00)
+2025-06-04 15:19:11,978 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.67080688476562}]
+2025-06-04 15:19:11,978 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:19:11,978 [INFO] 127.0.0.1 - - [04/Jun/2025 15:19:11] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:19:50,314 [INFO] Received request to /search
+2025-06-04 15:19:50,314 [INFO] Extracting features for query image: Uploads\GOKU.png
+2025-06-04 15:19:50,481 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:19:50,481 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:19:50,481 [INFO] Filtered out match with distance 261.72 (> 250.00)
+2025-06-04 15:19:50,481 [INFO] Filtered out match with distance 329.15 (> 250.00)
+2025-06-04 15:19:50,481 [INFO] Filtered out match with distance 337.45 (> 250.00)
+2025-06-04 15:19:50,481 [INFO] Filtered out match with distance 351.17 (> 250.00)
+2025-06-04 15:19:50,481 [INFO] Filtered out match with distance 357.96 (> 250.00)
+2025-06-04 15:19:50,481 [INFO] Search completed: found 0 matches (filtered out 5 with distance > 250.00): []
+2025-06-04 15:19:50,481 [INFO] Cleaned up file: Uploads\GOKU.png
+2025-06-04 15:19:50,481 [INFO] 127.0.0.1 - - [04/Jun/2025 15:19:50] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:20:52,391 [INFO] Received request to /search
+2025-06-04 15:20:52,391 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:20:52,557 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:20:52,557 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:20:52,557 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 15:20:52,557 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 15:20:52,558 [INFO] Filtered out match with distance 320.16 (> 250.00)
+2025-06-04 15:20:52,558 [INFO] Filtered out match with distance 356.37 (> 250.00)
+2025-06-04 15:20:52,558 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.67080688476562}]
+2025-06-04 15:20:52,558 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:20:52,558 [INFO] 127.0.0.1 - - [04/Jun/2025 15:20:52] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:21:43,441 [INFO] Received request to /search
+2025-06-04 15:21:43,441 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 15:21:43,607 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:21:43,607 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:21:43,607 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 15:21:43,607 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 15:21:43,607 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 15:21:43,607 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 15:21:43,607 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 15:21:43,607 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 15:21:43,607 [INFO] 127.0.0.1 - - [04/Jun/2025 15:21:43] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:23:36,317 [INFO] Received request to /search
+2025-06-04 15:23:36,317 [INFO] Extracting features for query image: Uploads\RADIO.jpeg
+2025-06-04 15:23:36,470 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:23:36,470 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:23:36,480 [INFO] Filtered out match with distance 252.12 (> 250.00)
+2025-06-04 15:23:36,480 [INFO] Filtered out match with distance 266.16 (> 250.00)
+2025-06-04 15:23:36,480 [INFO] Filtered out match with distance 266.42 (> 250.00)
+2025-06-04 15:23:36,480 [INFO] Filtered out match with distance 291.41 (> 250.00)
+2025-06-04 15:23:36,480 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 195.1572265625}]
+2025-06-04 15:23:36,481 [INFO] Cleaned up file: Uploads\RADIO.jpeg
+2025-06-04 15:23:36,481 [INFO] 127.0.0.1 - - [04/Jun/2025 15:23:36] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:23:44,727 [INFO] Received request to /search
+2025-06-04 15:23:44,727 [INFO] Extracting features for query image: Uploads\eco1.jpg
+2025-06-04 15:23:44,864 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:23:44,864 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:23:44,876 [INFO] Filtered out match with distance 277.21 (> 250.00)
+2025-06-04 15:23:44,876 [INFO] Filtered out match with distance 289.74 (> 250.00)
+2025-06-04 15:23:44,876 [INFO] Filtered out match with distance 292.71 (> 250.00)
+2025-06-04 15:23:44,876 [INFO] Filtered out match with distance 299.20 (> 250.00)
+2025-06-04 15:23:44,876 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 6, 'distance': 0.0}]
+2025-06-04 15:23:44,877 [INFO] Cleaned up file: Uploads\eco1.jpg
+2025-06-04 15:23:44,877 [INFO] 127.0.0.1 - - [04/Jun/2025 15:23:44] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:24:21,097 [INFO] Received request to /search
+2025-06-04 15:24:21,097 [INFO] Extracting features for query image: Uploads\RADIO_2.jpg
+2025-06-04 15:24:21,231 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:24:21,231 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:24:21,231 [INFO] Filtered out match with distance 268.12 (> 250.00)
+2025-06-04 15:24:21,231 [INFO] Filtered out match with distance 273.23 (> 250.00)
+2025-06-04 15:24:21,231 [INFO] Filtered out match with distance 299.92 (> 250.00)
+2025-06-04 15:24:21,231 [INFO] Filtered out match with distance 342.55 (> 250.00)
+2025-06-04 15:24:21,231 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 191.15798950195312}]
+2025-06-04 15:24:21,231 [INFO] Cleaned up file: Uploads\RADIO_2.jpg
+2025-06-04 15:24:21,231 [INFO] 127.0.0.1 - - [04/Jun/2025 15:24:21] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:25:14,827 [INFO] Received request to /search
+2025-06-04 15:25:14,827 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 15:25:14,944 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:25:14,944 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:25:14,944 [INFO] Filtered out match with distance 291.15 (> 250.00)
+2025-06-04 15:25:14,944 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 15:25:14,944 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 15:25:14,944 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 15:25:14,944 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 15:25:14,944 [INFO] 127.0.0.1 - - [04/Jun/2025 15:25:14] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:25:19,892 [INFO] Received request to /search
+2025-06-04 15:25:19,892 [INFO] Extracting features for query image: Uploads\eco3.jpeg
+2025-06-04 15:25:20,009 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:25:20,009 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:25:20,009 [INFO] Filtered out match with distance 291.15 (> 250.00)
+2025-06-04 15:25:20,009 [INFO] Filtered out match with distance 302.71 (> 250.00)
+2025-06-04 15:25:20,009 [INFO] Filtered out match with distance 310.29 (> 250.00)
+2025-06-04 15:25:20,009 [INFO] Search completed: found 2 matches (filtered out 3 with distance > 250.00): [{'image_id': 6, 'distance': 235.41268920898438}, {'image_id': 5, 'distance': 247.30435180664062}]
+2025-06-04 15:25:20,009 [INFO] Cleaned up file: Uploads\eco3.jpeg
+2025-06-04 15:25:20,009 [INFO] 127.0.0.1 - - [04/Jun/2025 15:25:20] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:25:40,867 [INFO] Received request to /search
+2025-06-04 15:25:40,867 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:25:40,985 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:25:40,985 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:25:40,985 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 15:25:40,985 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 15:25:40,985 [INFO] Filtered out match with distance 320.16 (> 250.00)
+2025-06-04 15:25:40,985 [INFO] Filtered out match with distance 356.37 (> 250.00)
+2025-06-04 15:25:40,985 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.67080688476562}]
+2025-06-04 15:25:40,985 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:25:41,000 [INFO] 127.0.0.1 - - [04/Jun/2025 15:25:41] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:26:08,990 [INFO] Received request to /search
+2025-06-04 15:26:08,992 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 15:26:09,090 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:26:09,090 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:26:09,090 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 15:26:09,090 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 15:26:09,090 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 15:26:09,090 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 15:26:09,090 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 15:26:09,090 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 15:26:09,090 [INFO] 127.0.0.1 - - [04/Jun/2025 15:26:09] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:39:09,692 [INFO] Received request to /search
+2025-06-04 15:39:09,692 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 15:39:09,824 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:39:09,824 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:39:09,824 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 15:39:09,824 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 15:39:09,824 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 15:39:09,824 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 15:39:09,824 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 15:39:09,824 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 15:39:09,824 [INFO] 127.0.0.1 - - [04/Jun/2025 15:39:09] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:39:56,523 [INFO] Received request to /search
+2025-06-04 15:39:56,523 [INFO] Extracting features for query image: Uploads\MONITOR.jpeg
+2025-06-04 15:39:56,656 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:39:56,656 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:39:56,656 [INFO] Filtered out match with distance 283.11 (> 250.00)
+2025-06-04 15:39:56,656 [INFO] Filtered out match with distance 297.83 (> 250.00)
+2025-06-04 15:39:56,656 [INFO] Filtered out match with distance 306.10 (> 250.00)
+2025-06-04 15:39:56,656 [INFO] Filtered out match with distance 319.30 (> 250.00)
+2025-06-04 15:39:56,656 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 200.914794921875}]
+2025-06-04 15:39:56,656 [INFO] Cleaned up file: Uploads\MONITOR.jpeg
+2025-06-04 15:39:56,656 [INFO] 127.0.0.1 - - [04/Jun/2025 15:39:56] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:40:20,531 [INFO] Received request to /search
+2025-06-04 15:40:20,531 [INFO] Extracting features for query image: Uploads\RADIO_1.jpg
+2025-06-04 15:40:20,645 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:40:20,645 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:40:20,645 [INFO] Filtered out match with distance 251.96 (> 250.00)
+2025-06-04 15:40:20,645 [INFO] Filtered out match with distance 262.89 (> 250.00)
+2025-06-04 15:40:20,645 [INFO] Filtered out match with distance 307.33 (> 250.00)
+2025-06-04 15:40:20,645 [INFO] Filtered out match with distance 316.96 (> 250.00)
+2025-06-04 15:40:20,645 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.7543487548828}]
+2025-06-04 15:40:20,645 [INFO] Cleaned up file: Uploads\RADIO_1.jpg
+2025-06-04 15:40:20,645 [INFO] 127.0.0.1 - - [04/Jun/2025 15:40:20] "POST /search HTTP/1.1" 200 -
+2025-06-04 15:40:30,410 [INFO] Received request to /search
+2025-06-04 15:40:30,410 [INFO] Extracting features for query image: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:40:30,561 [INFO] Query vector shape: (1, 1280)
+2025-06-04 15:40:30,561 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 15:40:30,561 [INFO] Filtered out match with distance 305.47 (> 250.00)
+2025-06-04 15:40:30,561 [INFO] Filtered out match with distance 314.99 (> 250.00)
+2025-06-04 15:40:30,561 [INFO] Filtered out match with distance 320.16 (> 250.00)
+2025-06-04 15:40:30,561 [INFO] Filtered out match with distance 356.37 (> 250.00)
+2025-06-04 15:40:30,561 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 10, 'distance': 213.67080688476562}]
+2025-06-04 15:40:30,561 [INFO] Cleaned up file: Uploads\Muscu_motivation.jpeg
+2025-06-04 15:40:30,561 [INFO] 127.0.0.1 - - [04/Jun/2025 15:40:30] "POST /search HTTP/1.1" 200 -
+2025-06-04 19:34:10,452 [INFO] Received request to /search
+2025-06-04 19:34:10,480 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-04 19:34:11,459 [INFO] Query vector shape: (1, 1280)
+2025-06-04 19:34:11,459 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-04 19:34:11,462 [INFO] Filtered out match with distance 320.62 (> 250.00)
+2025-06-04 19:34:11,462 [INFO] Filtered out match with distance 354.75 (> 250.00)
+2025-06-04 19:34:11,462 [INFO] Filtered out match with distance 381.71 (> 250.00)
+2025-06-04 19:34:11,462 [INFO] Filtered out match with distance 437.85 (> 250.00)
+2025-06-04 19:34:11,462 [INFO] Search completed: found 1 matches (filtered out 4 with distance > 250.00): [{'image_id': 7, 'distance': 197.48602294921875}]
+2025-06-04 19:34:11,464 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-04 19:34:11,466 [INFO] 127.0.0.1 - - [04/Jun/2025 19:34:11] "POST /search HTTP/1.1" 200 -
+2025-06-06 02:21:28,298 [INFO] Initializing FAISS index at startup
+2025-06-06 02:21:28,298 [INFO] Starting FAISS index initialization from image_features
+2025-06-06 02:21:30,614 [ERROR] Database connection failed: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (10061)
+2025-06-06 02:21:30,614 [ERROR] Cannot initialize FAISS: Database connection failed
+2025-06-06 02:21:30,614 [INFO] FAISS initialization complete: index=None, image_ids=None
+2025-06-06 02:21:30,614 [INFO] Starting Flask app
+2025-06-06 02:21:30,665 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-06 02:21:30,665 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-06 02:32:58,010 [INFO] Received request to /search
+2025-06-06 02:32:58,104 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-06 02:33:03,007 [INFO] Query vector shape: (1, 1280)
+2025-06-06 02:33:03,008 [ERROR] FAISS index not initialized or empty
+2025-06-06 02:33:03,019 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-06 02:33:03,027 [INFO] 127.0.0.1 - - [06/Jun/2025 02:33:03] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-06 02:33:43,179 [INFO] Received request to /search
+2025-06-06 02:33:43,181 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-06 02:33:43,330 [INFO] Query vector shape: (1, 1280)
+2025-06-06 02:33:43,330 [ERROR] FAISS index not initialized or empty
+2025-06-06 02:33:43,330 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-06 02:33:43,330 [INFO] 127.0.0.1 - - [06/Jun/2025 02:33:43] "[35m[1mPOST /search HTTP/1.1[0m" 500 -

@@ -26,6 +26,9 @@ logging.basicConfig(filename='flask.log', level=logging.INFO, format='%(asctime)
 UPLOAD_FOLDER = 'Uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# Maximum distance threshold for search results
+MAX_DISTANCE = 250.0
+
 # Database connection
 def get_db_connection():
     try:
@@ -217,16 +220,28 @@ def search():
         logging.info('Searching FAISS index for %d nearest neighbors', k)
         distances, indices = index.search(query_vector, k)
         matches = []
+        filtered_count = 0
+        
         for j, i in enumerate(indices[0]):
             if i >= 0 and i < len(image_ids):
+                distance = float(distances[0][j])
+                
+                # Filter out matches with distance greater than MAX_DISTANCE
+                if distance > MAX_DISTANCE:
+                    filtered_count += 1
+                    logging.info('Filtered out match with distance %.2f (> %.2f)', distance, MAX_DISTANCE)
+                    continue
+                    
                 try:
                     image_id = int(image_ids[i])
-                    matches.append({'image_id': image_id, 'distance': float(distances[0][j])})
+                    matches.append({'image_id': image_id, 'distance': distance})
                 except ValueError:
                     logging.error('Invalid image_id at index %d: %s', i, image_ids[i])
                     continue
-        logging.info('Search completed: found %d matches: %s', len(matches), matches)
-        return jsonify({'matches': matches})
+        
+        logging.info('Search completed: found %d matches (filtered out %d with distance > %.2f): %s', 
+                    len(matches), filtered_count, MAX_DISTANCE, matches)
+        return jsonify({'matches': matches, 'filtered_count': filtered_count, 'max_distance': MAX_DISTANCE})
     except Exception as e:
         logging.error('Search failed: %s', str(e))
         return jsonify({'error': str(e)}), 500

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -379,6 +381,25 @@ class ProductController extends Controller
             'product' => $product->load('images')
         ]);
     }
+    public function checkOwner($id)
+    {
+        $product = Product::with('store')->find($id);
+    
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+    
+        $isOwner = Auth::id() === $product->store->owner_id;
+    
+        return response()->json([
+            'isOwner' => $isOwner,
+            'product_id' => $product->product_id,
+            'store_owner_id' => $product->store->owner_id,
+            'authenticated_user_id' => Auth::id()
+        ]);
+    }
+
+
     public function searchByImage(Request $request)
     {
         \Log::info('Starting image-based search', ['request_data' => $request->all()]);

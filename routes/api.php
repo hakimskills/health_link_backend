@@ -53,6 +53,7 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
 
 });
 
+Route::get('/stores', [StoreController::class, 'index']);
 
 // Store Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
@@ -60,8 +61,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/store', [StoreController::class, 'store']);
     Route::post('/profile/upload-image', [UserController::class, 'uploadProfileImage']);
     
-    // Get stores by user (owner)
-    Route::get('/stores', [StoreController::class, 'index']);
     
     // Show a single store
     Route::get('/store/{store}', [StoreController::class, 'show']);
@@ -76,6 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
+Route::get('/products', [ProductController::class, 'index']); // no {store}
 
 // Product Routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
@@ -86,11 +86,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{store}', [ProductController::class, 'getProductsByStore']);
     Route::get('/products/storeName/{store}', [ProductController::class, 'getProductsAndStoreNameByStore']);
 
-    Route::get('/products', [ProductController::class, 'index']); // no {store}
 
     Route::post('/products/stock-clearance', [ProductController::class, 'stockClearance']);
     
-    
+    Route::get('/products/{id}/check-owner', [ProductController::class, 'checkOwner']);
+
     // Show a single product
     Route::get('/product/{product}', [ProductController::class, 'show']);
     
