@@ -165,17 +165,24 @@ class ProductOrderController extends Controller
     }
 
     public function getBuyerOrders(Request $request)
-    {
-        $user = $request->user();
-        $orders = ProductOrder::where('buyer_id', $user->id)
-            ->with(['items.product', 'seller'])
-            ->get();
+{
+    $user = $request->user();
+    $orders = ProductOrder::where('buyer_id', $user->id)
+        ->with([
+            'items.product' => function ($query) {
+                $query->with(['images' => function ($imageQuery) {
+                    $imageQuery->where('is_primary', true)->select('product_id', 'image_path');
+                }]);
+            },
+            'seller'
+        ])
+        ->get();
 
-        return response()->json([
-            'status' => 'success',
-            'orders' => $orders
-        ]);
-    }
+    return response()->json([
+        'status' => 'success',
+        'orders' => $orders
+    ]);
+}
 
     public function update(Request $request, $id)
     {
@@ -206,4 +213,66 @@ class ProductOrderController extends Controller
 
         return response()->json(['message' => 'Order deleted successfully']);
     }
+    // Seller marks order as Shipped
+public function markAsShipped(Request $request, $id)
+{
+    $user = $request->user();
+    $order = ProductOrder::with('items')->findOrFail($id);
+
+    if ($order->order_status !== 'Processing') {
+        return response()->json(['message' => 'Order must be in Processing state.'], 403);
+    }
+
+    $sellerId = $order->items->first()->seller_id;
+    if ($sellerId !== $user->id) {
+        return response()->json(['message' => 'You are not authorized to ship this order.'], 403);
+    }
+
+    $order->order_status = 'Shipped';
+    $order->save();
+
+    return response()->json(['message' => 'Order marked as Shipped', 'order' => $order]);
+}
+
+// Buyer marks order as Delivered
+public function markAsDelivered(Request $request, $id)
+{
+    $user = $request->user();
+    $order = ProductOrder::findOrFail($id);
+
+    if ($order->order_status !== 'Shipped') {
+        return response()->json(['message' => 'Order must be in Shipped state.'], 403);
+    }
+
+    if ($order->buyer_id !== $user->id) {
+        return response()->json(['message' => 'Only the buyer can mark the order as Delivered.'], 403);
+    }
+
+    $order->order_status = 'Delivered';
+    $order->save();
+
+    return response()->json(['message' => 'Order marked as Delivered', 'order' => $order]);
+}
+
+// Seller or Buyer cancels order if still Pending
+public function cancelOrder(Request $request, $id)
+{
+    $user = $request->user();
+    $order = ProductOrder::with('items')->findOrFail($id);
+
+    if ($order->order_status !== 'Pending') {
+        return response()->json(['message' => 'Only Pending orders can be canceled.'], 403);
+    }
+
+    $sellerId = $order->items->first()->seller_id;
+    if ($order->buyer_id !== $user->id && $sellerId !== $user->id) {
+        return response()->json(['message' => 'You are not authorized to cancel this order.'], 403);
+    }
+
+    $order->order_status = 'Canceled';
+    $order->save();
+
+    return response()->json(['message' => 'Order canceled successfully.', 'order' => $order]);
+}
+
 }

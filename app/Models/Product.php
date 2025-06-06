@@ -49,4 +49,5 @@ public function getAverageRatingAttribute()
 {
     return $this->ratings()->avg('rating');
 }
+
 }

@@ -101,6 +101,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/product-orders/seller/{sellerId}', [ProductOrderController::class, 'getOrdersBySellerId']);
     Route::put('/product-orders/{id}/approve', [ProductOrderController::class, 'approveOrder']); 
     Route::get('/buyer-orders', [ProductOrderController::class, 'getBuyerOrders']);
+    Route::put('/product-orders/{id}/ship', [ProductOrderController::class, 'markAsShipped']);
+    Route::put('/product-orders/{id}/deliver', [ProductOrderController::class, 'markAsDelivered']);
+    Route::put('/product-orders/{id}/cancel', [ProductOrderController::class, 'cancelOrder']);
+
+
 
 });
 Route::middleware('auth:sanctum')->group(function () {
