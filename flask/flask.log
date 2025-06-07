@@ -2208,3 +2208,24 @@
 2025-06-06 02:33:43,330 [ERROR] FAISS index not initialized or empty
 2025-06-06 02:33:43,330 [INFO] Cleaned up file: Uploads\medicament2.jpeg
 2025-06-06 02:33:43,330 [INFO] 127.0.0.1 - - [06/Jun/2025 02:33:43] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-07 03:21:41,417 [INFO] Initializing FAISS index at startup
+2025-06-07 03:21:41,420 [INFO] Starting FAISS index initialization from image_features
+2025-06-07 03:21:41,538 [INFO] Database connection established
+2025-06-07 03:21:41,547 [WARNING] No features found in image_features table
+2025-06-07 03:21:41,547 [INFO] FAISS initialization complete: index=None, image_ids=None
+2025-06-07 03:21:41,548 [INFO] Starting Flask app
+2025-06-07 03:21:41,579 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-07 03:21:41,579 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-07 03:21:47,349 [INFO] Received request to /extract-features
+2025-06-07 03:21:47,352 [INFO] Database connection established
+2025-06-07 03:21:50,237 [INFO] Saved features for image ID: 2
+2025-06-07 03:21:50,239 [INFO] Cleaned up file: Uploads\IRM.jpeg
+2025-06-07 03:21:50,239 [INFO] Feature extraction completed: dict_keys(['2'])
+2025-06-07 03:21:50,242 [INFO] 127.0.0.1 - - [07/Jun/2025 03:21:50] "POST /extract-features HTTP/1.1" 200 -
+2025-06-07 03:22:22,614 [INFO] Received request to /extract-features
+2025-06-07 03:22:22,618 [INFO] Database connection established
+2025-06-07 03:22:22,796 [INFO] Saved features for image ID: 3
+2025-06-07 03:22:22,797 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-07 03:22:22,798 [INFO] Feature extraction completed: dict_keys(['3'])
+2025-06-07 03:22:22,800 [INFO] 127.0.0.1 - - [07/Jun/2025 03:22:22] "POST /extract-features HTTP/1.1" 200 -

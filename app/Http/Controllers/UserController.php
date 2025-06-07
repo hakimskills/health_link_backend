@@ -222,6 +222,22 @@ public function uploadProfileImage(Request $request)
     return response()->json(['message' => 'No image uploaded.'], 400);
 }
 
+public function getAuthenticatedUser()
+{
+    $user = Auth::user();
+
+    if ($user) {
+        return response()->json([
+            'success' => true,
+            'user' => $user
+        ]);
+    }
+
+    return response()->json([
+        'success' => false,
+        'message' => 'User not authenticated'
+    ], 401);
+}
 
 public function getUserById($id)
 {
