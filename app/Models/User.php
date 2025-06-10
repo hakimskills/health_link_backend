@@ -55,4 +55,9 @@ class User extends Authenticatable
 {
     return $this->hasMany(ProductRating::class);
 }
+public function deviceTokens()
+{
+    return $this->hasMany(DeviceToken::class);
+}
+
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductOrderController;
+use App\Http\Controllers\DeviceTokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,8 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
     Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
     Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
+    Route::delete('/admin/store/{id}', [AdminController::class, 'deleteStore']);
+    Route::delete('/admin/product/{id}', [AdminController::class, 'deleteProduct']);
 });
 
 
@@ -115,3 +118,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
+Route::middleware('auth:sanctum')->post('/save-device-token', [DeviceTokenController::class, 'store']);
