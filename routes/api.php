@@ -25,6 +25,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 
 // User-related routes (only accessible to authenticated users)
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/users/{id}/public', [UserController::class, 'showPublicInfo']);
     Route::put('/user/update-name', [UserController::class, 'updateName']);
     Route::put('/user/update-email', [UserController::class, 'updateEmail']);
     Route::put('/user/update-phone', [UserController::class, 'updatePhoneNumber']);
@@ -66,6 +67,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // Delete a store
     Route::delete('/store/{store}', [StoreController::class, 'destroy']);
     Route::get('/stores/user/{userId}', [StoreController::class, 'getStoresByUser']);
+    Route::get('/store/{store}/owner', [StoreController::class, 'getUserByStore']);
+
    
 });
 

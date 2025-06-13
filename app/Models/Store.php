@@ -24,4 +24,5 @@ class Store extends Model
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
+  
 }

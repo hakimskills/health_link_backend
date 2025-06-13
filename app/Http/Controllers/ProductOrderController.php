@@ -143,12 +143,26 @@ class ProductOrderController extends Controller
     }
 
     public function getOrdersBySellerId($sellerId)
-    {
-        $orders = ProductOrder::whereHas('items', fn($q) => $q->where('seller_id', $sellerId))
-            ->with(['items.product.store'])
-            ->get();
-        return response()->json($orders);
+{
+    // Validate sellerId
+    if (!is_numeric($sellerId)) {
+        return response()->json(['status' => 'error', 'message' => 'Invalid seller ID'], 400);
     }
+
+    $orders = ProductOrder::whereHas('items', fn($q) => $q->where('seller_id', $sellerId))
+        ->with([
+            'items' => fn($q) => $q->where('seller_id', $sellerId)->with([
+                'product' => fn($pq) => $pq->with([
+                    'images' => fn($iq) => $iq->where('is_primary', true)->select('product_id', 'image_path'),
+                    'store',
+                ]),
+                'seller',
+            ]),
+        ])
+        ->get();
+
+    return response()->json(['status' => 'success', 'orders' => $orders]);
+}
 
     public function getBuyerOrders(Request $request)
     {
