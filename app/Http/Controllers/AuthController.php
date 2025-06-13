@@ -50,7 +50,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $fields = $request->validate([
-            'email' => 'required|email|exists:users',
+            'email'    => 'required|email',
             'password' => 'required|string|min:6'
         ]);
 
@@ -60,7 +60,7 @@ class AuthController extends Controller
         // Check password
         if (!$user || !Hash::check($fields['password'], $user->password)) {
             return response()->json([
-                'message' => 'Invalid credentials'
+                'message' => 'Email or password is incorrect. Please try again.'
             ], 401);
         }
         if ($user->banned) {

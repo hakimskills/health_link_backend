@@ -32,6 +32,17 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Name updated successfully']);
     }
+    public function showPublicInfo($id)
+    {
+        $user = User::select('id', 'first_name', 'last_name', 'email', 'phone_number', 'wilaya', 'role', 'profile_image', 'created_at')
+                    ->find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
+    }
 
     /**
      * Update email.

@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('store_name');
             $table->string('address');
             $table->string('phone');
+            $table->string('image')->nullable(); 
             $table->timestamps();
         });
         
