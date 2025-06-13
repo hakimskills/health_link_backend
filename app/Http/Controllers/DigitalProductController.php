@@ -28,12 +28,21 @@ class DigitalProductController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'logo' => 'nullable|string',
-            'product_image' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:5120', // 5MB max
+            'product_image' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:5120',
             'description' => 'required|string',
             'url' => 'required|url',
         ]);
-
+    
+        // Handle file uploads
+        if ($request->hasFile('logo')) {
+            $validated['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+        
+        if ($request->hasFile('product_image')) {
+            $validated['product_image'] = $request->file('product_image')->store('products', 'public');
+        }
+    
         $product = DigitalProduct::create($validated);
         return response()->json($product, 201);
     }
