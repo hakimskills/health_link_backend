@@ -27,7 +27,7 @@ UPLOAD_FOLDER = 'Uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Maximum distance threshold for search results
-MAX_DISTANCE = 250.0
+MAX_DISTANCE = 350
 
 # Database connection
 def get_db_connection():

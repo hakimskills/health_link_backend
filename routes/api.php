@@ -119,10 +119,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/products/{productId}/ratings', [ProductRatingController::class, 'index']);
     Route::post('/ratings', [ProductRatingController::class, 'store']);
     Route::delete('/ratings/{id}', [ProductRatingController::class, 'destroy']);
-    Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
 Route::post('/search-by-image', [ProductController::class, 'searchByImage']);
+Route::get('/products/{productId}/ratings', [ProductRatingController::class, 'index']);
+Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);

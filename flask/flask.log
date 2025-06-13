@@ -2229,3 +2229,252 @@
 2025-06-07 03:22:22,797 [INFO] Cleaned up file: Uploads\medicament2.jpeg
 2025-06-07 03:22:22,798 [INFO] Feature extraction completed: dict_keys(['3'])
 2025-06-07 03:22:22,800 [INFO] 127.0.0.1 - - [07/Jun/2025 03:22:22] "POST /extract-features HTTP/1.1" 200 -
+2025-06-09 02:06:04,112 [INFO] Initializing FAISS index at startup
+2025-06-09 02:06:04,112 [INFO] Starting FAISS index initialization from image_features
+2025-06-09 02:06:04,179 [INFO] Database connection established
+2025-06-09 02:06:04,191 [INFO] Loaded features for image_id 3
+2025-06-09 02:06:04,191 [INFO] Feature array shape: (1, 1280)
+2025-06-09 02:06:04,191 [INFO] Creating FAISS index with dimension 1280
+2025-06-09 02:06:04,191 [INFO] FAISS index initialized with 1 vectors
+2025-06-09 02:06:04,191 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000021B925DB2A0> >, image_ids=[3]
+2025-06-09 02:06:04,191 [INFO] Starting Flask app
+2025-06-09 02:06:04,231 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-09 02:06:04,231 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-09 02:06:10,375 [INFO] Received request to /extract-features
+2025-06-09 02:06:10,375 [INFO] Database connection established
+2025-06-09 02:06:14,371 [INFO] Saved features for image ID: 6
+2025-06-09 02:06:14,371 [INFO] Cleaned up file: Uploads\Hot-cold.jpg
+2025-06-09 02:06:14,371 [INFO] Feature extraction completed: dict_keys(['6'])
+2025-06-09 02:06:14,377 [INFO] 127.0.0.1 - - [09/Jun/2025 02:06:14] "POST /extract-features HTTP/1.1" 200 -
+2025-06-09 02:06:35,961 [INFO] Received request to /search
+2025-06-09 02:06:35,975 [INFO] Extracting features for query image: Uploads\Hot-cold1.jpg
+2025-06-09 02:06:36,077 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:06:36,077 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-09 02:06:36,112 [INFO] Filtered out match with distance 314.23 (> 250.00)
+2025-06-09 02:06:36,112 [INFO] Search completed: found 0 matches (filtered out 1 with distance > 250.00): []
+2025-06-09 02:06:36,112 [INFO] Cleaned up file: Uploads\Hot-cold1.jpg
+2025-06-09 02:06:36,112 [INFO] 127.0.0.1 - - [09/Jun/2025 02:06:36] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:08:18,053 [INFO] Received request to /search
+2025-06-09 02:08:18,053 [INFO] Extracting features for query image: Uploads\Hot-cold3.jpg
+2025-06-09 02:08:18,170 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:08:18,170 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-09 02:08:18,170 [INFO] Filtered out match with distance 305.24 (> 250.00)
+2025-06-09 02:08:18,170 [INFO] Search completed: found 0 matches (filtered out 1 with distance > 250.00): []
+2025-06-09 02:08:18,170 [INFO] Cleaned up file: Uploads\Hot-cold3.jpg
+2025-06-09 02:08:18,170 [INFO] 127.0.0.1 - - [09/Jun/2025 02:08:18] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:10:15,374 [INFO] Received request to /extract-features
+2025-06-09 02:10:15,374 [INFO] Database connection established
+2025-06-09 02:10:15,523 [INFO] Saved features for image ID: 8
+2025-06-09 02:10:15,523 [INFO] Cleaned up file: Uploads\Hot-cold3.jpg
+2025-06-09 02:10:15,523 [INFO] Feature extraction completed: dict_keys(['8'])
+2025-06-09 02:10:15,523 [INFO] 127.0.0.1 - - [09/Jun/2025 02:10:15] "POST /extract-features HTTP/1.1" 200 -
+2025-06-09 02:10:44,878 [INFO] Received request to /search
+2025-06-09 02:10:44,878 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-09 02:10:44,978 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:10:44,978 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-09 02:10:44,978 [INFO] Filtered out match with distance 313.57 (> 250.00)
+2025-06-09 02:10:44,978 [INFO] Search completed: found 0 matches (filtered out 1 with distance > 250.00): []
+2025-06-09 02:10:44,978 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-09 02:10:44,978 [INFO] 127.0.0.1 - - [09/Jun/2025 02:10:44] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:11:45,007 [INFO] Initializing FAISS index at startup
+2025-06-09 02:11:45,007 [INFO] Starting FAISS index initialization from image_features
+2025-06-09 02:11:45,039 [INFO] Database connection established
+2025-06-09 02:11:45,039 [INFO] Loaded features for image_id 3
+2025-06-09 02:11:45,039 [INFO] Loaded features for image_id 8
+2025-06-09 02:11:45,039 [INFO] Feature array shape: (2, 1280)
+2025-06-09 02:11:45,039 [INFO] Creating FAISS index with dimension 1280
+2025-06-09 02:11:45,039 [INFO] FAISS index initialized with 2 vectors
+2025-06-09 02:11:45,039 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000001D1B80716E0> >, image_ids=[3, 8]
+2025-06-09 02:11:45,039 [INFO] Starting Flask app
+2025-06-09 02:11:45,039 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-09 02:11:45,039 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-09 02:12:12,063 [INFO] Received request to /search
+2025-06-09 02:12:12,065 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-09 02:12:14,385 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:12:14,385 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:12:14,424 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-09 02:12:14,429 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-09 02:12:14,430 [INFO] 127.0.0.1 - - [09/Jun/2025 02:12:14] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:16:34,339 [INFO] Received request to /search
+2025-06-09 02:16:34,356 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-09 02:16:35,471 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:16:35,471 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:16:35,488 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-09 02:16:35,488 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-09 02:16:35,504 [INFO] 127.0.0.1 - - [09/Jun/2025 02:16:35] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:16:48,134 [INFO] Received request to /search
+2025-06-09 02:16:48,134 [INFO] Extracting features for query image: Uploads\Hot-cold1.jpg
+2025-06-09 02:16:48,281 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:16:48,281 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:16:48,281 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 119.82337188720703}, {'image_id': 3, 'distance': 314.2309265136719}]
+2025-06-09 02:16:48,282 [INFO] Cleaned up file: Uploads\Hot-cold1.jpg
+2025-06-09 02:16:48,282 [INFO] 127.0.0.1 - - [09/Jun/2025 02:16:48] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:16:58,426 [INFO] Received request to /search
+2025-06-09 02:16:58,426 [INFO] Extracting features for query image: Uploads\Hot-cold1.jpg
+2025-06-09 02:16:58,545 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:16:58,545 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:16:58,545 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 119.82337188720703}, {'image_id': 3, 'distance': 314.2309265136719}]
+2025-06-09 02:16:58,562 [INFO] Cleaned up file: Uploads\Hot-cold1.jpg
+2025-06-09 02:16:58,564 [INFO] 127.0.0.1 - - [09/Jun/2025 02:16:58] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:17:18,534 [INFO] Received request to /search
+2025-06-09 02:17:18,540 [INFO] Extracting features for query image: Uploads\Hot-cold1.jpg
+2025-06-09 02:17:18,689 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:17:18,689 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:17:18,689 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 119.82337188720703}, {'image_id': 3, 'distance': 314.2309265136719}]
+2025-06-09 02:17:18,689 [INFO] Cleaned up file: Uploads\Hot-cold1.jpg
+2025-06-09 02:17:18,689 [INFO] 127.0.0.1 - - [09/Jun/2025 02:17:18] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:18:14,198 [INFO] Received request to /search
+2025-06-09 02:18:14,198 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-09 02:18:14,332 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:18:14,332 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:18:14,332 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 197.48602294921875}, {'image_id': 8, 'distance': 276.5046691894531}]
+2025-06-09 02:18:14,347 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-09 02:18:14,347 [INFO] 127.0.0.1 - - [09/Jun/2025 02:18:14] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:23:38,068 [INFO] Received request to /search
+2025-06-09 02:23:38,068 [INFO] Extracting features for query image: Uploads\Steto2.png
+2025-06-09 02:23:38,236 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:23:38,236 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:23:38,236 [INFO] Filtered out match with distance 387.03 (> 350.00)
+2025-06-09 02:23:38,236 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 286.826904296875}]
+2025-06-09 02:23:38,236 [INFO] Cleaned up file: Uploads\Steto2.png
+2025-06-09 02:23:38,236 [INFO] 127.0.0.1 - - [09/Jun/2025 02:23:38] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:24:09,784 [INFO] Received request to /search
+2025-06-09 02:24:09,785 [INFO] Extracting features for query image: Uploads\Steto2.png
+2025-06-09 02:24:09,913 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:24:09,913 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:24:09,913 [INFO] Filtered out match with distance 387.03 (> 350.00)
+2025-06-09 02:24:09,913 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 286.826904296875}]
+2025-06-09 02:24:09,919 [INFO] Cleaned up file: Uploads\Steto2.png
+2025-06-09 02:24:09,920 [INFO] 127.0.0.1 - - [09/Jun/2025 02:24:09] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:24:32,352 [INFO] Received request to /search
+2025-06-09 02:24:32,357 [INFO] Extracting features for query image: Uploads\Steato1.jpg
+2025-06-09 02:24:32,490 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:24:32,490 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:24:32,490 [INFO] Filtered out match with distance 357.69 (> 350.00)
+2025-06-09 02:24:32,490 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 235.7476806640625}]
+2025-06-09 02:24:32,495 [INFO] Cleaned up file: Uploads\Steato1.jpg
+2025-06-09 02:24:32,497 [INFO] 127.0.0.1 - - [09/Jun/2025 02:24:32] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:34:34,573 [INFO] 127.0.0.1 - - [09/Jun/2025 02:34:34] "[33mPOST /search-scoped HTTP/1.1[0m" 404 -
+2025-06-09 02:34:38,123 [INFO] 127.0.0.1 - - [09/Jun/2025 02:34:38] "[33mPOST /search-scoped HTTP/1.1[0m" 404 -
+2025-06-09 02:35:09,010 [INFO] 127.0.0.1 - - [09/Jun/2025 02:35:09] "[33mPOST /search-scoped HTTP/1.1[0m" 404 -
+2025-06-09 02:47:43,424 [INFO] Received request to /search
+2025-06-09 02:47:43,471 [INFO] Extracting features for query image: Uploads\Steto2.png
+2025-06-09 02:47:44,696 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:47:44,698 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:47:44,703 [INFO] Filtered out match with distance 387.03 (> 350.00)
+2025-06-09 02:47:44,703 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 286.826904296875}]
+2025-06-09 02:47:44,707 [INFO] Cleaned up file: Uploads\Steto2.png
+2025-06-09 02:47:44,708 [INFO] 127.0.0.1 - - [09/Jun/2025 02:47:44] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:48:08,543 [INFO] Received request to /search
+2025-06-09 02:48:08,550 [INFO] Extracting features for query image: Uploads\Steto2.png
+2025-06-09 02:48:08,678 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:48:08,678 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:48:08,678 [INFO] Filtered out match with distance 387.03 (> 350.00)
+2025-06-09 02:48:08,678 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 286.826904296875}]
+2025-06-09 02:48:08,680 [INFO] Cleaned up file: Uploads\Steto2.png
+2025-06-09 02:48:08,681 [INFO] 127.0.0.1 - - [09/Jun/2025 02:48:08] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:49:16,238 [INFO] Received request to /search
+2025-06-09 02:49:16,242 [INFO] Extracting features for query image: Uploads\Steto3.jpg
+2025-06-09 02:49:16,382 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:49:16,382 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:49:16,382 [INFO] Filtered out match with distance 350.57 (> 350.00)
+2025-06-09 02:49:16,383 [INFO] Filtered out match with distance 449.83 (> 350.00)
+2025-06-09 02:49:16,383 [INFO] Search completed: found 0 matches (filtered out 2 with distance > 350.00): []
+2025-06-09 02:49:16,385 [INFO] Cleaned up file: Uploads\Steto3.jpg
+2025-06-09 02:49:16,386 [INFO] 127.0.0.1 - - [09/Jun/2025 02:49:16] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:49:27,637 [INFO] Received request to /search
+2025-06-09 02:49:27,643 [INFO] Extracting features for query image: Uploads\Steto2.png
+2025-06-09 02:49:27,767 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:49:27,768 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:49:27,768 [INFO] Filtered out match with distance 387.03 (> 350.00)
+2025-06-09 02:49:27,768 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 286.826904296875}]
+2025-06-09 02:49:27,770 [INFO] Cleaned up file: Uploads\Steto2.png
+2025-06-09 02:49:27,771 [INFO] 127.0.0.1 - - [09/Jun/2025 02:49:27] "POST /search HTTP/1.1" 200 -
+2025-06-09 02:49:47,406 [INFO] Received request to /search
+2025-06-09 02:49:47,410 [INFO] Extracting features for query image: Uploads\Steato1.jpg
+2025-06-09 02:49:47,539 [INFO] Query vector shape: (1, 1280)
+2025-06-09 02:49:47,541 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 02:49:47,541 [INFO] Filtered out match with distance 357.69 (> 350.00)
+2025-06-09 02:49:47,541 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 235.7476806640625}]
+2025-06-09 02:49:47,543 [INFO] Cleaned up file: Uploads\Steato1.jpg
+2025-06-09 02:49:47,543 [INFO] 127.0.0.1 - - [09/Jun/2025 02:49:47] "POST /search HTTP/1.1" 200 -
+2025-06-09 15:01:21,825 [INFO] Received request to /search
+2025-06-09 15:01:21,878 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-09 15:01:23,216 [INFO] Query vector shape: (1, 1280)
+2025-06-09 15:01:23,220 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 15:01:23,233 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 197.48602294921875}, {'image_id': 8, 'distance': 276.5046691894531}]
+2025-06-09 15:01:23,238 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-09 15:01:23,242 [INFO] 127.0.0.1 - - [09/Jun/2025 15:01:23] "POST /search HTTP/1.1" 200 -
+2025-06-09 16:29:07,997 [INFO] Received request to /search
+2025-06-09 16:29:08,064 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-09 16:29:09,765 [INFO] Query vector shape: (1, 1280)
+2025-06-09 16:29:09,767 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 16:29:09,780 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-09 16:29:09,784 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-09 16:29:09,786 [INFO] 127.0.0.1 - - [09/Jun/2025 16:29:09] "POST /search HTTP/1.1" 200 -
+2025-06-09 18:22:17,383 [INFO] Received request to /search
+2025-06-09 18:22:17,432 [INFO] Extracting features for query image: Uploads\medicament.jpeg
+2025-06-09 18:22:19,251 [INFO] Query vector shape: (1, 1280)
+2025-06-09 18:22:19,258 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 18:22:19,272 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 197.48602294921875}, {'image_id': 8, 'distance': 276.5046691894531}]
+2025-06-09 18:22:19,289 [INFO] Cleaned up file: Uploads\medicament.jpeg
+2025-06-09 18:22:19,300 [INFO] 127.0.0.1 - - [09/Jun/2025 18:22:19] "POST /search HTTP/1.1" 200 -
+2025-06-09 18:23:10,551 [INFO] Received request to /search
+2025-06-09 18:23:10,557 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-09 18:23:10,749 [INFO] Query vector shape: (1, 1280)
+2025-06-09 18:23:10,750 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 18:23:10,750 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 0.0}, {'image_id': 8, 'distance': 305.2408752441406}]
+2025-06-09 18:23:10,752 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-09 18:23:10,753 [INFO] 127.0.0.1 - - [09/Jun/2025 18:23:10] "POST /search HTTP/1.1" 200 -
+2025-06-09 18:28:47,809 [INFO] Received request to /search
+2025-06-09 18:28:47,815 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-09 18:28:48,021 [INFO] Query vector shape: (1, 1280)
+2025-06-09 18:28:48,021 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-09 18:28:48,023 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 0.0}, {'image_id': 8, 'distance': 305.2408752441406}]
+2025-06-09 18:28:48,025 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-09 18:28:48,026 [INFO] 127.0.0.1 - - [09/Jun/2025 18:28:48] "POST /search HTTP/1.1" 200 -
+2025-06-11 03:37:09,089 [INFO] Received request to /search
+2025-06-11 03:37:09,122 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-11 03:37:10,984 [INFO] Query vector shape: (1, 1280)
+2025-06-11 03:37:10,991 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 03:37:11,004 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-11 03:37:11,004 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-11 03:37:11,020 [INFO] 127.0.0.1 - - [11/Jun/2025 03:37:11] "POST /search HTTP/1.1" 200 -
+2025-06-11 16:35:45,335 [INFO] Received request to /search
+2025-06-11 16:35:45,385 [INFO] Extracting features for query image: Uploads\medicament2.jpeg
+2025-06-11 16:35:47,101 [INFO] Query vector shape: (1, 1280)
+2025-06-11 16:35:47,101 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 16:35:47,118 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 3, 'distance': 0.0}, {'image_id': 8, 'distance': 305.2408752441406}]
+2025-06-11 16:35:47,118 [INFO] Cleaned up file: Uploads\medicament2.jpeg
+2025-06-11 16:35:47,134 [INFO] 127.0.0.1 - - [11/Jun/2025 16:35:47] "POST /search HTTP/1.1" 200 -
+2025-06-11 16:37:24,131 [INFO] Received request to /search
+2025-06-11 16:37:24,149 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-11 16:37:24,516 [INFO] Query vector shape: (1, 1280)
+2025-06-11 16:37:24,516 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 16:37:24,516 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-11 16:37:24,530 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-11 16:37:24,530 [INFO] 127.0.0.1 - - [11/Jun/2025 16:37:24] "POST /search HTTP/1.1" 200 -
+2025-06-11 16:38:41,164 [INFO] Received request to /search
+2025-06-11 16:38:41,181 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-11 16:38:41,348 [INFO] Query vector shape: (1, 1280)
+2025-06-11 16:38:41,348 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 16:38:41,348 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-11 16:38:41,348 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-11 16:38:41,348 [INFO] 127.0.0.1 - - [11/Jun/2025 16:38:41] "POST /search HTTP/1.1" 200 -
+2025-06-11 16:40:49,221 [INFO] Received request to /search
+2025-06-11 16:40:49,221 [INFO] Extracting features for query image: Uploads\Hot-cold2.jpg
+2025-06-11 16:40:49,354 [INFO] Query vector shape: (1, 1280)
+2025-06-11 16:40:49,354 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 16:40:49,354 [INFO] Search completed: found 2 matches (filtered out 0 with distance > 350.00): [{'image_id': 8, 'distance': 88.60861206054688}, {'image_id': 3, 'distance': 313.5677490234375}]
+2025-06-11 16:40:49,354 [INFO] Cleaned up file: Uploads\Hot-cold2.jpg
+2025-06-11 16:40:49,354 [INFO] 127.0.0.1 - - [11/Jun/2025 16:40:49] "POST /search HTTP/1.1" 200 -
+2025-06-11 17:54:04,436 [INFO] Received request to /search
+2025-06-11 17:54:04,469 [INFO] Extracting features for query image: Uploads\medicine.png
+2025-06-11 17:54:05,987 [INFO] Query vector shape: (1, 1280)
+2025-06-11 17:54:05,991 [INFO] Searching FAISS index for 2 nearest neighbors
+2025-06-11 17:54:06,002 [INFO] Filtered out match with distance 366.23 (> 350.00)
+2025-06-11 17:54:06,002 [INFO] Search completed: found 1 matches (filtered out 1 with distance > 350.00): [{'image_id': 8, 'distance': 257.76629638671875}]
+2025-06-11 17:54:06,005 [INFO] Cleaned up file: Uploads\medicine.png
+2025-06-11 17:54:06,005 [INFO] 127.0.0.1 - - [11/Jun/2025 17:54:06] "POST /search HTTP/1.1" 200 -

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RegistrationRequest;
 use App\Models\User;
+use App\Models\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegistrationStatusMail;
-use App\Models\Store;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -32,35 +33,63 @@ class AdminController extends Controller
      * Approve a registration request and convert it into a user.
      */
     public function approveRequest($id)
-    {
-        if (Auth::user()->role !== 'Admin') {
-            return response()->json(['message' => 'Access denied. Admins only.'], 403);
-        }
+{
+    if (Auth::user()->role !== 'Admin') {
+        return response()->json(['message' => 'Access denied. Admins only.'], 403);
+    }
 
-        $request = RegistrationRequest::findOrFail($id);
+    $request = RegistrationRequest::findOrFail($id);
 
+    // Begin transaction to ensure atomic operation
+    DB::beginTransaction();
+
+    try {
         // Create a new user
         $user = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
+            'first_name'   => $request->first_name,
+            'last_name'    => $request->last_name,
+            'email'        => $request->email,
             'phone_number' => $request->phone_number,
-            'wilaya' => $request->wilaya,
-            'role' => $request->role,
-            'password' => $request->password, // Already hashed during registration
+            'wilaya'       => $request->wilaya,
+            'role'         => $request->role,
+            'password'     => $request->password, // Already hashed during registration
         ]);
 
+        // If the role is 'Dentist' or 'Doctor', create a default store
+        if (in_array($user->role, ['Doctor', 'Dentist'], true)) {
+            Store::create([
+                'owner_id'   => $user->id,
+                'store_name' => 'Used Equipment',
+                'address'    => $user->wilaya,
+                'phone'      => $user->phone_number,
+            ]);
+        }
+
         // Send approval email
-        Mail::to($request->email)->send(new RegistrationStatusMail('approved', $request->first_name, $request->last_name));
+        Mail::to($request->email)->send(
+            new RegistrationStatusMail('approved', $request->first_name, $request->last_name)
+        );
 
         // Delete the request since it's now a user
         $request->delete();
 
+        DB::commit();
+
         return response()->json([
             'message' => 'User approved successfully and email sent',
-            'user' => $user
+            'user'    => $user
         ]);
+
+    } catch (\Throwable $e) {
+        DB::rollBack();
+
+        return response()->json([
+            'message' => 'Something went wrong while approving the request',
+            'error'   => $e->getMessage()
+        ], 500);
     }
+}
+
 
     /**
      * Reject a registration request.
