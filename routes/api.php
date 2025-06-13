@@ -125,6 +125,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
+
 Route::middleware('auth:sanctum')->post('/save-device-token', [DeviceTokenController::class, 'store']);
 Route::post('/search-by-image', [ProductController::class, 'searchByImage']);
+
+
+
+Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
+Route::get('/digital-products', [DigitalProductController::class, 'index']);         // Get all
+Route::get('/digital-products/{id}', [DigitalProductController::class, 'show']);     // Get by ID
+Route::post('/digital-products', [DigitalProductController::class, 'store']);        // Create
+Route::put('/digital-products/{id}', [DigitalProductController::class, 'update']);   // Update
+Route::delete('/digital-products/{id}', [DigitalProductController::class, 'destroy']); // Delete
+});
+
 
