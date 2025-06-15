@@ -13,6 +13,7 @@ use App\Http\Controllers\DeviceTokenController;
 use App\Http\Controllers\DigitalProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageSearchController;
 
 // Authenticated user info
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -142,3 +143,4 @@ Route::delete('/digital-products/{id}', [DigitalProductController::class, 'destr
 Route::get('/digital-products', [DigitalProductController::class, 'index']);         // Get all
  Route::get('/stores', [StoreController::class, 'index']);
      Route::get('/products', [ProductController::class, 'index']); 
+Route::post('/search-by-image', [ProductController::class, 'searchByImage']);

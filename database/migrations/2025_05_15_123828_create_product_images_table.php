@@ -32,4 +32,8 @@ public function down(): void
 {
     Schema::dropIfExists('product_images');
 }
+public function feature()
+{
+    return $this->hasOne(ImageFeature::class, 'image_id');
+}
 };
