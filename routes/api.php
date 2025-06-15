@@ -10,7 +10,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductOrderController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\RecommendationController;
+
 use Illuminate\Support\Facades\Route;
+
 
 // Authenticated user info
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -115,3 +118,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
+Route::middleware('auth:sanctum')->get('/recommendations', [RecommendationController::class, 'getRecommendations']);
