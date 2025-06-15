@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Database configuration (match Laravel's .env)
 DB_CONFIG = {
     'host': '127.0.0.1',
-    'database': 'health_link',
+    'database': 'health_link3',
     'user': 'root',
     'password': '',
     'port': 3306

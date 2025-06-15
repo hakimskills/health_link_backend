@@ -954,3 +954,59 @@
 2025-06-02 11:51:02,392 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2025-06-02 11:51:02,392 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-15 20:52:24,069 [INFO] Initializing FAISS index at startup
+2025-06-15 20:52:24,071 [INFO] Starting FAISS index initialization from image_features
+2025-06-15 20:52:24,085 [INFO] package: mysql.connector.plugins
+2025-06-15 20:52:24,085 [INFO] plugin_name: mysql_native_password
+2025-06-15 20:52:24,092 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-15 20:52:24,098 [INFO] Database connection established
+2025-06-15 20:52:24,108 [WARNING] No features found in image_features table
+2025-06-15 20:52:24,108 [INFO] FAISS initialization complete: index=None, image_ids=None
+2025-06-15 20:52:24,109 [INFO] Starting Flask app
+2025-06-15 20:52:24,192 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-15 20:52:24,192 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-15 21:01:32,816 [INFO] 127.0.0.1 - - [15/Jun/2025 21:01:32] "[31m[1mGET /extract-features HTTP/1.1[0m" 405 -
+2025-06-15 21:01:53,421 [INFO] 127.0.0.1 - - [15/Jun/2025 21:01:53] "[31m[1mGET /extract-features HTTP/1.1[0m" 405 -
+2025-06-15 21:02:06,584 [INFO] 127.0.0.1 - - [15/Jun/2025 21:02:06] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-15 21:02:35,495 [INFO] 127.0.0.1 - - [15/Jun/2025 21:02:35] "[31m[1mGET /extract-features HTTP/1.1[0m" 405 -
+2025-06-15 21:03:47,166 [INFO] Received request to /extract-features
+2025-06-15 21:03:47,171 [INFO] Database connection established
+2025-06-15 21:03:47,175 [ERROR] Invalid image_id: 1 not found in product_images
+2025-06-15 21:03:47,176 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:03:47,177 [INFO] 127.0.0.1 - - [15/Jun/2025 21:03:47] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-15 21:24:58,554 [INFO] Received request to /extract-features
+2025-06-15 21:24:58,558 [INFO] Database connection established
+2025-06-15 21:25:01,302 [INFO] Saved features for image ID: 1
+2025-06-15 21:25:01,303 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:25:01,303 [INFO] Feature extraction completed: dict_keys(['1'])
+2025-06-15 21:25:01,305 [INFO] 127.0.0.1 - - [15/Jun/2025 21:25:01] "POST /extract-features HTTP/1.1" 200 -
+2025-06-15 21:30:56,708 [INFO] Received request to /search
+2025-06-15 21:30:56,711 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:30:56,880 [INFO] Query vector shape: (1, 1280)
+2025-06-15 21:30:56,880 [ERROR] FAISS index not initialized or empty
+2025-06-15 21:30:56,880 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:30:56,881 [INFO] 127.0.0.1 - - [15/Jun/2025 21:30:56] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-15 21:32:40,356 [INFO] Received request to /rebuild-index
+2025-06-15 21:32:40,356 [INFO] Starting FAISS index initialization from image_features
+2025-06-15 21:32:40,359 [INFO] Database connection established
+2025-06-15 21:32:40,361 [INFO] Loaded features for image_id 1
+2025-06-15 21:32:40,361 [INFO] Feature array shape: (1, 1280)
+2025-06-15 21:32:40,362 [INFO] Creating FAISS index with dimension 1280
+2025-06-15 21:32:40,375 [INFO] FAISS index initialized with 1 vectors
+2025-06-15 21:32:40,375 [INFO] FAISS index rebuilt with 1 vectors
+2025-06-15 21:32:40,376 [INFO] 127.0.0.1 - - [15/Jun/2025 21:32:40] "POST /rebuild-index HTTP/1.1" 200 -
+2025-06-15 21:32:49,833 [INFO] Received request to /search
+2025-06-15 21:32:49,834 [INFO] Extracting features for query image: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:32:50,003 [INFO] Query vector shape: (1, 1280)
+2025-06-15 21:32:50,003 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-15 21:32:50,027 [INFO] Search completed: found 1 matches: [{'image_id': 1, 'distance': 0.0}]
+2025-06-15 21:32:50,029 [INFO] Cleaned up file: Uploads\Medical_Thermometers.jpg
+2025-06-15 21:32:50,029 [INFO] 127.0.0.1 - - [15/Jun/2025 21:32:50] "POST /search HTTP/1.1" 200 -
+2025-06-15 21:33:06,475 [INFO] Received request to /search
+2025-06-15 21:33:06,488 [INFO] Extracting features for query image: Uploads\photo1.jpg
+2025-06-15 21:33:06,980 [INFO] Query vector shape: (1, 1280)
+2025-06-15 21:33:06,980 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-15 21:33:06,982 [INFO] Search completed: found 1 matches: [{'image_id': 1, 'distance': 329.0352783203125}]
+2025-06-15 21:33:06,982 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-15 21:33:06,982 [INFO] 127.0.0.1 - - [15/Jun/2025 21:33:06] "POST /search HTTP/1.1" 200 -
