@@ -3,7 +3,7 @@ import logging
 import os
 from flask import Flask, request, jsonify
 from sqlalchemy import create_engine
-from model import hybrid_recommendation
+from flask.model import hybrid_recommendation
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 DB_USER = 'root'
 DB_PASSWORD = ''
 DB_HOST = '127.0.0.1'
-DB_NAME = 'recommand'
+DB_NAME = 'health_link3'
 engine = create_engine(f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}')
 
 try:

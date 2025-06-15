@@ -1010,3 +1010,46 @@
 2025-06-15 21:33:06,982 [INFO] Search completed: found 1 matches: [{'image_id': 1, 'distance': 329.0352783203125}]
 2025-06-15 21:33:06,982 [INFO] Cleaned up file: Uploads\photo1.jpg
 2025-06-15 21:33:06,982 [INFO] 127.0.0.1 - - [15/Jun/2025 21:33:06] "POST /search HTTP/1.1" 200 -
+2025-06-16 00:44:13,620 [INFO] Initializing FAISS index at startup
+2025-06-16 00:44:13,620 [INFO] Starting FAISS index initialization from image_features
+2025-06-16 00:44:13,633 [INFO] package: mysql.connector.plugins
+2025-06-16 00:44:13,633 [INFO] plugin_name: mysql_native_password
+2025-06-16 00:44:13,634 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-16 00:44:13,636 [INFO] Database connection established
+2025-06-16 00:44:13,639 [INFO] Loaded features for image_id 1
+2025-06-16 00:44:13,639 [INFO] Feature array shape: (1, 1280)
+2025-06-16 00:44:13,639 [INFO] Creating FAISS index with dimension 1280
+2025-06-16 00:44:13,640 [INFO] FAISS index initialized with 1 vectors
+2025-06-16 00:44:13,640 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x00000171FFA62700> >, image_ids=[1]
+2025-06-16 00:44:13,642 [INFO] Starting Flask app
+2025-06-16 00:44:13,667 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 00:44:13,667 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-16 00:44:54,566 [INFO] Initializing FAISS index at startup
+2025-06-16 00:44:54,566 [INFO] Starting FAISS index initialization from image_features
+2025-06-16 00:44:54,579 [INFO] package: mysql.connector.plugins
+2025-06-16 00:44:54,579 [INFO] plugin_name: mysql_native_password
+2025-06-16 00:44:54,580 [INFO] AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2025-06-16 00:44:54,582 [INFO] Database connection established
+2025-06-16 00:44:54,583 [INFO] Loaded features for image_id 1
+2025-06-16 00:44:54,583 [INFO] Feature array shape: (1, 1280)
+2025-06-16 00:44:54,583 [INFO] Creating FAISS index with dimension 1280
+2025-06-16 00:44:54,584 [INFO] FAISS index initialized with 1 vectors
+2025-06-16 00:44:54,584 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000022BB6132700> >, image_ids=[1]
+2025-06-16 00:44:54,586 [INFO] Starting Flask app
+2025-06-16 00:44:54,609 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-16 00:44:54,609 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-16 00:45:01,082 [INFO] Received request to /search
+2025-06-16 00:45:01,206 [INFO] Extracting features for query image: Uploads\photo1.jpg
+2025-06-16 00:45:03,949 [INFO] Query vector shape: (1, 1280)
+2025-06-16 00:45:03,950 [INFO] Searching FAISS index for 1 nearest neighbors
+2025-06-16 00:45:03,955 [INFO] Search completed: found 1 matches: [{'image_id': 1, 'distance': 329.0352783203125}]
+2025-06-16 00:45:03,956 [INFO] Cleaned up file: Uploads\photo1.jpg
+2025-06-16 00:45:03,957 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:03] "POST /search HTTP/1.1" 200 -
+2025-06-16 00:45:34,687 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:34] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
+2025-06-16 00:45:35,726 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:35] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
+2025-06-16 00:45:36,741 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:36] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
+2025-06-16 00:45:50,003 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:50] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
+2025-06-16 00:45:51,037 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:51] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
+2025-06-16 00:45:52,065 [INFO] 127.0.0.1 - - [16/Jun/2025 00:45:52] "[33mGET /recommend?user_id=1 HTTP/1.1[0m" 404 -
