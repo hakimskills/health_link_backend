@@ -307,20 +307,32 @@ class ProductOrderController extends Controller
     }
 
     public function cancelOrder(Request $request, $id)
-    {
-        $user  = $request->user();
-        $order = ProductOrder::with('items.product')->findOrFail($id);
+{
+    $user  = $request->user();
+    $order = ProductOrder::with('items.product')->findOrFail($id);
 
-      if ($order->order_status !== 'Pending' && $order->order_status !== 'Shipped') {
-    return response()->json(['message' => 'Only Pending or Shipped orders can be canceled.'], 403);
-}
-        $sellerId = $order->items->first()->seller_id;
+    if ($order->order_status !== 'Pending' && $order->order_status !== 'Shipped') {
+        return response()->json(['message' => 'Only Pending or Shipped orders can be canceled.'], 403);
+    }
 
-        if ($order->buyer_id !== $user->id && $sellerId !== $user->id) {
-            return response()->json(['message' => 'You are not authorized to cancel this order.'], 403);
-        }
+    $sellerId = $order->items->first()->seller_id;
 
+    if ($order->buyer_id !== $user->id && $sellerId !== $user->id) {
+        return response()->json(['message' => 'You are not authorized to cancel this order.'], 403);
+    }
+
+    DB::beginTransaction();
+
+    try {
+        // Update order status
         $order->update(['order_status' => 'Canceled']);
+
+        // Restore stock quantities
+        foreach ($order->items as $item) {
+            if ($item->product) {
+                $item->product->increment('stock', $item->quantity);
+            }
+        }
 
         // Get product names for notification
         $productNames = $order->items->pluck('product.product_name')->implode(', ');
@@ -331,8 +343,16 @@ class ProductOrderController extends Controller
         $this->notifyUser($order->buyer_id, $order->product_order_id, $title, $message);
         $this->notifyUser($sellerId, $order->product_order_id, $title, $message);
 
+        DB::commit();
+
         return response()->json(['message' => 'Order canceled successfully.', 'order' => $order]);
+
+    } catch (\Throwable $e) {
+        DB::rollBack();
+        return response()->json(['message' => 'Failed to cancel order.', 'error' => $e->getMessage()], 500);
     }
+}
+
 
     /* ---------------------------------------------------------------------
      | Destroy
