@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use App\Models\BrowsingHistory;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -64,10 +65,44 @@ class ProductController extends Controller
 
     public function show($id)
     {
+        Log::debug('ProductController::show started', [
+            'product_id' => $id,
+            'auth_check' => Auth::check(),
+            'user_id' => Auth::id() ?? 'null',
+            'token' => request()->bearerToken() ? 'Present' : 'Missing'
+        ]);
+
         $product = Product::with('images')->find($id);
         if (!$product) {
+            Log::warning('Product not found', ['product_id' => $id]);
             return response()->json(['message' => 'Product not found'], 404);
         }
+
+        if (Auth::check()) {
+            try {
+                $browsingHistory = BrowsingHistory::create([
+                    'user_id' => Auth::id(),
+                    'product_id' => $id,
+                ]);
+                Log::info('Browsing history recorded', [
+                    'user_id' => Auth::id(),
+                    'product_id' => $id,
+                    'browsing_history_id' => $browsingHistory->id
+                ]);
+            } catch (\Exception $e) {
+                Log::error('Failed to record browsing history', [
+                    'user_id' => Auth::id(),
+                    'product_id' => $id,
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString()
+                ]);
+                // Optionally return error for debugging
+                return response()->json(['message' => 'Failed to record browsing history', 'error' => $e->getMessage()], 500);
+            }
+        } else {
+            Log::warning('No authenticated user', ['product_id' => $id]);
+        }
+
         return response()->json($product);
     }
 

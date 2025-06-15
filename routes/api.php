@@ -12,6 +12,8 @@ use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\DeviceTokenController;
 use App\Http\Controllers\DigitalProductController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\RecommendationController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageSearchController;
 
@@ -130,6 +132,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{productId}/average-rating', [ProductRatingController::class, 'average']);
 
 });
+Route::middleware('auth:sanctum')->get('/recommendations', [RecommendationController::class, 'getRecommendations']);
 
 Route::middleware('auth:sanctum')->post('/save-device-token', [DeviceTokenController::class, 'store']);
 
