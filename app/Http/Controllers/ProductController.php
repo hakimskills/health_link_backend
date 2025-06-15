@@ -7,6 +7,9 @@ use App\Models\ProductImage;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -125,90 +128,80 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
+{
+    $product = Product::findOrFail($id);
 
-        $validated = $request->validate([
-            'store_id' => 'nullable|exists:stores,id',
-            'product_name' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'nullable|numeric',
-            'inventory_price' => 'nullable|numeric',
-            'stock' => 'nullable|integer',
-            'category' => 'nullable|string|max:100',
-            'type' => 'nullable|in:new,inventory',
-            'images' => 'nullable|array',
-            'images.*' => 'image|mimes:jpeg,jpg,png|max:10240',
-            'delete_images' => 'nullable|array',
-            'delete_images.*' => 'integer|exists:product_images,id',
-            'primary_image_id' => 'nullable|integer|exists:product_images,id'
-        ]);
+    $validated = $request->validate([
+        'store_id' => 'nullable|exists:stores,id',
+        'product_name' => 'nullable|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'nullable|numeric',
+        'inventory_price' => 'nullable|numeric',
+        'stock' => 'nullable|integer',
+        'category' => 'nullable|string|max:100',
+        'type' => 'nullable|in:new,inventory,used_equipment',
+        'condition' => 'nullable|string|max:100',
+        'images' => 'nullable|array',
+        'images.*' => 'image|mimes:jpeg,jpg,png|max:10240',
+        'delete_images' => 'nullable|array',
+        'delete_images.*' => 'integer|exists:product_images,id',
+        'primary_image_id' => 'nullable|integer|exists:product_images,id'
+    ]);
 
-        // Check inventory price requirement
-        $newType = $validated['type'] ?? $product->type;
-        if ($newType === 'inventory' && empty($validated['inventory_price']) && empty($product->inventory_price)) {
-            return response()->json(['error' => 'Inventory price is required for inventory type.'], 422);
-        }
-
-        // Remove images and image deletion arrays from validated data
-        if (isset($validated['images'])) {
-            unset($validated['images']);
-        }
-        if (isset($validated['delete_images'])) {
-            unset($validated['delete_images']);
-        }
-        if (isset($validated['primary_image_id'])) {
-            unset($validated['primary_image_id']);
-        }
-
-        // Update product basic info
-        $product->update($validated);
-
-        // Handle image deletions if any
-        if ($request->has('delete_images')) {
-            foreach ($request->delete_images as $imageId) {
-                $image = ProductImage::find($imageId);
-                if ($image && $image->product_id == $product->product_id) {
-                    // Extract the path from the full URL
-                    $path = str_replace(asset('storage/'), '', $image->image_path);
-                    
-                    // Delete the file if it exists
-                    if (Storage::disk('public')->exists($path)) {
-                        Storage::disk('public')->delete($path);
-                    }
-                    
-                    $image->delete();
-                }
-            }
-        }
-
-        // Handle new image uploads
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $path = $image->store('product_images', 'public');
-                
-                ProductImage::create([
-                    'product_id' => $product->product_id,
-                    'image_path' => asset('storage/' . $path),
-                    'is_primary' => false // New uploads are not primary by default
-                ]);
-            }
-        }
-
-        // Update primary image if requested
-        if ($request->has('primary_image_id')) {
-            // Reset all images to non-primary
-            ProductImage::where('product_id', $product->product_id)
-                ->update(['is_primary' => false]);
-                
-            // Set the selected image as primary
-            ProductImage::where('id', $request->primary_image_id)
-                ->where('product_id', $product->product_id)
-                ->update(['is_primary' => true]);
-        }
-
-        return response()->json($product->load('images'));
+    // Check inventory price requirement
+    $newType = $validated['type'] ?? $product->type;
+    if ($newType === 'inventory' && empty($validated['inventory_price']) && empty($product->inventory_price)) {
+        return response()->json(['error' => 'Inventory price is required for inventory type.'], 422);
     }
+
+    // Handle condition: only update if type is used_equipment
+    if ($newType === 'used_equipment') {
+        $product->condition = $validated['condition'] ?? $product->condition;
+    }
+
+    // Remove non-column inputs from validated array
+    unset($validated['images'], $validated['delete_images'], $validated['primary_image_id'], $validated['condition']);
+
+    // Update product basic info
+    $product->update($validated);
+
+    // Handle image deletions
+    if ($request->has('delete_images')) {
+        foreach ($request->delete_images as $imageId) {
+            $image = ProductImage::find($imageId);
+            if ($image && $image->product_id == $product->product_id) {
+                $path = str_replace(asset('storage/'), '', $image->image_path);
+                if (Storage::disk('public')->exists($path)) {
+                    Storage::disk('public')->delete($path);
+                }
+                $image->delete();
+            }
+        }
+    }
+
+    // Handle image uploads
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $path = $image->store('product_images', 'public');
+            ProductImage::create([
+                'product_id' => $product->product_id,
+                'image_path' => asset('storage/' . $path),
+                'is_primary' => false
+            ]);
+        }
+    }
+
+    // Handle primary image update
+    if ($request->has('primary_image_id')) {
+        ProductImage::where('product_id', $product->product_id)->update(['is_primary' => false]);
+        ProductImage::where('id', $request->primary_image_id)
+            ->where('product_id', $product->product_id)
+            ->update(['is_primary' => true]);
+    }
+
+    return response()->json($product->load('images'));
+}
+
 
     public function destroy($id)
     {
@@ -327,4 +320,22 @@ class ProductController extends Controller
             'product' => $product->load('images')
         ]);
     }
+     public function checkOwner($id)
+    {
+        $product = Product::with('store')->find($id);
+    
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+    
+        $isOwner = Auth::id() === $product->store->owner_id;
+    
+        return response()->json([
+            'isOwner' => $isOwner,
+            'product_id' => $product->product_id,
+            'store_owner_id' => $product->store->owner_id,
+            'authenticated_user_id' => Auth::id()
+        ]);
+    }
+
 }

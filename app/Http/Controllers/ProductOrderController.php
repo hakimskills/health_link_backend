@@ -52,82 +52,93 @@ class ProductOrderController extends Controller
         }
     }
 
-    /* ---------------------------------------------------------------------
-     | Order creation – unchanged (just imports)
-     |---------------------------------------------------------------------*/
+   
     public function store(Request $request)
-    {
-        $request->validate([
-            'buyer_id'              => 'required|exists:users,id',
-            'delivery_address'      => 'required|string',
-            'estimated_delivery'    => 'nullable|date',
-            'items'                 => 'required|array',
-            'items.*.product_id'    => 'required|exists:products,product_id',
-            'items.*.quantity'      => 'required|integer|min:1',
-        ]);
+{
+    // Force buyer_id to be the authenticated user
+    $request->merge(['buyer_id' => auth()->id()]);
 
-        DB::beginTransaction();
+    $request->validate([
+        'buyer_id'              => 'required|exists:users,id',
+        'delivery_address'      => 'required|string',
+        'estimated_delivery'    => 'nullable|date',
+        'items'                 => 'required|array',
+        'items.*.product_id'    => 'required|exists:products,product_id',
+        'items.*.quantity'      => 'required|integer|min:1',
+    ]);
 
-        try {
-            // Group items by store so each seller gets its own order
-            $itemsByStore = [];
-            foreach ($request->items as $item) {
-                $product = Product::with('store')->findOrFail($item['product_id']);
+    DB::beginTransaction();
 
-                if (!$product->store || !$product->store->owner_id) {
-                    throw new \Exception("Seller information missing for product: {$product->product_name}");
-                }
-                if ($product->stock < $item['quantity']) {
-                    throw new \Exception("Insufficient stock for product: {$product->product_name}");
-                }
+    try {
+        $itemsByStore = [];
 
-                $storeId  = $product->store_id;
-                $sellerId = $product->store->owner_id;
+        foreach ($request->items as $item) {
+            $product = Product::with('store')->findOrFail($item['product_id']);
 
-                $itemsByStore[$storeId]['seller_id']    = $sellerId;
-                $itemsByStore[$storeId]['total_amount'] = ($itemsByStore[$storeId]['total_amount'] ?? 0) + ($product->price * $item['quantity']);
-                $itemsByStore[$storeId]['items'][]      = [
-                    'product_id' => $item['product_id'],
-                    'quantity'   => $item['quantity'],
-                    'seller_id'  => $sellerId,
-                    'product'    => $product,
-                ];
+            if (!$product->store || !$product->store->owner_id) {
+                throw new \Exception("Seller information missing for product: {$product->product_name}");
             }
 
-            $createdOrders = [];
-
-            foreach ($itemsByStore as $storeData) {
-                $order = ProductOrder::create([
-                    'buyer_id'          => $request->buyer_id,
-                    'seller_id'         => $storeData['seller_id'],
-                    'order_date'        => now(),
-                    'delivery_address'  => $request->delivery_address,
-                    'estimated_delivery'=> $request->estimated_delivery,
-                    'total_amount'      => $storeData['total_amount'],
-                ]);
-
-                foreach ($storeData['items'] as $item) {
-                    $product = $item['product'];
-                    $product->decrement('stock', $item['quantity']);
-
-                    ProductOrderItem::create([
-                        'product_order_id' => $order->product_order_id,
-                        'product_id'       => $item['product_id'],
-                        'quantity'         => $item['quantity'],
-                        'seller_id'        => $item['seller_id'],
-                    ]);
-                }
-
-                $createdOrders[] = $order->load('items.product.store');
+            // ❌ Custom error for trying to buy own product
+            if ($product->store->owner_id == $request->buyer_id) {
+                return response()->json([
+                    'message' => 'You cannot purchase your own product.',
+                    'product' => $product->product_name
+                ], 403);
             }
 
-            DB::commit();
-            return response()->json(['message' => 'Orders created successfully', 'orders' => $createdOrders], 201);
-        } catch (\Throwable $e) {
-            DB::rollBack();
-            return response()->json(['message' => 'Failed to create orders', 'error' => $e->getMessage()], 500);
+            if ($product->stock < $item['quantity']) {
+                throw new \Exception("Insufficient stock for product: {$product->product_name}");
+            }
+
+            $storeId  = $product->store_id;
+            $sellerId = $product->store->owner_id;
+
+            $itemsByStore[$storeId]['seller_id']    = $sellerId;
+            $itemsByStore[$storeId]['total_amount'] = ($itemsByStore[$storeId]['total_amount'] ?? 0) + ($product->price * $item['quantity']);
+            $itemsByStore[$storeId]['items'][]      = [
+                'product_id' => $item['product_id'],
+                'quantity'   => $item['quantity'],
+                'seller_id'  => $sellerId,
+                'product'    => $product,
+            ];
         }
+
+        $createdOrders = [];
+
+        foreach ($itemsByStore as $storeData) {
+            $order = ProductOrder::create([
+                'buyer_id'          => $request->buyer_id,
+                'seller_id'         => $storeData['seller_id'],
+                'order_date'        => now(),
+                'delivery_address'  => $request->delivery_address,
+                'estimated_delivery'=> $request->estimated_delivery,
+                'total_amount'      => $storeData['total_amount'],
+            ]);
+
+            foreach ($storeData['items'] as $item) {
+                $product = $item['product'];
+                $product->decrement('stock', $item['quantity']);
+
+                ProductOrderItem::create([
+                    'product_order_id' => $order->product_order_id,
+                    'product_id'       => $item['product_id'],
+                    'quantity'         => $item['quantity'],
+                    'seller_id'        => $item['seller_id'],
+                ]);
+            }
+
+            $createdOrders[] = $order->load('items.product.store');
+        }
+
+        DB::commit();
+        return response()->json(['message' => 'Orders created successfully', 'orders' => $createdOrders], 201);
+    } catch (\Throwable $e) {
+        DB::rollBack();
+        return response()->json(['message' => 'Failed to create orders', 'error' => $e->getMessage()], 500);
     }
+}
+
 
     /* ---------------------------------------------------------------------
      | Generic list + show

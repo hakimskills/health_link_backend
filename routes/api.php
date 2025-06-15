@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\DeviceTokenController;
+use App\Http\Controllers\DigitalProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user/update-wilaya', [UserController::class, 'updateWilaya']);
     Route::put('/user/update-password', [UserController::class, 'updatePassword']);
     Route::delete('/user/delete', [UserController::class, 'deleteUser']);
+    Route::get('/', [UserController::class, 'getAuthenticatedUser']); // GET /api/user
+    Route::put('/user/update', [UserController::class, 'updateProfile']);
+    Route::get('/users/{id}', [UserController::class, 'getUserById']);
+
+
 });
 
 
@@ -44,6 +50,7 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::post('/admin/reject-request/{id}', [AdminController::class, 'rejectRequest']);
     Route::post('/users/{id}/ban', [AdminController::class, 'banUser']);
     Route::post('/users/{id}/unban', [AdminController::class, 'unbanUser']);
+    Route::get('/admin/users', [AdminController::class, 'getUsers']);
     Route::delete('/admin/store/{id}', [AdminController::class, 'deleteStore']);
     Route::delete('/admin/product/{id}', [AdminController::class, 'deleteProduct']);
 });
@@ -56,7 +63,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/profile/upload-image', [UserController::class, 'uploadProfileImage']);
     
     // Get stores by user (owner)
-    Route::get('/stores', [StoreController::class, 'index']);
+   
     
     // Show a single store
     Route::get('/store/{store}', [StoreController::class, 'show']);
@@ -83,7 +90,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products/{store}', [ProductController::class, 'getProductsByStore']);
     Route::get('/products/storeName/{store}', [ProductController::class, 'getProductsAndStoreNameByStore']);
 
-    Route::get('/products', [ProductController::class, 'index']); // no {store}
 
     Route::post('/products/stock-clearance', [ProductController::class, 'stockClearance']);
     
@@ -97,6 +103,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // Delete a product
     Route::delete('/product/{product}', [ProductController::class, 'destroy']);
     Route::post('/product/used-equipment', [ProductController::class, 'storeUsedEquipment']);
+    Route::get('/products/{id}/check-owner', [ProductController::class, 'checkOwner']);
+
 });
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/product-orders', [ProductOrderController::class, 'store']);         
@@ -126,9 +134,11 @@ Route::middleware('auth:sanctum')->post('/save-device-token', [DeviceTokenContro
 
 
 Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
-Route::get('/digital-products', [DigitalProductController::class, 'index']);         // Get all
 Route::get('/digital-products/{id}', [DigitalProductController::class, 'show']);     // Get by ID
 Route::post('/digital-products', [DigitalProductController::class, 'store']);        // Create
 Route::put('/digital-products/{id}', [DigitalProductController::class, 'update']);   // Update
 Route::delete('/digital-products/{id}', [DigitalProductController::class, 'destroy']); // Delete
 });
+Route::get('/digital-products', [DigitalProductController::class, 'index']);         // Get all
+ Route::get('/stores', [StoreController::class, 'index']);
+     Route::get('/products', [ProductController::class, 'index']); 
