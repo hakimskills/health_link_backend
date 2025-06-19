@@ -53,7 +53,7 @@ class ProductOrderController extends Controller
     }
 
    
-    public function store(Request $request)
+public function store(Request $request)
 {
     // Force buyer_id to be the authenticated user
     $request->merge(['buyer_id' => auth()->id()]);
@@ -79,7 +79,6 @@ class ProductOrderController extends Controller
                 throw new \Exception("Seller information missing for product: {$product->product_name}");
             }
 
-            // ❌ Custom error for trying to buy own product
             if ($product->store->owner_id == $request->buyer_id) {
                 return response()->json([
                     'message' => 'You cannot purchase your own product.',
@@ -91,16 +90,27 @@ class ProductOrderController extends Controller
                 throw new \Exception("Insufficient stock for product: {$product->product_name}");
             }
 
+            // Determine which price to use based on product type
+            $priceToUse = $product->price; // Default to regular price
+            
+            if ($product->type === 'inventory') {
+                if ($product->inventory_price === null) {
+                    throw new \Exception("Inventory price is not set for product: {$product->product_name}");
+                }
+                $priceToUse = $product->inventory_price;
+            }
+
             $storeId  = $product->store_id;
             $sellerId = $product->store->owner_id;
 
             $itemsByStore[$storeId]['seller_id']    = $sellerId;
-            $itemsByStore[$storeId]['total_amount'] = ($itemsByStore[$storeId]['total_amount'] ?? 0) + ($product->price * $item['quantity']);
+            $itemsByStore[$storeId]['total_amount'] = ($itemsByStore[$storeId]['total_amount'] ?? 0) + ($priceToUse * $item['quantity']);
             $itemsByStore[$storeId]['items'][]      = [
                 'product_id' => $item['product_id'],
                 'quantity'   => $item['quantity'],
                 'seller_id'  => $sellerId,
                 'product'    => $product,
+                'price_used' => $priceToUse, // Store which price was used for reference
             ];
         }
 
@@ -117,14 +127,13 @@ class ProductOrderController extends Controller
             ]);
 
             foreach ($storeData['items'] as $item) {
-                $product = $item['product'];
-                $product->decrement('stock', $item['quantity']);
-
                 ProductOrderItem::create([
                     'product_order_id' => $order->product_order_id,
                     'product_id'       => $item['product_id'],
                     'quantity'         => $item['quantity'],
                     'seller_id'        => $item['seller_id'],
+                    // Optional: Store the actual price used in the order item
+                    // 'unit_price'       => $item['price_used'], // Add this field to your order_items table if needed
                 ]);
             }
 
@@ -138,6 +147,7 @@ class ProductOrderController extends Controller
         return response()->json(['message' => 'Failed to create orders', 'error' => $e->getMessage()], 500);
     }
 }
+
 
 
     /* ---------------------------------------------------------------------
@@ -218,34 +228,51 @@ class ProductOrderController extends Controller
     }
 
     public function approveOrder(Request $request, $id)
-    {
-        $user  = $request->user();
-        $order = ProductOrder::with('items.product')->findOrFail($id);
+{
+    $user  = $request->user();
+    $order = ProductOrder::with('items.product')->findOrFail($id);
 
-        if ($order->order_status !== 'Pending') {
-            return response()->json(['message' => 'Order is not in pending status.'], 403);
-        }
-
-        $sellerId = $order->items->first()->seller_id;
-        if ($sellerId !== $user->id) {
-            return response()->json(['message' => 'You are not authorized to approve this order.'], 403);
-        }
-
-        $order->update(['order_status' => 'Processing']);
-
-        // Get product names for notification
-        $productNames = $order->items->pluck('product.product_name')->implode(', ');
-
-        // Notify buyer
-        $this->notifyUser(
-            $order->buyer_id,
-            $order->product_order_id,
-            'Order Approved',
-            "Seller approved your order containing: {$productNames}."
-        );
-
-        return response()->json(['message' => 'Order approved successfully.', 'order' => $order]);
+    if ($order->order_status !== 'Pending') {
+        return response()->json(['message' => 'Order is not in pending status.'], 403);
     }
+
+    $sellerId = $order->items->first()->seller_id;
+    if ($sellerId !== $user->id) {
+        return response()->json(['message' => 'You are not authorized to approve this order.'], 403);
+    }
+
+    // Check stock availability before approval
+    foreach ($order->items as $item) {
+        $product = $item->product;
+        if ($product->stock < $item->quantity) {
+            return response()->json([
+                'message' => "Insufficient stock for product: {$product->product_name}"
+            ], 400);
+        }
+    }
+
+    // Update status to Processing
+    $order->update(['order_status' => 'Processing']);
+
+    // Decrement stock after approval
+    foreach ($order->items as $item) {
+        $item->product->decrement('stock', $item->quantity);
+    }
+
+    // Get product names for notification
+    $productNames = $order->items->pluck('product.product_name')->implode(', ');
+
+    // Notify buyer
+    $this->notifyUser(
+        $order->buyer_id,
+        $order->product_order_id,
+        'Order Approved',
+        "Seller approved your order containing: {$productNames}."
+    );
+
+    return response()->json(['message' => 'Order approved successfully.', 'order' => $order]);
+}
+
 
     public function markAsShipped(Request $request, $id)
     {
@@ -307,20 +334,32 @@ class ProductOrderController extends Controller
     }
 
     public function cancelOrder(Request $request, $id)
-    {
-        $user  = $request->user();
-        $order = ProductOrder::with('items.product')->findOrFail($id);
+{
+    $user  = $request->user();
+    $order = ProductOrder::with('items.product')->findOrFail($id);
 
-      if ($order->order_status !== 'Pending' && $order->order_status !== 'Shipped') {
-    return response()->json(['message' => 'Only Pending or Shipped orders can be canceled.'], 403);
-}
-        $sellerId = $order->items->first()->seller_id;
+    if ($order->order_status !== 'Pending' && $order->order_status !== 'Shipped') {
+        return response()->json(['message' => 'Only Pending or Shipped orders can be canceled.'], 403);
+    }
 
-        if ($order->buyer_id !== $user->id && $sellerId !== $user->id) {
-            return response()->json(['message' => 'You are not authorized to cancel this order.'], 403);
-        }
+    $sellerId = $order->items->first()->seller_id;
 
+    if ($order->buyer_id !== $user->id && $sellerId !== $user->id) {
+        return response()->json(['message' => 'You are not authorized to cancel this order.'], 403);
+    }
+
+    DB::beginTransaction();
+
+    try {
+        // Update order status
         $order->update(['order_status' => 'Canceled']);
+
+        // Restore stock quantities
+        foreach ($order->items as $item) {
+            if ($item->product) {
+                $item->product->increment('stock', $item->quantity);
+            }
+        }
 
         // Get product names for notification
         $productNames = $order->items->pluck('product.product_name')->implode(', ');
@@ -331,8 +370,15 @@ class ProductOrderController extends Controller
         $this->notifyUser($order->buyer_id, $order->product_order_id, $title, $message);
         $this->notifyUser($sellerId, $order->product_order_id, $title, $message);
 
+        DB::commit();
+
         return response()->json(['message' => 'Order canceled successfully.', 'order' => $order]);
+
+    } catch (\Throwable $e) {
+        DB::rollBack();
+        return response()->json(['message' => 'Failed to cancel order.', 'error' => $e->getMessage()], 500);
     }
+}
 
     /* ---------------------------------------------------------------------
      | Destroy

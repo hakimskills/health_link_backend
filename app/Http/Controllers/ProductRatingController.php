@@ -26,7 +26,7 @@ class ProductRatingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'product_id' => 'required|exists:products,id',
+            'product_id' => 'required|exists:products,product_id',
             'rating' => 'required|integer|min:1|max:5',
             'review' => 'nullable|string',
         ]);
@@ -79,6 +79,6 @@ class ProductRatingController extends Controller
     protected function updateAverageRating($productId)
     {
         $average = ProductRating::where('product_id', $productId)->avg('rating');
-        Product::where('id', $productId)->update(['average_rating' => $average ? round($average, 1) : null]);
+        Product::where('product_id', $productId)->update(['average_rating' => $average ? round($average, 1) : null]);
     }
 }

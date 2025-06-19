@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\RegistrationStatusMail;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminController extends Controller

@@ -1076,3 +1076,219 @@
 2025-06-17 03:13:18,120 [INFO] Search completed: found 5 matches (filtered out 0 with distance > 350.00): [{'image_id': 14, 'distance': 0.0}, {'image_id': 8, 'distance': 223.674560546875}, {'image_id': 5, 'distance': 255.9304962158203}, {'image_id': 6, 'distance': 265.56390380859375}, {'image_id': 12, 'distance': 321.9230651855469}]
 2025-06-17 03:13:18,122 [INFO] Cleaned up file: Uploads\Steato1.jpg
 2025-06-17 03:13:18,123 [INFO] 127.0.0.1 - - [17/Jun/2025 03:13:18] "POST /search HTTP/1.1" 200 -
+2025-06-18 13:23:08,283 [INFO] Initializing FAISS index at startup
+2025-06-18 13:23:08,284 [INFO] Starting FAISS index initialization from image_features
+2025-06-18 13:23:08,295 [INFO] Database connection established
+2025-06-18 13:23:08,296 [INFO] Loaded features for image_id 66
+2025-06-18 13:23:08,297 [INFO] Loaded features for image_id 67
+2025-06-18 13:23:08,297 [INFO] Loaded features for image_id 68
+2025-06-18 13:23:08,298 [INFO] Loaded features for image_id 69
+2025-06-18 13:23:08,299 [INFO] Feature array shape: (4, 1280)
+2025-06-18 13:23:08,299 [INFO] Creating FAISS index with dimension 1280
+2025-06-18 13:23:08,299 [INFO] FAISS index initialized with 4 vectors
+2025-06-18 13:23:08,300 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x000001DD73742B50> >, image_ids=[66, 67, 68, 69]
+2025-06-18 13:23:08,301 [INFO] Starting Flask app
+2025-06-18 13:23:08,316 [INFO]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-06-18 13:23:31,307 [INFO] Received request to /search
+2025-06-18 13:23:31,310 [ERROR] Exception on /search [POST]
+Traceback (most recent call last):
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Games\New folder\health_link_backend\flask\app.py", line 200, in search
+    file.save(filepath)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\datastructures.py", line 3066, in save
+    dst = open(dst, "wb")
+          ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Uploads\\IMG-20250618-WA0031.jpg'
+2025-06-18 13:23:31,334 [INFO] 127.0.0.1 - - [18/Jun/2025 13:23:31] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-18 13:23:50,744 [INFO] Received request to /search
+2025-06-18 13:23:50,749 [ERROR] Exception on /search [POST]
+Traceback (most recent call last):
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Games\New folder\health_link_backend\flask\app.py", line 200, in search
+    file.save(filepath)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\datastructures.py", line 3066, in save
+    dst = open(dst, "wb")
+          ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Uploads\\IMG-20250618-WA0031.jpg'
+2025-06-18 13:23:50,750 [INFO] 127.0.0.1 - - [18/Jun/2025 13:23:50] "[35m[1mPOST /search HTTP/1.1[0m" 500 -
+2025-06-18 13:24:54,301 [INFO] Received request to /extract-features
+2025-06-18 13:24:54,303 [INFO] Database connection established
+2025-06-18 13:24:54,304 [ERROR] Exception on /extract-features [POST]
+Traceback (most recent call last):
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Games\New folder\health_link_backend\flask\app.py", line 63, in extract
+    file.save(filepath)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\datastructures.py", line 3066, in save
+    dst = open(dst, "wb")
+          ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Uploads\\1000011589.jpg'
+2025-06-18 13:24:54,304 [INFO] 127.0.0.1 - - [18/Jun/2025 13:24:54] "[35m[1mPOST /extract-features HTTP/1.1[0m" 500 -
+2025-06-18 13:24:55,320 [INFO] Received request to /extract-features
+2025-06-18 13:24:55,322 [INFO] Database connection established
+2025-06-18 13:24:55,323 [ERROR] Exception on /extract-features [POST]
+Traceback (most recent call last):
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Games\New folder\health_link_backend\flask\app.py", line 63, in extract
+    file.save(filepath)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\datastructures.py", line 3066, in save
+    dst = open(dst, "wb")
+          ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Uploads\\1000011589.jpg'
+2025-06-18 13:24:55,323 [INFO] 127.0.0.1 - - [18/Jun/2025 13:24:55] "[35m[1mPOST /extract-features HTTP/1.1[0m" 500 -
+2025-06-18 13:26:01,751 [INFO] Received request to /extract-features
+2025-06-18 13:26:01,754 [INFO] Database connection established
+2025-06-18 13:26:01,755 [ERROR] Exception on /extract-features [POST]
+Traceback (most recent call last):
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Games\New folder\health_link_backend\flask\app.py", line 63, in extract
+    file.save(filepath)
+  File "C:\Users\hakim\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\datastructures.py", line 3066, in save
+    dst = open(dst, "wb")
+          ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Uploads\\IMG-20250618-WA0031.jpg'
+2025-06-18 13:26:01,755 [INFO] 127.0.0.1 - - [18/Jun/2025 13:26:01] "[35m[1mPOST /extract-features HTTP/1.1[0m" 500 -
+2025-06-18 13:30:07,014 [INFO] Upload directory is writable: C:\Games\New folder\health_link_backend\flask\Uploads
+2025-06-18 13:30:07,015 [INFO] Initializing FAISS index at startup
+2025-06-18 13:30:07,015 [INFO] Starting FAISS index initialization from image_features
+2025-06-18 13:30:07,026 [INFO] Database connection established
+2025-06-18 13:30:07,028 [INFO] Loaded features for image_id 66
+2025-06-18 13:30:07,028 [INFO] Loaded features for image_id 67
+2025-06-18 13:30:07,029 [INFO] Loaded features for image_id 68
+2025-06-18 13:30:07,029 [INFO] Loaded features for image_id 69
+2025-06-18 13:30:07,029 [INFO] Feature array shape: (4, 1280)
+2025-06-18 13:30:07,029 [INFO] Creating FAISS index with dimension 1280
+2025-06-18 13:30:07,030 [INFO] FAISS index initialized with 4 vectors
+2025-06-18 13:30:07,030 [INFO] FAISS initialization complete: index=<faiss.swigfaiss_avx2.IndexFlatL2; proxy of <Swig Object of type 'faiss::IndexFlatL2 *' at 0x0000017A54F1CA50> >, image_ids=[66, 67, 68, 69]
+2025-06-18 13:30:07,031 [INFO] Starting Flask app
+2025-06-18 13:30:07,043 [INFO]  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2025-06-18 13:30:09,570 [INFO] Received request to /extract-features
+2025-06-18 13:30:09,574 [INFO] Database connection established
+2025-06-18 13:30:09,577 [INFO] Saved file to: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:30:09,577 [ERROR] Invalid image_id: 45 not found in product_images
+2025-06-18 13:30:09,578 [INFO] Cleaned up file: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:30:09,579 [INFO] 127.0.0.1 - - [18/Jun/2025 13:30:09] "[31m[1mPOST /extract-features HTTP/1.1[0m" 400 -
+2025-06-18 13:31:01,317 [INFO] Received request to /extract-features
+2025-06-18 13:31:01,320 [INFO] Database connection established
+2025-06-18 13:31:01,321 [INFO] Saved file to: C:\Games\New folder\health_link_backend\flask\Uploads\1000011597.jpg
+2025-06-18 13:31:03,859 [INFO] Saved features for image ID: 71
+2025-06-18 13:31:03,860 [INFO] Cleaned up file: C:\Games\New folder\health_link_backend\flask\Uploads\1000011597.jpg
+2025-06-18 13:31:03,861 [INFO] Feature extraction completed: dict_keys(['71'])
+2025-06-18 13:31:03,864 [INFO] 127.0.0.1 - - [18/Jun/2025 13:31:03] "[37mPOST /extract-features HTTP/1.1[0m" 200 -
+2025-06-18 13:31:29,270 [INFO] Received request to /rebuild-index
+2025-06-18 13:31:29,270 [INFO] Starting FAISS index initialization from image_features
+2025-06-18 13:31:29,302 [INFO] Database connection established
+2025-06-18 13:31:29,304 [INFO] Loaded features for image_id 66
+2025-06-18 13:31:29,306 [INFO] Loaded features for image_id 67
+2025-06-18 13:31:29,313 [INFO] Loaded features for image_id 68
+2025-06-18 13:31:29,314 [INFO] Loaded features for image_id 69
+2025-06-18 13:31:29,317 [INFO] Loaded features for image_id 71
+2025-06-18 13:31:29,317 [INFO] Feature array shape: (5, 1280)
+2025-06-18 13:31:29,317 [INFO] Creating FAISS index with dimension 1280
+2025-06-18 13:31:29,318 [INFO] FAISS index initialized with 5 vectors
+2025-06-18 13:31:29,318 [INFO] FAISS index rebuilt with 5 vectors
+2025-06-18 13:31:29,318 [INFO] 127.0.0.1 - - [18/Jun/2025 13:31:29] "[37mPOST /rebuild-index HTTP/1.1[0m" 200 -
+2025-06-18 13:31:49,602 [INFO] Received request to /search
+2025-06-18 13:31:49,607 [INFO] Saved query file to: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:31:49,607 [INFO] Extracting features for query image: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:31:49,763 [INFO] Query vector shape: (1, 1280)
+2025-06-18 13:31:49,763 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-18 13:31:49,781 [INFO] Search completed: found 5 matches: [{'image_id': 69, 'distance': 0.0}, {'image_id': 71, 'distance': 0.0}, {'image_id': 68, 'distance': 112.73077392578125}, {'image_id': 66, 'distance': 243.70553588867188}, {'image_id': 67, 'distance': 283.27001953125}]
+2025-06-18 13:31:49,782 [INFO] Cleaned up file: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:31:49,783 [INFO] 127.0.0.1 - - [18/Jun/2025 13:31:49] "[37mPOST /search HTTP/1.1[0m" 200 -
+2025-06-18 13:39:51,115 [INFO] 127.0.0.1 - - [18/Jun/2025 13:39:51] "[33mGET /recommend?user_id=3 HTTP/1.1[0m" 404 -
+2025-06-18 13:39:52,141 [INFO] 127.0.0.1 - - [18/Jun/2025 13:39:52] "[33mGET /recommend?user_id=3 HTTP/1.1[0m" 404 -
+2025-06-18 13:39:53,163 [INFO] 127.0.0.1 - - [18/Jun/2025 13:39:53] "[33mGET /recommend?user_id=3 HTTP/1.1[0m" 404 -
+2025-06-18 13:40:12,919 [INFO] Received request to /search
+2025-06-18 13:40:12,922 [INFO] Saved query file to: C:\Games\New folder\health_link_backend\flask\Uploads\surigical_gloves.jpg
+2025-06-18 13:40:12,922 [INFO] Extracting features for query image: C:\Games\New folder\health_link_backend\flask\Uploads\surigical_gloves.jpg
+2025-06-18 13:40:13,110 [INFO] Query vector shape: (1, 1280)
+2025-06-18 13:40:13,110 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-18 13:40:13,110 [INFO] Search completed: found 5 matches: [{'image_id': 66, 'distance': 0.0}, {'image_id': 69, 'distance': 243.70553588867188}, {'image_id': 71, 'distance': 243.70553588867188}, {'image_id': 68, 'distance': 273.26666259765625}, {'image_id': 67, 'distance': 313.6838073730469}]
+2025-06-18 13:40:13,111 [INFO] Cleaned up file: C:\Games\New folder\health_link_backend\flask\Uploads\surigical_gloves.jpg
+2025-06-18 13:40:13,112 [INFO] 127.0.0.1 - - [18/Jun/2025 13:40:13] "[37mPOST /search HTTP/1.1[0m" 200 -
+2025-06-18 13:44:56,832 [INFO] Received request to /search
+2025-06-18 13:44:56,835 [INFO] Saved query file to: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:44:56,836 [INFO] Extracting features for query image: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:44:57,006 [INFO] Query vector shape: (1, 1280)
+2025-06-18 13:44:57,006 [INFO] Searching FAISS index for 5 nearest neighbors
+2025-06-18 13:44:57,006 [INFO] Search completed: found 5 matches: [{'image_id': 69, 'distance': 0.0}, {'image_id': 71, 'distance': 0.0}, {'image_id': 68, 'distance': 112.73077392578125}, {'image_id': 66, 'distance': 243.70553588867188}, {'image_id': 67, 'distance': 283.27001953125}]
+2025-06-18 13:44:57,007 [INFO] Cleaned up file: C:\Games\New folder\health_link_backend\flask\Uploads\IMG-20250618-WA0031.jpg
+2025-06-18 13:44:57,007 [INFO] 127.0.0.1 - - [18/Jun/2025 13:44:57] "[37mPOST /search HTTP/1.1[0m" 200 -
+2025-06-18 13:46:02,247 [INFO] 127.0.0.1 - - [18/Jun/2025 13:46:02] "[33mGET /recommend?user_id=9 HTTP/1.1[0m" 404 -
+2025-06-18 13:46:03,262 [INFO] 127.0.0.1 - - [18/Jun/2025 13:46:03] "[33mGET /recommend?user_id=9 HTTP/1.1[0m" 404 -
+2025-06-18 13:46:04,272 [INFO] 127.0.0.1 - - [18/Jun/2025 13:46:04] "[33mGET /recommend?user_id=9 HTTP/1.1[0m" 404 -
